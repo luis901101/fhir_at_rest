@@ -12,7 +12,7 @@ enum Summary {
 }
 
 /// Map to convert from an Enum to a String for making the request
-const SummaryEnumMap = {
+const Map<Summary, String> SummaryEnumMap = <Summary, String>{
   Summary.true_: 'true',
   Summary.false_: 'false',
   Summary.text: 'text',

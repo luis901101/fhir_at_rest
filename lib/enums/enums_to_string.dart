@@ -35,4 +35,4 @@ String? enumToString<T>(T enumValue) {
 /// Simple enum to String function, just takes whatever is after the "." and
 /// returns it as a String
 String? simpleEnumToString<T>(T enumValue) =>
-    enumValue == null ? null : enumValue.toString().split('.').last;
+    enumValue?.toString().split('.').last;

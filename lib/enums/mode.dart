@@ -8,7 +8,7 @@ enum Mode {
 }
 
 /// Map to convert from an Enum to a String for making the request
-const ModeEnumMap = {
+const Map<Mode, String> ModeEnumMap = <Mode, String>{
   Mode.full: 'full',
   Mode.normative: 'normative',
   Mode.terminology: 'terminology',

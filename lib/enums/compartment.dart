@@ -10,7 +10,7 @@ enum Compartment {
 }
 
 /// Map to convert from an Enum to a String for making the request
-const CompartmentEnumMap = {
+const Map<Compartment, String> CompartmentEnumMap = <Compartment, String>{
   Compartment.patient: 'patient',
   Compartment.encounter: 'encounter',
   Compartment.relatedPerson: 'relatedPerson',

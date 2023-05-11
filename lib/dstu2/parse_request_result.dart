@@ -1,8 +1,8 @@
 // Package imports:
-import 'package:fhir/dstu2.dart';
+import 'package:fhir/r4.dart';
 
 // Project imports:
-import '../dstu2.dart';
+import '../r4.dart';
 
 /// There are usually 3 types of responses from a RESTful request made to a FHIR
 /// server. It can be a single Resource, it can be a Bundle, or it can be an
@@ -23,39 +23,52 @@ import '../dstu2.dart';
 /// errorOperationOutcomes: all other operationOutcomes are included here.
 
 /// This turns whatever was returned into a lsit of Resources.
-ReturnResults parseRequestResult(Resource result) => result is Bundle
+ReturnResults<Resource> parseRequestResult(Resource result) => result is Bundle
     ? parseBundle(result)
     : result is OperationOutcome
         ? isInformational(result)
-            ? ReturnResults(informationOperationOutcomes: [result])
-            : ReturnResults(errorOperationOutcomes: [result])
-        : ReturnResults(resources: [result]);
+            ? ReturnResults<OperationOutcome>(
+                informationOperationOutcomes: <OperationOutcome>[result])
+            : ReturnResults<OperationOutcome>(
+                errorOperationOutcomes: <OperationOutcome>[result])
+        : ReturnResults<Resource>(resources: <Resource>[result]);
 
 /// Extracts all Resources that were returned by the Bundle, as long as they
 /// aren't OperationOutcomes, and includes all entries as informational
 /// OperationOutcomes that don't contain a Resource
-ReturnResults parseBundle(Bundle bundle) {
-  final returnResults = ReturnResults();
-  if (bundle.type == BundleType.transaction_response) {
-    for (var entry in bundle.entry ?? <BundleEntry>[]) {
+ReturnResults<Resource> parseBundle(Bundle bundle) {
+  final ReturnResults<Resource> returnResults = ReturnResults<Resource>();
+  if (bundle.type == FhirCode('transaction-response')) {
+    for (final BundleEntry entry in bundle.entry ?? <BundleEntry>[]) {
       if (entry.resource != null) {
         if (entry.resource is OperationOutcome) {
-          if (isInformational(entry.resource as OperationOutcome)) {
+          if (isInformational(entry.resource! as OperationOutcome)) {
             returnResults.informationOperationOutcomes
-                .add(entry.resource as OperationOutcome);
+                .add(entry.resource! as OperationOutcome);
           } else {
             returnResults.errorOperationOutcomes
-                .add(entry.resource as OperationOutcome);
+                .add(entry.resource! as OperationOutcome);
           }
         } else {
           returnResults.resources.add(entry.resource!);
         }
+      } else if (entry.response?.outcome != null) {
+        if (entry.response!.outcome is OperationOutcome) {
+          if (isInformational(entry.response!.outcome! as OperationOutcome)) {
+            returnResults.informationOperationOutcomes
+                .add(entry.response!.outcome! as OperationOutcome);
+          } else {
+            returnResults.errorOperationOutcomes
+                .add(entry.response!.outcome! as OperationOutcome);
+          }
+        } else {
+          returnResults.resources.add(entry.response!.outcome!);
+        }
       } else {
         returnResults.informationOperationOutcomes.add(
           OperationOutcome(
-            issue: [
+            issue: <OperationOutcomeIssue>[
               OperationOutcomeIssue(
-                severity: IssueSeverity.information,
                 code: FhirCode('informational'),
                 diagnostics: 'Status: ${entry.response?.status ?? "none"}'
                     '\nLocation: ${entry.response?.location ?? "none"}',
@@ -73,32 +86,34 @@ ReturnResults parseBundle(Bundle bundle) {
 /// perform similarly to above, but will return ONLY that type of resource in
 /// the resources field, others will be included in the otherResources as well
 /// as in an OperationOutcome as a contained resource
-ReturnResults<T> parseRequestResultForType<T>(Resource result) =>
-    result is OperationOutcome
-        ? isInformational(result)
-            ? ReturnResults<T>(informationOperationOutcomes: [result])
-            : ReturnResults<T>(errorOperationOutcomes: [result])
-        : result is T
-            ? ReturnResults<T>(resources: [result as T])
-            : result is Bundle
-                ? parseBundleForType<T>(result)
-                : ReturnResults<T>(
-                    errorOperationOutcomes: [incorrectResultType<T>(result)]);
+ReturnResults<T> parseRequestResultForType<T>(Resource result) => result
+        is OperationOutcome
+    ? isInformational(result)
+        ? ReturnResults<T>(
+            informationOperationOutcomes: <OperationOutcome>[result])
+        : ReturnResults<T>(errorOperationOutcomes: <OperationOutcome>[result])
+    : result is T
+        ? ReturnResults<T>(resources: <T>[result as T])
+        : result is Bundle
+            ? parseBundleForType<T>(result)
+            : ReturnResults<T>(errorOperationOutcomes: <OperationOutcome>[
+                incorrectResultType<T>(result)
+              ]);
 
 /// Extracts all Resources that were returned by the Bundle as long as they
 /// are of type T
 ReturnResults<T> parseBundleForType<T>(Bundle bundle) {
-  final returnResults = ReturnResults<T>();
-  if (bundle.type == BundleType.transaction_response) {
-    for (var entry in bundle.entry ?? <BundleEntry>[]) {
+  final ReturnResults<T> returnResults = ReturnResults<T>();
+  if (bundle.type == FhirCode('transaction-response')) {
+    for (final BundleEntry entry in bundle.entry ?? <BundleEntry>[]) {
       if (entry.resource != null) {
         if (entry.resource is OperationOutcome) {
-          if (isInformational(entry.resource as OperationOutcome)) {
+          if (isInformational(entry.resource! as OperationOutcome)) {
             returnResults.informationOperationOutcomes
-                .add(entry.resource as OperationOutcome);
+                .add(entry.resource! as OperationOutcome);
           } else {
             returnResults.errorOperationOutcomes
-                .add(entry.resource as OperationOutcome);
+                .add(entry.resource! as OperationOutcome);
           }
         } else if (entry.resource is T) {
           returnResults.resources.add(entry.resource! as T);
@@ -106,12 +121,26 @@ ReturnResults<T> parseBundleForType<T>(Bundle bundle) {
           returnResults.errorOperationOutcomes
               .add(incorrectResultType<T>(entry.resource!));
         }
+      } else if (entry.response?.outcome != null) {
+        if (entry.response!.outcome is OperationOutcome) {
+          if (isInformational(entry.response!.outcome! as OperationOutcome)) {
+            returnResults.informationOperationOutcomes
+                .add(entry.response!.outcome! as OperationOutcome);
+          } else {
+            returnResults.errorOperationOutcomes
+                .add(entry.response!.outcome! as OperationOutcome);
+          }
+        } else if (entry.response!.outcome is T) {
+          returnResults.resources.add(entry.response!.outcome! as T);
+        } else {
+          returnResults.errorOperationOutcomes
+              .add(incorrectResultType<T>(entry.response!.outcome!));
+        }
       } else {
         returnResults.informationOperationOutcomes.add(
           OperationOutcome(
-            issue: [
+            issue: <OperationOutcomeIssue>[
               OperationOutcomeIssue(
-                severity: IssueSeverity.information,
                 code: FhirCode('informational'),
                 diagnostics: 'Status: ${entry.response?.status ?? "none"}'
                     '\nLocation: ${entry.response?.location ?? "none"}',
@@ -128,10 +157,10 @@ ReturnResults<T> parseBundleForType<T>(Bundle bundle) {
 /// Returns an OperationOutcome that contains the given Resource and a message
 /// stating that it was not the type of resource that was specified
 OperationOutcome incorrectResultType<T>(Resource result) => OperationOutcome(
-      contained: [result],
-      issue: [
+      contained: <Resource>[result],
+      issue: <OperationOutcomeIssue>[
         OperationOutcomeIssue(
-          severity: IssueSeverity.error,
+          severity: FhirCode('error'),
           code: FhirCode('structure'),
           diagnostics:
               'This request returned a bundle, and should have been a $T but '

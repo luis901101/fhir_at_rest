@@ -6,7 +6,7 @@ enum MimeType {
 }
 
 /// Map to convert from an Enum to a String
-const MimeTypeEnumMap = {
+const Map<MimeType, String> MimeTypeEnumMap = <MimeType, String>{
   MimeType.fhir_json: 'application/fhir+json',
   MimeType.json_fhir: 'application/json+fhir',
   MimeType.json: 'application/json',
