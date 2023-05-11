@@ -1257,8 +1257,6 @@ class _$FhirVReadRequest extends FhirVReadRequest {
   /// [id] - the id for the resource
   @override
   final FhirId id;
-
-  /// [vid] - the version id of the resource
   @override
   final FhirId vid;
 
@@ -1755,8 +1753,6 @@ abstract class FhirVReadRequest extends FhirRequest {
 
   /// [id] - the id for the resource
   FhirId get id;
-
-  /// [vid] - the version id of the resource
   FhirId get vid;
   @override
 
