@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 // Package imports:
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/globals.dart' as globals;
