@@ -51,7 +51,7 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -64,7 +64,7 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -92,7 +92,7 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -132,10 +132,10 @@ mixin _$FhirRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -143,7 +143,7 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -156,7 +156,7 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -184,7 +184,7 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -224,10 +224,10 @@ mixin _$FhirRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -235,7 +235,7 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -248,7 +248,7 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -276,7 +276,7 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -316,10 +316,10 @@ mixin _$FhirRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -480,7 +480,7 @@ abstract class _$$FhirReadRequestCopyWith<$Res>
   $Res call(
       {Uri base,
       R5ResourceType type,
-      FhirId id,
+      FhirId fhirId,
       bool pretty,
       Summary summary,
       String format,
@@ -504,7 +504,7 @@ class __$$FhirReadRequestCopyWithImpl<$Res>
   $Res call({
     Object? base = null,
     Object? type = null,
-    Object? id = null,
+    Object? fhirId = null,
     Object? pretty = null,
     Object? summary = null,
     Object? format = null,
@@ -523,9 +523,9 @@ class __$$FhirReadRequestCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as R5ResourceType,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      fhirId: null == fhirId
+          ? _value.fhirId
+          : fhirId // ignore: cast_nullable_to_non_nullable
               as FhirId,
       pretty: null == pretty
           ? _value.pretty
@@ -569,7 +569,7 @@ class _$FhirReadRequest extends FhirReadRequest {
   const _$FhirReadRequest(
       {required this.base,
       required this.type,
-      required this.id,
+      required this.fhirId,
       this.pretty = false,
       this.summary = Summary.none,
       this.format = 'json',
@@ -592,7 +592,7 @@ class _$FhirReadRequest extends FhirReadRequest {
 
   /// [id] - the id for the resource
   @override
-  final FhirId id;
+  final FhirId fhirId;
 
   /// [pretty] - pretty print the json formatting in the response
   @override
@@ -652,7 +652,7 @@ class _$FhirReadRequest extends FhirReadRequest {
 
   @override
   String toString() {
-    return 'FhirRequest.read(base: $base, type: $type, id: $id, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.read(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
   }
 
   @override
@@ -662,7 +662,7 @@ class _$FhirReadRequest extends FhirReadRequest {
             other is _$FhirReadRequest &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.fhirId, fhirId) || other.fhirId == fhirId) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
             (identical(other.summary, summary) || other.summary == summary) &&
             (identical(other.format, format) || other.format == format) &&
@@ -680,7 +680,7 @@ class _$FhirReadRequest extends FhirReadRequest {
       runtimeType,
       base,
       type,
-      id,
+      fhirId,
       pretty,
       summary,
       format,
@@ -702,7 +702,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -715,7 +715,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -743,7 +743,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -783,13 +783,13 @@ class _$FhirReadRequest extends FhirReadRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
-    return read(base, type, id, pretty, summary, format, elements, parameters,
-        mimeType, accept, client);
+    return read(base, type, fhirId, pretty, summary, format, elements,
+        parameters, mimeType, accept, client);
   }
 
   @override
@@ -798,7 +798,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -811,7 +811,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -839,7 +839,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -879,12 +879,12 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
-    return read?.call(base, type, id, pretty, summary, format, elements,
+    return read?.call(base, type, fhirId, pretty, summary, format, elements,
         parameters, mimeType, accept, client);
   }
 
@@ -894,7 +894,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -907,7 +907,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -935,7 +935,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -975,15 +975,15 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (read != null) {
-      return read(base, type, id, pretty, summary, format, elements, parameters,
-          mimeType, accept, client);
+      return read(base, type, fhirId, pretty, summary, format, elements,
+          parameters, mimeType, accept, client);
     }
     return orElse();
   }
@@ -1063,7 +1063,7 @@ abstract class FhirReadRequest extends FhirRequest {
   const factory FhirReadRequest(
       {required final Uri base,
       required final R5ResourceType type,
-      required final FhirId id,
+      required final FhirId fhirId,
       final bool pretty,
       final Summary summary,
       final String format,
@@ -1083,7 +1083,7 @@ abstract class FhirReadRequest extends FhirRequest {
   R5ResourceType get type;
 
   /// [id] - the id for the resource
-  FhirId get id;
+  FhirId get fhirId;
   @override
 
   /// [pretty] - pretty print the json formatting in the response
@@ -1137,7 +1137,7 @@ abstract class _$$FhirVReadRequestCopyWith<$Res>
   $Res call(
       {Uri base,
       R5ResourceType type,
-      FhirId id,
+      FhirId fhirId,
       FhirId vid,
       bool pretty,
       Summary summary,
@@ -1162,7 +1162,7 @@ class __$$FhirVReadRequestCopyWithImpl<$Res>
   $Res call({
     Object? base = null,
     Object? type = null,
-    Object? id = null,
+    Object? fhirId = null,
     Object? vid = null,
     Object? pretty = null,
     Object? summary = null,
@@ -1182,9 +1182,9 @@ class __$$FhirVReadRequestCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as R5ResourceType,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      fhirId: null == fhirId
+          ? _value.fhirId
+          : fhirId // ignore: cast_nullable_to_non_nullable
               as FhirId,
       vid: null == vid
           ? _value.vid
@@ -1232,7 +1232,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
   const _$FhirVReadRequest(
       {required this.base,
       required this.type,
-      required this.id,
+      required this.fhirId,
       required this.vid,
       this.pretty = false,
       this.summary = Summary.none,
@@ -1256,7 +1256,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
 
   /// [id] - the id for the resource
   @override
-  final FhirId id;
+  final FhirId fhirId;
 
   /// [vid] - the version id of the resource
   @override
@@ -1320,7 +1320,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
 
   @override
   String toString() {
-    return 'FhirRequest.vRead(base: $base, type: $type, id: $id, vid: $vid, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.vRead(base: $base, type: $type, fhirId: $fhirId, vid: $vid, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
   }
 
   @override
@@ -1330,7 +1330,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             other is _$FhirVReadRequest &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.fhirId, fhirId) || other.fhirId == fhirId) &&
             (identical(other.vid, vid) || other.vid == vid) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
             (identical(other.summary, summary) || other.summary == summary) &&
@@ -1349,7 +1349,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
       runtimeType,
       base,
       type,
-      id,
+      fhirId,
       vid,
       pretty,
       summary,
@@ -1372,7 +1372,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1385,7 +1385,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -1413,7 +1413,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1453,12 +1453,12 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
-    return vRead(base, type, id, vid, pretty, summary, format, elements,
+    return vRead(base, type, fhirId, vid, pretty, summary, format, elements,
         parameters, mimeType, accept, client);
   }
 
@@ -1468,7 +1468,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1481,7 +1481,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -1509,7 +1509,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1549,13 +1549,13 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
-    return vRead?.call(base, type, id, vid, pretty, summary, format, elements,
-        parameters, mimeType, accept, client);
+    return vRead?.call(base, type, fhirId, vid, pretty, summary, format,
+        elements, parameters, mimeType, accept, client);
   }
 
   @override
@@ -1564,7 +1564,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1577,7 +1577,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -1605,7 +1605,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1645,14 +1645,14 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (vRead != null) {
-      return vRead(base, type, id, vid, pretty, summary, format, elements,
+      return vRead(base, type, fhirId, vid, pretty, summary, format, elements,
           parameters, mimeType, accept, client);
     }
     return orElse();
@@ -1733,7 +1733,7 @@ abstract class FhirVReadRequest extends FhirRequest {
   const factory FhirVReadRequest(
       {required final Uri base,
       required final R5ResourceType type,
-      required final FhirId id,
+      required final FhirId fhirId,
       required final FhirId vid,
       final bool pretty,
       final Summary summary,
@@ -1754,7 +1754,7 @@ abstract class FhirVReadRequest extends FhirRequest {
   R5ResourceType get type;
 
   /// [id] - the id for the resource
-  FhirId get id;
+  FhirId get fhirId;
 
   /// [vid] - the version id of the resource
   FhirId get vid;
@@ -2019,7 +2019,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2032,7 +2032,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -2060,7 +2060,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2100,10 +2100,10 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
     return update(base, resource, pretty, summary, format, elements, parameters,
         mimeType, accept, client);
@@ -2115,7 +2115,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2128,7 +2128,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -2156,7 +2156,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2196,10 +2196,10 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
     return update?.call(base, resource, pretty, summary, format, elements,
         parameters, mimeType, accept, client);
@@ -2211,7 +2211,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2224,7 +2224,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -2252,7 +2252,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2292,10 +2292,10 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -2656,7 +2656,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2669,7 +2669,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -2697,7 +2697,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2737,10 +2737,10 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
     return patch(base, resource, pretty, summary, format, elements, parameters,
         mimeType, accept, client);
@@ -2752,7 +2752,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2765,7 +2765,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -2793,7 +2793,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2833,10 +2833,10 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
     return patch?.call(base, resource, pretty, summary, format, elements,
         parameters, mimeType, accept, client);
@@ -2848,7 +2848,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2861,7 +2861,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -2889,7 +2889,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2929,10 +2929,10 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (patch != null) {
@@ -3085,7 +3085,7 @@ abstract class _$$FhirDeleteRequestCopyWith<$Res>
   $Res call(
       {Uri base,
       R5ResourceType type,
-      FhirId id,
+      FhirId fhirId,
       bool pretty,
       Summary summary,
       String format,
@@ -3109,7 +3109,7 @@ class __$$FhirDeleteRequestCopyWithImpl<$Res>
   $Res call({
     Object? base = null,
     Object? type = null,
-    Object? id = null,
+    Object? fhirId = null,
     Object? pretty = null,
     Object? summary = null,
     Object? format = null,
@@ -3128,9 +3128,9 @@ class __$$FhirDeleteRequestCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as R5ResourceType,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      fhirId: null == fhirId
+          ? _value.fhirId
+          : fhirId // ignore: cast_nullable_to_non_nullable
               as FhirId,
       pretty: null == pretty
           ? _value.pretty
@@ -3174,7 +3174,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
   const _$FhirDeleteRequest(
       {required this.base,
       required this.type,
-      required this.id,
+      required this.fhirId,
       this.pretty = false,
       this.summary = Summary.none,
       this.format = 'json',
@@ -3197,7 +3197,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
 
   /// [id] - the id for the resource
   @override
-  final FhirId id;
+  final FhirId fhirId;
 
   /// [pretty] - pretty print the json formatting in the response
   @override
@@ -3257,7 +3257,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
 
   @override
   String toString() {
-    return 'FhirRequest.delete(base: $base, type: $type, id: $id, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.delete(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
   }
 
   @override
@@ -3267,7 +3267,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             other is _$FhirDeleteRequest &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.fhirId, fhirId) || other.fhirId == fhirId) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
             (identical(other.summary, summary) || other.summary == summary) &&
             (identical(other.format, format) || other.format == format) &&
@@ -3285,7 +3285,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
       runtimeType,
       base,
       type,
-      id,
+      fhirId,
       pretty,
       summary,
       format,
@@ -3307,7 +3307,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3320,7 +3320,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -3348,7 +3348,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3388,13 +3388,13 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
-    return delete(base, type, id, pretty, summary, format, elements, parameters,
-        mimeType, accept, client);
+    return delete(base, type, fhirId, pretty, summary, format, elements,
+        parameters, mimeType, accept, client);
   }
 
   @override
@@ -3403,7 +3403,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3416,7 +3416,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -3444,7 +3444,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3484,12 +3484,12 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
-    return delete?.call(base, type, id, pretty, summary, format, elements,
+    return delete?.call(base, type, fhirId, pretty, summary, format, elements,
         parameters, mimeType, accept, client);
   }
 
@@ -3499,7 +3499,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3512,7 +3512,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -3540,7 +3540,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3580,14 +3580,14 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (delete != null) {
-      return delete(base, type, id, pretty, summary, format, elements,
+      return delete(base, type, fhirId, pretty, summary, format, elements,
           parameters, mimeType, accept, client);
     }
     return orElse();
@@ -3668,7 +3668,7 @@ abstract class FhirDeleteRequest extends FhirRequest {
   const factory FhirDeleteRequest(
       {required final Uri base,
       required final R5ResourceType type,
-      required final FhirId id,
+      required final FhirId fhirId,
       final bool pretty,
       final Summary summary,
       final String format,
@@ -3688,7 +3688,7 @@ abstract class FhirDeleteRequest extends FhirRequest {
   R5ResourceType get type;
 
   /// [id] - the id for the resource
-  FhirId get id;
+  FhirId get fhirId;
   @override
 
   /// [pretty] - pretty print the json formatting in the response
@@ -3950,7 +3950,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3963,7 +3963,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -3991,7 +3991,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4031,10 +4031,10 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
     return create(base, resource, pretty, summary, format, elements, parameters,
         mimeType, accept, client);
@@ -4046,7 +4046,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4059,7 +4059,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -4087,7 +4087,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4127,10 +4127,10 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
     return create?.call(base, resource, pretty, summary, format, elements,
         parameters, mimeType, accept, client);
@@ -4142,7 +4142,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4155,7 +4155,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -4183,7 +4183,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4223,10 +4223,10 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -4616,7 +4616,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4629,7 +4629,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -4657,7 +4657,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4697,10 +4697,10 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
     return search(base, type, pretty, summary, format, elements, parameters,
         usePost, restfulRequest, mimeType, accept, client);
@@ -4712,7 +4712,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4725,7 +4725,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -4753,7 +4753,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4793,10 +4793,10 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
     return search?.call(base, type, pretty, summary, format, elements,
         parameters, usePost, restfulRequest, mimeType, accept, client);
@@ -4808,7 +4808,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4821,7 +4821,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -4849,7 +4849,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4889,10 +4889,10 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -5251,7 +5251,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5264,7 +5264,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -5292,7 +5292,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5332,10 +5332,10 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
     return searchAll(base, pretty, summary, format, elements, parameters,
         mimeType, accept, client);
@@ -5347,7 +5347,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5360,7 +5360,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -5388,7 +5388,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5428,10 +5428,10 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
     return searchAll?.call(base, pretty, summary, format, elements, parameters,
         mimeType, accept, client);
@@ -5443,7 +5443,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5456,7 +5456,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -5484,7 +5484,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5524,10 +5524,10 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (searchAll != null) {
@@ -5889,7 +5889,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5902,7 +5902,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -5930,7 +5930,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5970,10 +5970,10 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
     return capabilities(base, pretty, summary, format, elements, parameters,
         mode, mimeType, accept, client);
@@ -5985,7 +5985,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5998,7 +5998,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -6026,7 +6026,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6066,10 +6066,10 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
     return capabilities?.call(base, pretty, summary, format, elements,
         parameters, mode, mimeType, accept, client);
@@ -6081,7 +6081,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6094,7 +6094,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -6122,7 +6122,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6162,10 +6162,10 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (capabilities != null) {
@@ -6540,7 +6540,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6553,7 +6553,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -6581,7 +6581,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6621,10 +6621,10 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
     return transaction(base, pretty, summary, format, elements, parameters,
         bundle, mimeType, accept, client);
@@ -6636,7 +6636,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6649,7 +6649,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -6677,7 +6677,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6717,10 +6717,10 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
     return transaction?.call(base, pretty, summary, format, elements,
         parameters, bundle, mimeType, accept, client);
@@ -6732,7 +6732,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6745,7 +6745,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -6773,7 +6773,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6813,10 +6813,10 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (transaction != null) {
@@ -7190,7 +7190,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7203,7 +7203,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -7231,7 +7231,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7271,10 +7271,10 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
     return batch(base, pretty, summary, format, elements, parameters, bundle,
         mimeType, accept, client);
@@ -7286,7 +7286,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7299,7 +7299,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -7327,7 +7327,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7367,10 +7367,10 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
     return batch?.call(base, pretty, summary, format, elements, parameters,
         bundle, mimeType, accept, client);
@@ -7382,7 +7382,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7395,7 +7395,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -7423,7 +7423,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7463,10 +7463,10 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (batch != null) {
@@ -7621,7 +7621,7 @@ abstract class _$$FhirHistoryRequestCopyWith<$Res>
   $Res call(
       {Uri base,
       R5ResourceType type,
-      FhirId id,
+      FhirId fhirId,
       bool pretty,
       Summary summary,
       String format,
@@ -7649,7 +7649,7 @@ class __$$FhirHistoryRequestCopyWithImpl<$Res>
   $Res call({
     Object? base = null,
     Object? type = null,
-    Object? id = null,
+    Object? fhirId = null,
     Object? pretty = null,
     Object? summary = null,
     Object? format = null,
@@ -7672,9 +7672,9 @@ class __$$FhirHistoryRequestCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as R5ResourceType,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      fhirId: null == fhirId
+          ? _value.fhirId
+          : fhirId // ignore: cast_nullable_to_non_nullable
               as FhirId,
       pretty: null == pretty
           ? _value.pretty
@@ -7734,7 +7734,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
   const _$FhirHistoryRequest(
       {required this.base,
       required this.type,
-      required this.id,
+      required this.fhirId,
       this.pretty = false,
       this.summary = Summary.none,
       this.format = 'json',
@@ -7761,7 +7761,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
 
   /// [id] - the id for the resource
   @override
-  final FhirId id;
+  final FhirId fhirId;
 
   /// [pretty] - pretty print the json formatting in the response
   @override
@@ -7842,7 +7842,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
 
   @override
   String toString() {
-    return 'FhirRequest.history(base: $base, type: $type, id: $id, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, count: $count, since: $since, at: $at, reference: $reference, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.history(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, count: $count, since: $since, at: $at, reference: $reference, mimeType: $mimeType, accept: $accept, client: $client)';
   }
 
   @override
@@ -7852,7 +7852,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             other is _$FhirHistoryRequest &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.fhirId, fhirId) || other.fhirId == fhirId) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
             (identical(other.summary, summary) || other.summary == summary) &&
             (identical(other.format, format) || other.format == format) &&
@@ -7875,7 +7875,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
       runtimeType,
       base,
       type,
-      id,
+      fhirId,
       pretty,
       summary,
       format,
@@ -7902,7 +7902,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7915,7 +7915,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -7943,7 +7943,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7983,12 +7983,12 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
-    return history(base, type, id, pretty, summary, format, elements,
+    return history(base, type, fhirId, pretty, summary, format, elements,
         parameters, count, since, at, reference, mimeType, accept, client);
   }
 
@@ -7998,7 +7998,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8011,7 +8011,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -8039,7 +8039,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8079,12 +8079,12 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
-    return history?.call(base, type, id, pretty, summary, format, elements,
+    return history?.call(base, type, fhirId, pretty, summary, format, elements,
         parameters, count, since, at, reference, mimeType, accept, client);
   }
 
@@ -8094,7 +8094,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8107,7 +8107,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -8135,7 +8135,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8175,14 +8175,14 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (history != null) {
-      return history(base, type, id, pretty, summary, format, elements,
+      return history(base, type, fhirId, pretty, summary, format, elements,
           parameters, count, since, at, reference, mimeType, accept, client);
     }
     return orElse();
@@ -8263,7 +8263,7 @@ abstract class FhirHistoryRequest extends FhirRequest {
   const factory FhirHistoryRequest(
       {required final Uri base,
       required final R5ResourceType type,
-      required final FhirId id,
+      required final FhirId fhirId,
       final bool pretty,
       final Summary summary,
       final String format,
@@ -8287,7 +8287,7 @@ abstract class FhirHistoryRequest extends FhirRequest {
   R5ResourceType get type;
 
   /// [id] - the id for the resource
-  FhirId get id;
+  FhirId get fhirId;
   @override
 
   /// [pretty] - pretty print the json formatting in the response
@@ -8626,7 +8626,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8639,7 +8639,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -8667,7 +8667,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8707,10 +8707,10 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
     return historyType(base, type, pretty, summary, format, elements,
         parameters, count, since, at, reference, mimeType, accept, client);
@@ -8722,7 +8722,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8735,7 +8735,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -8763,7 +8763,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8803,10 +8803,10 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
     return historyType?.call(base, type, pretty, summary, format, elements,
         parameters, count, since, at, reference, mimeType, accept, client);
@@ -8818,7 +8818,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8831,7 +8831,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -8859,7 +8859,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8899,10 +8899,10 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (historyType != null) {
@@ -9333,7 +9333,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9346,7 +9346,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -9374,7 +9374,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9414,10 +9414,10 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
     return historyAll(base, pretty, summary, format, elements, parameters,
         count, since, at, reference, mimeType, accept, client);
@@ -9429,7 +9429,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9442,7 +9442,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -9470,7 +9470,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9510,10 +9510,10 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
     return historyAll?.call(base, pretty, summary, format, elements, parameters,
         count, since, at, reference, mimeType, accept, client);
@@ -9525,7 +9525,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9538,7 +9538,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -9566,7 +9566,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9606,10 +9606,10 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (historyAll != null) {
@@ -9781,7 +9781,7 @@ abstract class _$$FhirOperationRequestCopyWith<$Res>
   $Res call(
       {Uri base,
       R5ResourceType? type,
-      FhirId? id,
+      FhirId? fhirId,
       bool pretty,
       Summary summary,
       String format,
@@ -9811,7 +9811,7 @@ class __$$FhirOperationRequestCopyWithImpl<$Res>
   $Res call({
     Object? base = null,
     Object? type = freezed,
-    Object? id = freezed,
+    Object? fhirId = freezed,
     Object? pretty = null,
     Object? summary = null,
     Object? format = null,
@@ -9834,9 +9834,9 @@ class __$$FhirOperationRequestCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as R5ResourceType?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      fhirId: freezed == fhirId
+          ? _value.fhirId
+          : fhirId // ignore: cast_nullable_to_non_nullable
               as FhirId?,
       pretty: null == pretty
           ? _value.pretty
@@ -9908,7 +9908,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
   const _$FhirOperationRequest(
       {required this.base,
       this.type,
-      this.id,
+      this.fhirId,
       this.pretty = false,
       this.summary = Summary.none,
       this.format = 'json',
@@ -9931,7 +9931,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
   @override
   final R5ResourceType? type;
   @override
-  final FhirId? id;
+  final FhirId? fhirId;
 
   /// [pretty] - pretty print the json formatting in the response
   @override
@@ -10006,7 +10006,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
 
   @override
   String toString() {
-    return 'FhirRequest.operation(base: $base, type: $type, id: $id, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, fhirParameter: $fhirParameter, operation: $operation, usePost: $usePost, useFormData: $useFormData, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.operation(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, fhirParameter: $fhirParameter, operation: $operation, usePost: $usePost, useFormData: $useFormData, mimeType: $mimeType, accept: $accept, client: $client)';
   }
 
   @override
@@ -10016,7 +10016,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             other is _$FhirOperationRequest &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.fhirId, fhirId) || other.fhirId == fhirId) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
             (identical(other.summary, summary) || other.summary == summary) &&
             (identical(other.format, format) || other.format == format) &&
@@ -10041,7 +10041,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
       runtimeType,
       base,
       type,
-      id,
+      fhirId,
       pretty,
       summary,
       format,
@@ -10068,7 +10068,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10081,7 +10081,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -10109,7 +10109,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10149,15 +10149,15 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
+    required TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
     required TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
     required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
   }) {
     return operation(
         base,
         type,
-        id,
+        fhirId,
         pretty,
         summary,
         format,
@@ -10178,7 +10178,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10191,7 +10191,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -10219,7 +10219,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10259,15 +10259,15 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult? Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult? Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
   }) {
     return operation?.call(
         base,
         type,
-        id,
+        fhirId,
         pretty,
         summary,
         format,
@@ -10288,7 +10288,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10301,7 +10301,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -10329,7 +10329,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            FhirId id,
+            FhirId fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10369,17 +10369,17 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R5ResourceType type, FhirId id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
+    TResult Function(Uri base, R5ResourceType type, FhirId fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
     TResult Function(Uri base, R5ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
     TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R5ResourceType? type, FhirId? id, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, R5ResourceType? type, FhirId? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
     required TResult orElse(),
   }) {
     if (operation != null) {
       return operation(
           base,
           type,
-          id,
+          fhirId,
           pretty,
           summary,
           format,
@@ -10471,7 +10471,7 @@ abstract class FhirOperationRequest extends FhirRequest {
   const factory FhirOperationRequest(
       {required final Uri base,
       final R5ResourceType? type,
-      final FhirId? id,
+      final FhirId? fhirId,
       final bool pretty,
       final Summary summary,
       final String format,
@@ -10491,7 +10491,7 @@ abstract class FhirOperationRequest extends FhirRequest {
   /// [base] - the base URI for the FHIR server
   Uri get base;
   R5ResourceType? get type;
-  FhirId? get id;
+  FhirId? get fhirId;
   @override
 
   /// [pretty] - pretty print the json formatting in the response

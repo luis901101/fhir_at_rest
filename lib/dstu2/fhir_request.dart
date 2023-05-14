@@ -42,7 +42,7 @@ class FhirRequest with _$FhirRequest {
     required Dstu2ResourceType type,
 
     /// [id] - the id for the resource
-    required FhirId id,
+    required FhirId fhirId,
 
     /// [pretty] - pretty print the json formatting in the response
     @Default(false) bool pretty,
@@ -96,7 +96,7 @@ class FhirRequest with _$FhirRequest {
     required Dstu2ResourceType type,
 
     /// [id] - the id for the resource
-    required FhirId id,
+    required FhirId fhirId,
     required FhirId vid,
 
     /// [pretty] - pretty print the json formatting in the response
@@ -242,7 +242,7 @@ class FhirRequest with _$FhirRequest {
     required Dstu2ResourceType type,
 
     /// [id] - the id for the resource
-    required FhirId id,
+    required FhirId fhirId,
 
     /// [pretty] - pretty print the json formatting in the response
     @Default(false) bool pretty,
@@ -598,7 +598,7 @@ class FhirRequest with _$FhirRequest {
     required Dstu2ResourceType type,
 
     /// [id] - the id for the resource
-    required FhirId id,
+    required FhirId fhirId,
 
     /// [pretty] - pretty print the json formatting in the response
     @Default(false) bool pretty,
@@ -812,7 +812,7 @@ class FhirRequest with _$FhirRequest {
     /// [base] - the base URI for the FHIR server
     required Uri base,
     Dstu2ResourceType? type,
-    FhirId? id,
+    FhirId? fhirId,
 
     /// [pretty] - pretty print the json formatting in the response
     @Default(false) bool pretty,
@@ -1259,23 +1259,23 @@ class FhirRequest with _$FhirRequest {
   String _url() => map(
         /// READ
         read: (FhirReadRequest request) =>
-            '${request.base}/${enumToString(request.type)}/${request.id}',
+            '${request.base}/${enumToString(request.type)}/${request.fhirId}',
 
         /// VREAD
         vRead: (FhirVReadRequest request) =>
-            '${request.base}/${enumToString(request.type)}/${request.id}/_history/${request.vid}',
+            '${request.base}/${enumToString(request.type)}/${request.fhirId}/_history/${request.vid}',
 
         /// UPDATE
         update: (FhirUpdateRequest request) =>
-            '${request.base}/${request.resource.resourceTypeString}/${request.resource.id}',
+            '${request.base}/${request.resource.resourceTypeString}/${request.resource.fhirId}',
 
         /// PATCH
         patch: (FhirPatchRequest request) =>
-            '${request.base}/${request.resource.resourceTypeString}/${request.resource.id}',
+            '${request.base}/${request.resource.resourceTypeString}/${request.resource.fhirId}',
 
         /// DELETE
         delete: (FhirDeleteRequest request) =>
-            '${request.base}/${enumToString(request.type)}/${request.id}',
+            '${request.base}/${enumToString(request.type)}/${request.fhirId}',
 
         /// CREATE
         create: (FhirCreateRequest request) =>
@@ -1299,7 +1299,7 @@ class FhirRequest with _$FhirRequest {
 
         /// HISTORY
         history: (FhirHistoryRequest request) =>
-            '${request.base}/${enumToString(request.type)}/${request.id}/_history',
+            '${request.base}/${enumToString(request.type)}/${request.fhirId}/_history',
 
         /// HISTORY-TYPE
         historyType: (FhirHistoryTypeRequest request) =>
@@ -1312,7 +1312,7 @@ class FhirRequest with _$FhirRequest {
         /// OPERATION
         operation: (FhirOperationRequest request) => '${request.base}/'
             '${request.type != null ? "${enumToString(request.type)}/" : ''}'
-            '${request.type != null && request.id != null ? "${enumToString(request.id)}/" : ''}'
+            '${request.type != null && request.fhirId != null ? "${enumToString(request.fhirId)}/" : ''}'
             '\$${request.operation}',
       );
 

@@ -6,6 +6,7 @@
 * Added ability to include a Parameters resource for operations
 * Updated dependencies
 * All requests will now request Json as return type unless specified
+* Changed all ids to be called fhirIds to be inline with primary package
 
 ## [0.9.5]
 
