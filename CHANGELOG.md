@@ -1,5 +1,9 @@
 # fhir_at_rest
 
+## [0.11.0]
+
+* Dart 3.0.0
+
 ## [0.10.0]
 
 * Update error messages

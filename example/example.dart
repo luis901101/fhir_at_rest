@@ -101,7 +101,6 @@ Future<void> main() async {
       await request.request(headers: <String, String>{'example': 'headers'});
 
   final Bundle bundle = Bundle(
-      resourceType: R4ResourceType.Bundle,
       type: FhirCode('transaction'),
       fhirId: '12345',
       entry: <BundleEntry>[
@@ -160,7 +159,7 @@ Future<void> main() async {
   response =
       await request.request(headers: <String, String>{'example': 'headers'});
 
-  Patient patient = Patient(fhirId: '12345');
+  Patient patient = const Patient(fhirId: '12345');
   request = FhirRequest.update(
     base: Uri.parse('http://hapi.fhir.org/baseR4'),
     resource: patient,
@@ -168,7 +167,7 @@ Future<void> main() async {
   response =
       await request.request(headers: <String, String>{'example': 'headers'});
 
-  patient = Patient(fhirId: '12345');
+  patient = const Patient(fhirId: '12345');
   request = FhirRequest.patch(
     base: Uri.parse('http://hapi.fhir.org/baseR4'),
     resource: patient,
@@ -184,7 +183,7 @@ Future<void> main() async {
   response =
       await request.request(headers: <String, String>{'example': 'headers'});
 
-  patient = Patient(fhirId: '12345');
+  patient = const Patient(fhirId: '12345');
   request = FhirRequest.create(
     base: Uri.parse('http://hapi.fhir.org/baseR4'),
     resource: patient,

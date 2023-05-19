@@ -184,7 +184,6 @@ Future<void> requestsTest() async {
   group('FhirRequest - TRANSACTION:', () {
     test('transaction/batch', () async {
       final Bundle bundle = Bundle(
-          resourceType: R4ResourceType.Bundle,
           type: FhirCode('transaction'),
           fhirId: '12345',
           entry: <BundleEntry>[
@@ -208,10 +207,9 @@ Future<void> requestsTest() async {
 
     test('batch with error in bundle', () async {
       final Bundle bundle = Bundle(
-          resourceType: R4ResourceType.Bundle,
           type: FhirCode('batch'),
           fhirId: '12345',
-          entry: <BundleEntry>[BundleEntry(request: BundleRequest())]);
+          entry: <BundleEntry>[const BundleEntry(request: BundleRequest())]);
       final FhirRequest request = FhirRequest.batch(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         bundle: bundle,
@@ -317,7 +315,7 @@ Future<void> requestsTest() async {
 
   group('FhirRequest - UPDATE:', () {
     test('update patient by id', () async {
-      final Patient patient = Patient(fhirId: '12345');
+      const Patient patient = Patient(fhirId: '12345');
       final FhirRequest request = FhirRequest.update(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         resource: patient,
@@ -334,7 +332,7 @@ Future<void> requestsTest() async {
 
   group('FhirRequest - PATCH:', () {
     test('patch patient by id', () async {
-      final Patient patient = Patient(fhirId: '12345');
+      const Patient patient = Patient(fhirId: '12345');
       final FhirRequest request = FhirRequest.patch(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         resource: patient,
@@ -368,7 +366,7 @@ Future<void> requestsTest() async {
 
   group('FhirRequest - CREATE:', () {
     test('create patient', () async {
-      final Patient patient = Patient(fhirId: '12345');
+      const Patient patient = Patient(fhirId: '12345');
       final FhirRequest request = FhirRequest.create(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         resource: patient,
