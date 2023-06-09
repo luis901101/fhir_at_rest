@@ -13,6 +13,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Patient,
         fhirId: '12345',
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/12345?_format=$mimeType&_pretty=false',
@@ -26,6 +29,9 @@ Future<void> fhirUriTest() async {
         fhirId: '12345',
         pretty: true,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/12345?_format=$mimeType&_pretty=true',
@@ -40,6 +46,9 @@ Future<void> fhirUriTest() async {
         pretty: true,
         summary: Summary.true_,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/12345?_format=$mimeType&_pretty=true&_summary=true',
@@ -53,6 +62,9 @@ Future<void> fhirUriTest() async {
         fhirId: '12345',
         summary: Summary.count,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/12345?_format=$mimeType&_pretty=false&_summary=count',
@@ -67,6 +79,9 @@ Future<void> fhirUriTest() async {
         pretty: true,
         elements: <String>['name'],
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/1227442?_format=$mimeType&_pretty=true&_elements=name',
@@ -82,6 +97,9 @@ Future<void> fhirUriTest() async {
         pretty: true,
         elements: <String>['name', 'gender'],
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/1227442?_format=$mimeType&_pretty=true&_elements=name,gender',
@@ -97,6 +115,9 @@ Future<void> fhirUriTest() async {
         fhirId: '12345',
         vid: FhirId('6789'),
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/12345/_history/6789?_format=$mimeType&_pretty=false',
@@ -111,6 +132,9 @@ Future<void> fhirUriTest() async {
         vid: FhirId('6789'),
         pretty: true,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/12345/_history/6789?_format=$mimeType&_pretty=true',
@@ -126,6 +150,9 @@ Future<void> fhirUriTest() async {
         pretty: true,
         summary: Summary.true_,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/12345/_history/6789?_format=$mimeType&_pretty=true&_summary=true',
@@ -140,6 +167,9 @@ Future<void> fhirUriTest() async {
         vid: FhirId('6789'),
         summary: Summary.count,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/12345/_history/6789?_format=$mimeType&_pretty=false&_summary=count',
@@ -154,6 +184,9 @@ Future<void> fhirUriTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         bundle: bundle,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4?_format=$mimeType&_pretty=false',
@@ -168,6 +201,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Observation,
         fhirId: '12345',
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Observation/12345/_history?_format=$mimeType&_pretty=false',
@@ -179,6 +215,9 @@ Future<void> fhirUriTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         type: R4ResourceType.Observation,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Observation/_history?_format=$mimeType&_pretty=false',
@@ -189,6 +228,9 @@ Future<void> fhirUriTest() async {
       final FhirRequest request = FhirRequest.historyAll(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/_history?_format=$mimeType&_pretty=false',
@@ -208,6 +250,9 @@ Future<void> fhirUriTest() async {
         parameters: parameters,
       );
 
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Observation/12345/_history'
@@ -223,6 +268,9 @@ Future<void> fhirUriTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         resource: patient,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/12345?_format=$mimeType&_pretty=false',
@@ -237,6 +285,9 @@ Future<void> fhirUriTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         resource: patient,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/12345?_format=$mimeType&_pretty=false',
@@ -251,6 +302,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Patient,
         fhirId: '12345',
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/12345?_format=$mimeType&_pretty=false',
@@ -265,6 +319,9 @@ Future<void> fhirUriTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         resource: patient,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient?_format=$mimeType&_pretty=false',
@@ -278,6 +335,9 @@ Future<void> fhirUriTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         mode: Mode.normative,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/metadata'
@@ -297,6 +357,9 @@ Future<void> fhirUriTest() async {
         operation: 'everything',
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         r'http://hapi.fhir.org/baseR4/$everything'
@@ -317,6 +380,9 @@ Future<void> fhirUriTest() async {
         parameters: parameters,
       );
 
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         r'http://hapi.fhir.org/baseR4/Patient/744742/$everything?_format'
@@ -333,6 +399,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Patient,
         parameters: <String>['_id=12345'],
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Patient?_format=$mimeType&_pretty=false&_id=12345',
@@ -345,6 +414,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Patient,
         restfulRequest: RestfulRequest.post_,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(),
         'http://hapi.fhir.org/baseR4/Patient/_search?_format=$mimeType&_pretty=false',
@@ -357,6 +429,9 @@ Future<void> fhirUriTest() async {
           base: Uri.parse('http://hapi.fhir.org/baseR4'),
           type: R4ResourceType.Observation,
           parameters: parameters);
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Observation'
@@ -373,6 +448,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Condition,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Condition'
@@ -389,6 +467,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.DiagnosticReport,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/DiagnosticReport'
@@ -403,6 +484,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Patient,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Patient'
@@ -417,6 +501,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Patient,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Patient'
@@ -431,6 +518,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Patient,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Patient'
@@ -445,6 +535,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Observation,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Observation?_format=$mimeType&_pretty=false&_lastUpdated=le2010-10-01',
@@ -458,6 +551,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.RiskAssessment,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/RiskAssessment?_format=$mimeType&_pretty=false&probability=gt0.8',
@@ -474,6 +570,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Patient,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Patient'
@@ -492,6 +591,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Patient,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Patient'
@@ -510,6 +612,9 @@ Future<void> fhirUriTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4'
@@ -526,6 +631,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Patient,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Patient'
@@ -540,6 +648,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Composition,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Composition'
@@ -556,6 +667,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Condition,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Condition'
@@ -572,6 +686,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Patient,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Patient'
@@ -588,6 +705,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Observation,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Observation'
@@ -604,6 +724,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Observation,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Observation'
@@ -620,6 +743,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Observation,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Observation'
@@ -634,6 +760,9 @@ Future<void> fhirUriTest() async {
         type: R4ResourceType.Observation,
         parameters: parameters,
       );
+      expect(request, FhirRequest.fromJson(request.toJson()));
+      expect(request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType);
       expect(
         request.uri(parameters: parameters),
         'http://hapi.fhir.org/baseR4/Observation'
