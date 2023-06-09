@@ -14,6 +14,45 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+FhirRequest _$FhirRequestFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'read':
+      return FhirReadRequest.fromJson(json);
+    case 'vRead':
+      return FhirVReadRequest.fromJson(json);
+    case 'update':
+      return FhirUpdateRequest.fromJson(json);
+    case 'patch':
+      return FhirPatchRequest.fromJson(json);
+    case 'delete':
+      return FhirDeleteRequest.fromJson(json);
+    case 'create':
+      return FhirCreateRequest.fromJson(json);
+    case 'search':
+      return FhirSearchRequest.fromJson(json);
+    case 'searchAll':
+      return FhirSearchAllRequest.fromJson(json);
+    case 'capabilities':
+      return FhirCapabilitiesRequest.fromJson(json);
+    case 'transaction':
+      return FhirTransactionRequest.fromJson(json);
+    case 'batch':
+      return FhirBatchRequest.fromJson(json);
+    case 'history':
+      return FhirHistoryRequest.fromJson(json);
+    case 'historyType':
+      return FhirHistoryTypeRequest.fromJson(json);
+    case 'historyAll':
+      return FhirHistoryAllRequest.fromJson(json);
+    case 'operation':
+      return FhirOperationRequest.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'FhirRequest',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
 /// @nodoc
 mixin _$FhirRequest {
   /// [base] - the base URI for the FHIR server
@@ -45,7 +84,14 @@ mixin _$FhirRequest {
   String get accept => throw _privateConstructorUsedError;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client => throw _privateConstructorUsedError;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -59,7 +105,9 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -73,9 +121,23 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -87,7 +149,9 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -100,42 +164,19 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -151,7 +192,9 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -165,9 +208,23 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -179,7 +236,9 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -192,42 +251,19 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -243,7 +279,9 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -257,9 +295,23 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -271,7 +323,9 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -284,42 +338,19 @@ mixin _$FhirRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -381,7 +412,7 @@ mixin _$FhirRequest {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FhirRequestCopyWith<FhirRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -402,7 +433,8 @@ abstract class $FhirRequestCopyWith<$Res> {
       List<String> parameters,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -427,6 +459,7 @@ class _$FhirRequestCopyWithImpl<$Res, $Val extends FhirRequest>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_value.copyWith(
       base: null == base
@@ -465,6 +498,10 @@ class _$FhirRequestCopyWithImpl<$Res, $Val extends FhirRequest>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value.headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ) as $Val);
   }
 }
@@ -488,7 +525,8 @@ abstract class _$$FhirReadRequestCopyWith<$Res>
       List<String> parameters,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -513,6 +551,7 @@ class __$$FhirReadRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirReadRequest(
       base: null == base
@@ -559,12 +598,16 @@ class __$$FhirReadRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirReadRequest extends FhirReadRequest {
   const _$FhirReadRequest(
       {required this.base,
@@ -577,10 +620,17 @@ class _$FhirReadRequest extends FhirReadRequest {
       final List<String> parameters = const <String>[],
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'read',
         super._();
+
+  factory _$FhirReadRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirReadRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -647,12 +697,34 @@ class _$FhirReadRequest extends FhirReadRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.read(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.read(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -672,9 +744,11 @@ class _$FhirReadRequest extends FhirReadRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -688,7 +762,8 @@ class _$FhirReadRequest extends FhirReadRequest {
       const DeepCollectionEquality().hash(_parameters),
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -710,7 +785,9 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -724,9 +801,23 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -738,7 +829,9 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -751,45 +844,22 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return read(base, type, fhirId, pretty, summary, format, elements,
-        parameters, mimeType, accept, client);
+        parameters, mimeType, accept, client, headers);
   }
 
   @override
@@ -806,7 +876,9 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -820,9 +892,23 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -834,7 +920,9 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -847,45 +935,22 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return read?.call(base, type, fhirId, pretty, summary, format, elements,
-        parameters, mimeType, accept, client);
+        parameters, mimeType, accept, client, headers);
   }
 
   @override
@@ -902,7 +967,9 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -916,9 +983,23 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -930,7 +1011,9 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -943,47 +1026,24 @@ class _$FhirReadRequest extends FhirReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (read != null) {
       return read(base, type, fhirId, pretty, summary, format, elements,
-          parameters, mimeType, accept, client);
+          parameters, mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -1057,6 +1117,13 @@ class _$FhirReadRequest extends FhirReadRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirReadRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirReadRequest extends FhirRequest {
@@ -1071,8 +1138,13 @@ abstract class FhirReadRequest extends FhirRequest {
       final List<String> parameters,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirReadRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirReadRequest;
   const FhirReadRequest._() : super._();
+
+  factory FhirReadRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirReadRequest.fromJson;
 
   @override
 
@@ -1119,7 +1191,15 @@ abstract class FhirReadRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirReadRequestCopyWith<_$FhirReadRequest> get copyWith =>
@@ -1146,7 +1226,8 @@ abstract class _$$FhirVReadRequestCopyWith<$Res>
       List<String> parameters,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -1172,6 +1253,7 @@ class __$$FhirVReadRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirVReadRequest(
       base: null == base
@@ -1222,12 +1304,16 @@ class __$$FhirVReadRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirVReadRequest extends FhirVReadRequest {
   const _$FhirVReadRequest(
       {required this.base,
@@ -1241,10 +1327,17 @@ class _$FhirVReadRequest extends FhirVReadRequest {
       final List<String> parameters = const <String>[],
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'vRead',
         super._();
+
+  factory _$FhirVReadRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirVReadRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -1313,12 +1406,34 @@ class _$FhirVReadRequest extends FhirVReadRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.vRead(base: $base, type: $type, fhirId: $fhirId, vid: $vid, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.vRead(base: $base, type: $type, fhirId: $fhirId, vid: $vid, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -1339,9 +1454,11 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1356,7 +1473,8 @@ class _$FhirVReadRequest extends FhirVReadRequest {
       const DeepCollectionEquality().hash(_parameters),
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -1378,7 +1496,9 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -1392,9 +1512,23 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -1406,7 +1540,9 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -1419,45 +1555,22 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return vRead(base, type, fhirId, vid, pretty, summary, format, elements,
-        parameters, mimeType, accept, client);
+        parameters, mimeType, accept, client, headers);
   }
 
   @override
@@ -1474,7 +1587,9 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -1488,9 +1603,23 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -1502,7 +1631,9 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -1515,45 +1646,22 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return vRead?.call(base, type, fhirId, vid, pretty, summary, format,
-        elements, parameters, mimeType, accept, client);
+        elements, parameters, mimeType, accept, client, headers);
   }
 
   @override
@@ -1570,7 +1678,9 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -1584,9 +1694,23 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -1598,7 +1722,9 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -1611,47 +1737,24 @@ class _$FhirVReadRequest extends FhirVReadRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (vRead != null) {
       return vRead(base, type, fhirId, vid, pretty, summary, format, elements,
-          parameters, mimeType, accept, client);
+          parameters, mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -1725,6 +1828,13 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirVReadRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirVReadRequest extends FhirRequest {
@@ -1740,8 +1850,13 @@ abstract class FhirVReadRequest extends FhirRequest {
       final List<String> parameters,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirVReadRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirVReadRequest;
   const FhirVReadRequest._() : super._();
+
+  factory FhirVReadRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirVReadRequest.fromJson;
 
   @override
 
@@ -1789,7 +1904,15 @@ abstract class FhirVReadRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirVReadRequestCopyWith<_$FhirVReadRequest> get copyWith =>
@@ -1814,7 +1937,8 @@ abstract class _$$FhirUpdateRequestCopyWith<$Res>
       List<String> parameters,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -1838,6 +1962,7 @@ class __$$FhirUpdateRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirUpdateRequest(
       base: null == base
@@ -1880,12 +2005,16 @@ class __$$FhirUpdateRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirUpdateRequest extends FhirUpdateRequest {
   const _$FhirUpdateRequest(
       {required this.base,
@@ -1897,10 +2026,17 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
       final List<String> parameters = const <String>[],
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'update',
         super._();
+
+  factory _$FhirUpdateRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirUpdateRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -1961,12 +2097,34 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.update(base: $base, resource: $resource, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.update(base: $base, resource: $resource, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -1986,9 +2144,11 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -2001,7 +2161,8 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
       const DeepCollectionEquality().hash(_parameters),
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -2023,7 +2184,9 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -2037,9 +2200,23 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -2051,7 +2228,9 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -2064,45 +2243,22 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return update(base, resource, pretty, summary, format, elements, parameters,
-        mimeType, accept, client);
+        mimeType, accept, client, headers);
   }
 
   @override
@@ -2119,7 +2275,9 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -2133,9 +2291,23 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -2147,7 +2319,9 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -2160,45 +2334,22 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return update?.call(base, resource, pretty, summary, format, elements,
-        parameters, mimeType, accept, client);
+        parameters, mimeType, accept, client, headers);
   }
 
   @override
@@ -2215,7 +2366,9 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -2229,9 +2382,23 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -2243,7 +2410,9 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -2256,47 +2425,24 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (update != null) {
       return update(base, resource, pretty, summary, format, elements,
-          parameters, mimeType, accept, client);
+          parameters, mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -2370,6 +2516,13 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirUpdateRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirUpdateRequest extends FhirRequest {
@@ -2383,8 +2536,13 @@ abstract class FhirUpdateRequest extends FhirRequest {
       final List<String> parameters,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirUpdateRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirUpdateRequest;
   const FhirUpdateRequest._() : super._();
+
+  factory FhirUpdateRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirUpdateRequest.fromJson;
 
   @override
 
@@ -2426,7 +2584,15 @@ abstract class FhirUpdateRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirUpdateRequestCopyWith<_$FhirUpdateRequest> get copyWith =>
@@ -2451,7 +2617,8 @@ abstract class _$$FhirPatchRequestCopyWith<$Res>
       List<String> parameters,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -2475,6 +2642,7 @@ class __$$FhirPatchRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirPatchRequest(
       base: null == base
@@ -2517,12 +2685,16 @@ class __$$FhirPatchRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirPatchRequest extends FhirPatchRequest {
   const _$FhirPatchRequest(
       {required this.base,
@@ -2534,10 +2706,17 @@ class _$FhirPatchRequest extends FhirPatchRequest {
       final List<String> parameters = const <String>[],
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'patch',
         super._();
+
+  factory _$FhirPatchRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirPatchRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -2598,12 +2777,34 @@ class _$FhirPatchRequest extends FhirPatchRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.patch(base: $base, resource: $resource, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.patch(base: $base, resource: $resource, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -2623,9 +2824,11 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -2638,7 +2841,8 @@ class _$FhirPatchRequest extends FhirPatchRequest {
       const DeepCollectionEquality().hash(_parameters),
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -2660,7 +2864,9 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -2674,9 +2880,23 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -2688,7 +2908,9 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -2701,45 +2923,22 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return patch(base, resource, pretty, summary, format, elements, parameters,
-        mimeType, accept, client);
+        mimeType, accept, client, headers);
   }
 
   @override
@@ -2756,7 +2955,9 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -2770,9 +2971,23 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -2784,7 +2999,9 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -2797,45 +3014,22 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return patch?.call(base, resource, pretty, summary, format, elements,
-        parameters, mimeType, accept, client);
+        parameters, mimeType, accept, client, headers);
   }
 
   @override
@@ -2852,7 +3046,9 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -2866,9 +3062,23 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -2880,7 +3090,9 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -2893,47 +3105,24 @@ class _$FhirPatchRequest extends FhirPatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (patch != null) {
       return patch(base, resource, pretty, summary, format, elements,
-          parameters, mimeType, accept, client);
+          parameters, mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -3007,6 +3196,13 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirPatchRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirPatchRequest extends FhirRequest {
@@ -3020,8 +3216,13 @@ abstract class FhirPatchRequest extends FhirRequest {
       final List<String> parameters,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirPatchRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirPatchRequest;
   const FhirPatchRequest._() : super._();
+
+  factory FhirPatchRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirPatchRequest.fromJson;
 
   @override
 
@@ -3063,7 +3264,15 @@ abstract class FhirPatchRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirPatchRequestCopyWith<_$FhirPatchRequest> get copyWith =>
@@ -3089,7 +3298,8 @@ abstract class _$$FhirDeleteRequestCopyWith<$Res>
       List<String> parameters,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -3114,6 +3324,7 @@ class __$$FhirDeleteRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirDeleteRequest(
       base: null == base
@@ -3160,12 +3371,16 @@ class __$$FhirDeleteRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirDeleteRequest extends FhirDeleteRequest {
   const _$FhirDeleteRequest(
       {required this.base,
@@ -3178,10 +3393,17 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
       final List<String> parameters = const <String>[],
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'delete',
         super._();
+
+  factory _$FhirDeleteRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirDeleteRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -3248,12 +3470,34 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.delete(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.delete(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -3273,9 +3517,11 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -3289,7 +3535,8 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
       const DeepCollectionEquality().hash(_parameters),
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -3311,7 +3558,9 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -3325,9 +3574,23 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -3339,7 +3602,9 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -3352,45 +3617,22 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return delete(base, type, fhirId, pretty, summary, format, elements,
-        parameters, mimeType, accept, client);
+        parameters, mimeType, accept, client, headers);
   }
 
   @override
@@ -3407,7 +3649,9 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -3421,9 +3665,23 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -3435,7 +3693,9 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -3448,45 +3708,22 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return delete?.call(base, type, fhirId, pretty, summary, format, elements,
-        parameters, mimeType, accept, client);
+        parameters, mimeType, accept, client, headers);
   }
 
   @override
@@ -3503,7 +3740,9 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -3517,9 +3756,23 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -3531,7 +3784,9 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -3544,47 +3799,24 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (delete != null) {
       return delete(base, type, fhirId, pretty, summary, format, elements,
-          parameters, mimeType, accept, client);
+          parameters, mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -3658,6 +3890,13 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirDeleteRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirDeleteRequest extends FhirRequest {
@@ -3672,8 +3911,13 @@ abstract class FhirDeleteRequest extends FhirRequest {
       final List<String> parameters,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirDeleteRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirDeleteRequest;
   const FhirDeleteRequest._() : super._();
+
+  factory FhirDeleteRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirDeleteRequest.fromJson;
 
   @override
 
@@ -3720,7 +3964,15 @@ abstract class FhirDeleteRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirDeleteRequestCopyWith<_$FhirDeleteRequest> get copyWith =>
@@ -3745,7 +3997,8 @@ abstract class _$$FhirCreateRequestCopyWith<$Res>
       List<String> parameters,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -3769,6 +4022,7 @@ class __$$FhirCreateRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirCreateRequest(
       base: null == base
@@ -3811,12 +4065,16 @@ class __$$FhirCreateRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirCreateRequest extends FhirCreateRequest {
   const _$FhirCreateRequest(
       {required this.base,
@@ -3828,10 +4086,17 @@ class _$FhirCreateRequest extends FhirCreateRequest {
       final List<String> parameters = const <String>[],
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'create',
         super._();
+
+  factory _$FhirCreateRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirCreateRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -3892,12 +4157,34 @@ class _$FhirCreateRequest extends FhirCreateRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.create(base: $base, resource: $resource, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.create(base: $base, resource: $resource, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -3917,9 +4204,11 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -3932,7 +4221,8 @@ class _$FhirCreateRequest extends FhirCreateRequest {
       const DeepCollectionEquality().hash(_parameters),
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -3954,7 +4244,9 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -3968,9 +4260,23 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -3982,7 +4288,9 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -3995,45 +4303,22 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return create(base, resource, pretty, summary, format, elements, parameters,
-        mimeType, accept, client);
+        mimeType, accept, client, headers);
   }
 
   @override
@@ -4050,7 +4335,9 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -4064,9 +4351,23 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -4078,7 +4379,9 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -4091,45 +4394,22 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return create?.call(base, resource, pretty, summary, format, elements,
-        parameters, mimeType, accept, client);
+        parameters, mimeType, accept, client, headers);
   }
 
   @override
@@ -4146,7 +4426,9 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -4160,9 +4442,23 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -4174,7 +4470,9 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -4187,47 +4485,24 @@ class _$FhirCreateRequest extends FhirCreateRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (create != null) {
       return create(base, resource, pretty, summary, format, elements,
-          parameters, mimeType, accept, client);
+          parameters, mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -4301,6 +4576,13 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirCreateRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirCreateRequest extends FhirRequest {
@@ -4314,8 +4596,13 @@ abstract class FhirCreateRequest extends FhirRequest {
       final List<String> parameters,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirCreateRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirCreateRequest;
   const FhirCreateRequest._() : super._();
+
+  factory FhirCreateRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirCreateRequest.fromJson;
 
   @override
 
@@ -4357,7 +4644,15 @@ abstract class FhirCreateRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirCreateRequestCopyWith<_$FhirCreateRequest> get copyWith =>
@@ -4384,7 +4679,8 @@ abstract class _$$FhirSearchRequestCopyWith<$Res>
       RestfulRequest restfulRequest,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -4410,6 +4706,7 @@ class __$$FhirSearchRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirSearchRequest(
       base: null == base
@@ -4460,12 +4757,16 @@ class __$$FhirSearchRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirSearchRequest extends FhirSearchRequest {
   const _$FhirSearchRequest(
       {required this.base,
@@ -4479,10 +4780,17 @@ class _$FhirSearchRequest extends FhirSearchRequest {
       this.restfulRequest = RestfulRequest.get_,
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'search',
         super._();
+
+  factory _$FhirSearchRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirSearchRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -4554,12 +4862,34 @@ class _$FhirSearchRequest extends FhirSearchRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.search(base: $base, type: $type, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, usePost: $usePost, restfulRequest: $restfulRequest, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.search(base: $base, type: $type, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, usePost: $usePost, restfulRequest: $restfulRequest, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -4581,9 +4911,11 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -4598,7 +4930,8 @@ class _$FhirSearchRequest extends FhirSearchRequest {
       restfulRequest,
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -4620,7 +4953,9 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -4634,9 +4969,23 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -4648,7 +4997,9 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -4661,45 +5012,22 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return search(base, type, pretty, summary, format, elements, parameters,
-        usePost, restfulRequest, mimeType, accept, client);
+        usePost, restfulRequest, mimeType, accept, client, headers);
   }
 
   @override
@@ -4716,7 +5044,9 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -4730,9 +5060,23 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -4744,7 +5088,9 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -4757,45 +5103,22 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return search?.call(base, type, pretty, summary, format, elements,
-        parameters, usePost, restfulRequest, mimeType, accept, client);
+        parameters, usePost, restfulRequest, mimeType, accept, client, headers);
   }
 
   @override
@@ -4812,7 +5135,9 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -4826,9 +5151,23 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -4840,7 +5179,9 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -4853,47 +5194,24 @@ class _$FhirSearchRequest extends FhirSearchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (search != null) {
       return search(base, type, pretty, summary, format, elements, parameters,
-          usePost, restfulRequest, mimeType, accept, client);
+          usePost, restfulRequest, mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -4967,6 +5285,13 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirSearchRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirSearchRequest extends FhirRequest {
@@ -4982,8 +5307,13 @@ abstract class FhirSearchRequest extends FhirRequest {
       final RestfulRequest restfulRequest,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirSearchRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirSearchRequest;
   const FhirSearchRequest._() : super._();
+
+  factory FhirSearchRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirSearchRequest.fromJson;
 
   @override
 
@@ -5032,7 +5362,15 @@ abstract class FhirSearchRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirSearchRequestCopyWith<_$FhirSearchRequest> get copyWith =>
@@ -5056,7 +5394,8 @@ abstract class _$$FhirSearchAllRequestCopyWith<$Res>
       List<String> parameters,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -5079,6 +5418,7 @@ class __$$FhirSearchAllRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirSearchAllRequest(
       base: null == base
@@ -5117,12 +5457,16 @@ class __$$FhirSearchAllRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirSearchAllRequest extends FhirSearchAllRequest {
   const _$FhirSearchAllRequest(
       {required this.base,
@@ -5133,10 +5477,17 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
       final List<String> parameters = const <String>[],
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'searchAll',
         super._();
+
+  factory _$FhirSearchAllRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirSearchAllRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -5195,12 +5546,34 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.searchAll(base: $base, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.searchAll(base: $base, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -5218,9 +5591,11 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -5232,7 +5607,8 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
       const DeepCollectionEquality().hash(_parameters),
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -5255,7 +5631,9 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -5269,9 +5647,23 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -5283,7 +5675,9 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -5296,45 +5690,22 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return searchAll(base, pretty, summary, format, elements, parameters,
-        mimeType, accept, client);
+        mimeType, accept, client, headers);
   }
 
   @override
@@ -5351,7 +5722,9 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -5365,9 +5738,23 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -5379,7 +5766,9 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -5392,45 +5781,22 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return searchAll?.call(base, pretty, summary, format, elements, parameters,
-        mimeType, accept, client);
+        mimeType, accept, client, headers);
   }
 
   @override
@@ -5447,7 +5813,9 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -5461,9 +5829,23 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -5475,7 +5857,9 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -5488,47 +5872,24 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (searchAll != null) {
       return searchAll(base, pretty, summary, format, elements, parameters,
-          mimeType, accept, client);
+          mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -5602,6 +5963,13 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirSearchAllRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirSearchAllRequest extends FhirRequest {
@@ -5614,8 +5982,13 @@ abstract class FhirSearchAllRequest extends FhirRequest {
       final List<String> parameters,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirSearchAllRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirSearchAllRequest;
   const FhirSearchAllRequest._() : super._();
+
+  factory FhirSearchAllRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirSearchAllRequest.fromJson;
 
   @override
 
@@ -5656,7 +6029,15 @@ abstract class FhirSearchAllRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirSearchAllRequestCopyWith<_$FhirSearchAllRequest> get copyWith =>
@@ -5681,7 +6062,8 @@ abstract class _$$FhirCapabilitiesRequestCopyWith<$Res>
       Mode mode,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -5705,6 +6087,7 @@ class __$$FhirCapabilitiesRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirCapabilitiesRequest(
       base: null == base
@@ -5747,12 +6130,16 @@ class __$$FhirCapabilitiesRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
   const _$FhirCapabilitiesRequest(
       {required this.base,
@@ -5764,10 +6151,17 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
       this.mode = Mode.full,
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'capabilities',
         super._();
+
+  factory _$FhirCapabilitiesRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirCapabilitiesRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -5831,12 +6225,34 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.capabilities(base: $base, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mode: $mode, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.capabilities(base: $base, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, mode: $mode, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -5855,9 +6271,11 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -5870,7 +6288,8 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
       mode,
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -5893,7 +6312,9 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -5907,9 +6328,23 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -5921,7 +6356,9 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -5934,45 +6371,22 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return capabilities(base, pretty, summary, format, elements, parameters,
-        mode, mimeType, accept, client);
+        mode, mimeType, accept, client, headers);
   }
 
   @override
@@ -5989,7 +6403,9 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -6003,9 +6419,23 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -6017,7 +6447,9 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -6030,45 +6462,22 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return capabilities?.call(base, pretty, summary, format, elements,
-        parameters, mode, mimeType, accept, client);
+        parameters, mode, mimeType, accept, client, headers);
   }
 
   @override
@@ -6085,7 +6494,9 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -6099,9 +6510,23 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -6113,7 +6538,9 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -6126,47 +6553,24 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (capabilities != null) {
       return capabilities(base, pretty, summary, format, elements, parameters,
-          mode, mimeType, accept, client);
+          mode, mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -6240,6 +6644,13 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirCapabilitiesRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirCapabilitiesRequest extends FhirRequest {
@@ -6253,8 +6664,13 @@ abstract class FhirCapabilitiesRequest extends FhirRequest {
       final Mode mode,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirCapabilitiesRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirCapabilitiesRequest;
   const FhirCapabilitiesRequest._() : super._();
+
+  factory FhirCapabilitiesRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirCapabilitiesRequest.fromJson;
 
   @override
 
@@ -6298,7 +6714,15 @@ abstract class FhirCapabilitiesRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirCapabilitiesRequestCopyWith<_$FhirCapabilitiesRequest> get copyWith =>
@@ -6323,7 +6747,8 @@ abstract class _$$FhirTransactionRequestCopyWith<$Res>
       Bundle bundle,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 
   $BundleCopyWith<$Res> get bundle;
 }
@@ -6349,6 +6774,7 @@ class __$$FhirTransactionRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirTransactionRequest(
       base: null == base
@@ -6391,6 +6817,10 @@ class __$$FhirTransactionRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 
@@ -6404,7 +6834,7 @@ class __$$FhirTransactionRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirTransactionRequest extends FhirTransactionRequest {
   const _$FhirTransactionRequest(
       {required this.base,
@@ -6416,10 +6846,17 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
       required this.bundle,
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'transaction',
         super._();
+
+  factory _$FhirTransactionRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirTransactionRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -6482,12 +6919,34 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.transaction(base: $base, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, bundle: $bundle, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.transaction(base: $base, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, bundle: $bundle, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -6506,9 +6965,11 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -6521,7 +6982,8 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
       bundle,
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -6544,7 +7006,9 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -6558,9 +7022,23 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -6572,7 +7050,9 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -6585,45 +7065,22 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return transaction(base, pretty, summary, format, elements, parameters,
-        bundle, mimeType, accept, client);
+        bundle, mimeType, accept, client, headers);
   }
 
   @override
@@ -6640,7 +7097,9 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -6654,9 +7113,23 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -6668,7 +7141,9 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -6681,45 +7156,22 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return transaction?.call(base, pretty, summary, format, elements,
-        parameters, bundle, mimeType, accept, client);
+        parameters, bundle, mimeType, accept, client, headers);
   }
 
   @override
@@ -6736,7 +7188,9 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -6750,9 +7204,23 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -6764,7 +7232,9 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -6777,47 +7247,24 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (transaction != null) {
       return transaction(base, pretty, summary, format, elements, parameters,
-          bundle, mimeType, accept, client);
+          bundle, mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -6891,6 +7338,13 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirTransactionRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirTransactionRequest extends FhirRequest {
@@ -6904,8 +7358,13 @@ abstract class FhirTransactionRequest extends FhirRequest {
       required final Bundle bundle,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirTransactionRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirTransactionRequest;
   const FhirTransactionRequest._() : super._();
+
+  factory FhirTransactionRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirTransactionRequest.fromJson;
 
   @override
 
@@ -6949,7 +7408,15 @@ abstract class FhirTransactionRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirTransactionRequestCopyWith<_$FhirTransactionRequest> get copyWith =>
@@ -6974,7 +7441,8 @@ abstract class _$$FhirBatchRequestCopyWith<$Res>
       Bundle bundle,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 
   $BundleCopyWith<$Res> get bundle;
 }
@@ -7000,6 +7468,7 @@ class __$$FhirBatchRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirBatchRequest(
       base: null == base
@@ -7042,6 +7511,10 @@ class __$$FhirBatchRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 
@@ -7055,7 +7528,7 @@ class __$$FhirBatchRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirBatchRequest extends FhirBatchRequest {
   const _$FhirBatchRequest(
       {required this.base,
@@ -7067,10 +7540,17 @@ class _$FhirBatchRequest extends FhirBatchRequest {
       required this.bundle,
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'batch',
         super._();
+
+  factory _$FhirBatchRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirBatchRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -7133,12 +7613,34 @@ class _$FhirBatchRequest extends FhirBatchRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.batch(base: $base, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, bundle: $bundle, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.batch(base: $base, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, bundle: $bundle, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -7157,9 +7659,11 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -7172,7 +7676,8 @@ class _$FhirBatchRequest extends FhirBatchRequest {
       bundle,
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -7194,7 +7699,9 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -7208,9 +7715,23 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -7222,7 +7743,9 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -7235,45 +7758,22 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return batch(base, pretty, summary, format, elements, parameters, bundle,
-        mimeType, accept, client);
+        mimeType, accept, client, headers);
   }
 
   @override
@@ -7290,7 +7790,9 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -7304,9 +7806,23 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -7318,7 +7834,9 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -7331,45 +7849,22 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return batch?.call(base, pretty, summary, format, elements, parameters,
-        bundle, mimeType, accept, client);
+        bundle, mimeType, accept, client, headers);
   }
 
   @override
@@ -7386,7 +7881,9 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -7400,9 +7897,23 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -7414,7 +7925,9 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -7427,47 +7940,24 @@ class _$FhirBatchRequest extends FhirBatchRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (batch != null) {
       return batch(base, pretty, summary, format, elements, parameters, bundle,
-          mimeType, accept, client);
+          mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -7541,6 +8031,13 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirBatchRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirBatchRequest extends FhirRequest {
@@ -7554,8 +8051,13 @@ abstract class FhirBatchRequest extends FhirRequest {
       required final Bundle bundle,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirBatchRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirBatchRequest;
   const FhirBatchRequest._() : super._();
+
+  factory FhirBatchRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirBatchRequest.fromJson;
 
   @override
 
@@ -7599,7 +8101,15 @@ abstract class FhirBatchRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirBatchRequestCopyWith<_$FhirBatchRequest> get copyWith =>
@@ -7629,7 +8139,8 @@ abstract class _$$FhirHistoryRequestCopyWith<$Res>
       String? reference,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -7658,6 +8169,7 @@ class __$$FhirHistoryRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirHistoryRequest(
       base: null == base
@@ -7720,12 +8232,16 @@ class __$$FhirHistoryRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirHistoryRequest extends FhirHistoryRequest {
   const _$FhirHistoryRequest(
       {required this.base,
@@ -7742,10 +8258,17 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
       this.reference,
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'history',
         super._();
+
+  factory _$FhirHistoryRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirHistoryRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -7833,12 +8356,34 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.history(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, count: $count, since: $since, at: $at, reference: $reference, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.history(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, count: $count, since: $since, at: $at, reference: $reference, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -7863,9 +8408,11 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -7883,7 +8430,8 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
       reference,
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -7906,7 +8454,9 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -7920,9 +8470,23 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -7934,7 +8498,9 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -7947,45 +8513,37 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
-    return history(base, type, fhirId, pretty, summary, format, elements,
-        parameters, count, since, at, reference, mimeType, accept, client);
+    return history(
+        base,
+        type,
+        fhirId,
+        pretty,
+        summary,
+        format,
+        elements,
+        parameters,
+        count,
+        since,
+        at,
+        reference,
+        mimeType,
+        accept,
+        client,
+        headers);
   }
 
   @override
@@ -8002,7 +8560,9 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -8016,9 +8576,23 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -8030,7 +8604,9 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -8043,45 +8619,37 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
-    return history?.call(base, type, fhirId, pretty, summary, format, elements,
-        parameters, count, since, at, reference, mimeType, accept, client);
+    return history?.call(
+        base,
+        type,
+        fhirId,
+        pretty,
+        summary,
+        format,
+        elements,
+        parameters,
+        count,
+        since,
+        at,
+        reference,
+        mimeType,
+        accept,
+        client,
+        headers);
   }
 
   @override
@@ -8098,7 +8666,9 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -8112,9 +8682,23 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -8126,7 +8710,9 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -8139,47 +8725,39 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (history != null) {
-      return history(base, type, fhirId, pretty, summary, format, elements,
-          parameters, count, since, at, reference, mimeType, accept, client);
+      return history(
+          base,
+          type,
+          fhirId,
+          pretty,
+          summary,
+          format,
+          elements,
+          parameters,
+          count,
+          since,
+          at,
+          reference,
+          mimeType,
+          accept,
+          client,
+          headers);
     }
     return orElse();
   }
@@ -8253,6 +8831,13 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirHistoryRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirHistoryRequest extends FhirRequest {
@@ -8271,8 +8856,13 @@ abstract class FhirHistoryRequest extends FhirRequest {
       final String? reference,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirHistoryRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirHistoryRequest;
   const FhirHistoryRequest._() : super._();
+
+  factory FhirHistoryRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirHistoryRequest.fromJson;
 
   @override
 
@@ -8336,7 +8926,15 @@ abstract class FhirHistoryRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirHistoryRequestCopyWith<_$FhirHistoryRequest> get copyWith =>
@@ -8365,7 +8963,8 @@ abstract class _$$FhirHistoryTypeRequestCopyWith<$Res>
       String? reference,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -8393,6 +8992,7 @@ class __$$FhirHistoryTypeRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirHistoryTypeRequest(
       base: null == base
@@ -8451,12 +9051,16 @@ class __$$FhirHistoryTypeRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
   const _$FhirHistoryTypeRequest(
       {required this.base,
@@ -8472,10 +9076,17 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
       this.reference,
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'historyType',
         super._();
+
+  factory _$FhirHistoryTypeRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirHistoryTypeRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -8559,12 +9170,34 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.historyType(base: $base, type: $type, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, count: $count, since: $since, at: $at, reference: $reference, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.historyType(base: $base, type: $type, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, count: $count, since: $since, at: $at, reference: $reference, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -8588,9 +9221,11 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -8607,7 +9242,8 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
       reference,
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -8630,7 +9266,9 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -8644,9 +9282,23 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -8658,7 +9310,9 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -8671,45 +9325,36 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
-    return historyType(base, type, pretty, summary, format, elements,
-        parameters, count, since, at, reference, mimeType, accept, client);
+    return historyType(
+        base,
+        type,
+        pretty,
+        summary,
+        format,
+        elements,
+        parameters,
+        count,
+        since,
+        at,
+        reference,
+        mimeType,
+        accept,
+        client,
+        headers);
   }
 
   @override
@@ -8726,7 +9371,9 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -8740,9 +9387,23 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -8754,7 +9415,9 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -8767,45 +9430,36 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
-    return historyType?.call(base, type, pretty, summary, format, elements,
-        parameters, count, since, at, reference, mimeType, accept, client);
+    return historyType?.call(
+        base,
+        type,
+        pretty,
+        summary,
+        format,
+        elements,
+        parameters,
+        count,
+        since,
+        at,
+        reference,
+        mimeType,
+        accept,
+        client,
+        headers);
   }
 
   @override
@@ -8822,7 +9476,9 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -8836,9 +9492,23 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -8850,7 +9520,9 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -8863,47 +9535,38 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (historyType != null) {
-      return historyType(base, type, pretty, summary, format, elements,
-          parameters, count, since, at, reference, mimeType, accept, client);
+      return historyType(
+          base,
+          type,
+          pretty,
+          summary,
+          format,
+          elements,
+          parameters,
+          count,
+          since,
+          at,
+          reference,
+          mimeType,
+          accept,
+          client,
+          headers);
     }
     return orElse();
   }
@@ -8977,6 +9640,13 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirHistoryTypeRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirHistoryTypeRequest extends FhirRequest {
@@ -8994,8 +9664,13 @@ abstract class FhirHistoryTypeRequest extends FhirRequest {
       final String? reference,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirHistoryTypeRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirHistoryTypeRequest;
   const FhirHistoryTypeRequest._() : super._();
+
+  factory FhirHistoryTypeRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirHistoryTypeRequest.fromJson;
 
   @override
 
@@ -9056,7 +9731,15 @@ abstract class FhirHistoryTypeRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirHistoryTypeRequestCopyWith<_$FhirHistoryTypeRequest> get copyWith =>
@@ -9084,7 +9767,8 @@ abstract class _$$FhirHistoryAllRequestCopyWith<$Res>
       String? reference,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 }
 
 /// @nodoc
@@ -9111,6 +9795,7 @@ class __$$FhirHistoryAllRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirHistoryAllRequest(
       base: null == base
@@ -9165,12 +9850,16 @@ class __$$FhirHistoryAllRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
   const _$FhirHistoryAllRequest(
       {required this.base,
@@ -9185,10 +9874,17 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
       this.reference,
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'historyAll',
         super._();
+
+  factory _$FhirHistoryAllRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirHistoryAllRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -9268,12 +9964,34 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.historyAll(base: $base, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, count: $count, since: $since, at: $at, reference: $reference, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.historyAll(base: $base, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, count: $count, since: $since, at: $at, reference: $reference, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -9296,9 +10014,11 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -9314,7 +10034,8 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
       reference,
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -9337,7 +10058,9 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -9351,9 +10074,23 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -9365,7 +10102,9 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -9378,45 +10117,22 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return historyAll(base, pretty, summary, format, elements, parameters,
-        count, since, at, reference, mimeType, accept, client);
+        count, since, at, reference, mimeType, accept, client, headers);
   }
 
   @override
@@ -9433,7 +10149,9 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -9447,9 +10165,23 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -9461,7 +10193,9 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -9474,45 +10208,22 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return historyAll?.call(base, pretty, summary, format, elements, parameters,
-        count, since, at, reference, mimeType, accept, client);
+        count, since, at, reference, mimeType, accept, client, headers);
   }
 
   @override
@@ -9529,7 +10240,9 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -9543,9 +10256,23 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -9557,7 +10284,9 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -9570,47 +10299,24 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (historyAll != null) {
       return historyAll(base, pretty, summary, format, elements, parameters,
-          count, since, at, reference, mimeType, accept, client);
+          count, since, at, reference, mimeType, accept, client, headers);
     }
     return orElse();
   }
@@ -9684,6 +10390,13 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirHistoryAllRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirHistoryAllRequest extends FhirRequest {
@@ -9700,8 +10413,13 @@ abstract class FhirHistoryAllRequest extends FhirRequest {
       final String? reference,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirHistoryAllRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirHistoryAllRequest;
   const FhirHistoryAllRequest._() : super._();
+
+  factory FhirHistoryAllRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirHistoryAllRequest.fromJson;
 
   @override
 
@@ -9759,7 +10477,15 @@ abstract class FhirHistoryAllRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirHistoryAllRequestCopyWith<_$FhirHistoryAllRequest> get copyWith =>
@@ -9789,7 +10515,8 @@ abstract class _$$FhirOperationRequestCopyWith<$Res>
       bool useFormData,
       MimeType? mimeType,
       String accept,
-      Client? client});
+      @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+      Map<String, String>? headers});
 
   $ParametersCopyWith<$Res>? get fhirParameter;
 }
@@ -9820,6 +10547,7 @@ class __$$FhirOperationRequestCopyWithImpl<$Res>
     Object? mimeType = freezed,
     Object? accept = null,
     Object? client = freezed,
+    Object? headers = freezed,
   }) {
     return _then(_$FhirOperationRequest(
       base: null == base
@@ -9882,6 +10610,10 @@ class __$$FhirOperationRequestCopyWithImpl<$Res>
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as Client?,
+      headers: freezed == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 
@@ -9899,7 +10631,7 @@ class __$$FhirOperationRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FhirOperationRequest extends FhirOperationRequest {
   const _$FhirOperationRequest(
       {required this.base,
@@ -9916,10 +10648,17 @@ class _$FhirOperationRequest extends FhirOperationRequest {
       this.useFormData = false,
       this.mimeType,
       this.accept = 'application/fhir+json',
-      this.client})
+      @JsonKey(includeFromJson: false, includeToJson: false) this.client,
+      final Map<String, String>? headers,
+      final String? $type})
       : _elements = elements,
         _parameters = parameters,
+        _headers = headers,
+        $type = $type ?? 'operation',
         super._();
+
+  factory _$FhirOperationRequest.fromJson(Map<String, dynamic> json) =>
+      _$$FhirOperationRequestFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -9997,12 +10736,34 @@ class _$FhirOperationRequest extends FhirOperationRequest {
   final String accept;
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Client? client;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  final Map<String, String>? _headers;
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  @override
+  Map<String, String>? get headers {
+    final value = _headers;
+    if (value == null) return null;
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
-    return 'FhirRequest.operation(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, fhirParameter: $fhirParameter, operation: $operation, usePost: $usePost, useFormData: $useFormData, mimeType: $mimeType, accept: $accept, client: $client)';
+    return 'FhirRequest.operation(base: $base, type: $type, fhirId: $fhirId, pretty: $pretty, summary: $summary, format: $format, elements: $elements, parameters: $parameters, fhirParameter: $fhirParameter, operation: $operation, usePost: $usePost, useFormData: $useFormData, mimeType: $mimeType, accept: $accept, client: $client, headers: $headers)';
   }
 
   @override
@@ -10029,9 +10790,11 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.accept, accept) || other.accept == accept) &&
-            (identical(other.client, client) || other.client == client));
+            (identical(other.client, client) || other.client == client) &&
+            const DeepCollectionEquality().equals(other._headers, _headers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -10049,7 +10812,8 @@ class _$FhirOperationRequest extends FhirOperationRequest {
       useFormData,
       mimeType,
       accept,
-      client);
+      client,
+      const DeepCollectionEquality().hash(_headers));
 
   @JsonKey(ignore: true)
   @override
@@ -10072,7 +10836,9 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         read,
     required TResult Function(
             Uri base,
@@ -10086,9 +10852,23 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         vRead,
-    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)
+    required TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         update,
     required TResult Function(
             Uri base,
@@ -10100,7 +10880,9 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)
         patch,
     required TResult Function(
             Uri base,
@@ -10113,42 +10895,19 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)
         delete,
-    required TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        create,
-    required TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)
-        search,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client) searchAll,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client) capabilities,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) transaction,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client) batch,
-    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) history,
-    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyType,
-    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client) historyAll,
-    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client) operation,
+    required TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) create,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) search,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) searchAll,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) capabilities,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) transaction,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) batch,
+    required TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) history,
+    required TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyType,
+    required TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) historyAll,
+    required TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers) operation,
   }) {
     return operation(
         base,
@@ -10165,7 +10924,8 @@ class _$FhirOperationRequest extends FhirOperationRequest {
         useFormData,
         mimeType,
         accept,
-        client);
+        client,
+        headers);
   }
 
   @override
@@ -10182,7 +10942,9 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult? Function(
             Uri base,
@@ -10196,9 +10958,23 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult? Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult? Function(
             Uri base,
@@ -10210,7 +10986,9 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult? Function(
             Uri base,
@@ -10223,42 +11001,19 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult? Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult? Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult? Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult? Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult? Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult? Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult? Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
   }) {
     return operation?.call(
         base,
@@ -10275,7 +11030,8 @@ class _$FhirOperationRequest extends FhirOperationRequest {
         useFormData,
         mimeType,
         accept,
-        client);
+        client,
+        headers);
   }
 
   @override
@@ -10292,7 +11048,9 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         read,
     TResult Function(
             Uri base,
@@ -10306,9 +11064,23 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         vRead,
-    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)?
+    TResult Function(
+            Uri base,
+            Resource resource,
+            bool pretty,
+            Summary summary,
+            String format,
+            List<String> elements,
+            List<String> parameters,
+            MimeType? mimeType,
+            String accept,
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         update,
     TResult Function(
             Uri base,
@@ -10320,7 +11092,9 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false)
+                Client? client,
+            Map<String, String>? headers)?
         patch,
     TResult Function(
             Uri base,
@@ -10333,42 +11107,19 @@ class _$FhirOperationRequest extends FhirOperationRequest {
             List<String> parameters,
             MimeType? mimeType,
             String accept,
-            Client? client)?
+            @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+            Map<String, String>? headers)?
         delete,
-    TResult Function(
-            Uri base,
-            Resource resource,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        create,
-    TResult Function(
-            Uri base,
-            R4ResourceType type,
-            bool pretty,
-            Summary summary,
-            String format,
-            List<String> elements,
-            List<String> parameters,
-            bool usePost,
-            RestfulRequest restfulRequest,
-            MimeType? mimeType,
-            String accept,
-            Client? client)?
-        search,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, Client? client)? searchAll,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, Client? client)? capabilities,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? transaction,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, Client? client)? batch,
-    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? history,
-    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyType,
-    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, Client? client)? historyAll,
-    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, Client? client)? operation,
+    TResult Function(Uri base, Resource resource, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? create,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, bool usePost, RestfulRequest restfulRequest, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? search,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? searchAll,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Mode mode, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? capabilities,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? transaction,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Bundle bundle, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? batch,
+    TResult Function(Uri base, R4ResourceType type, String fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? history,
+    TResult Function(Uri base, R4ResourceType type, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyType,
+    TResult Function(Uri base, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, int? count, FhirInstant? since, FhirDateTime? at, String? reference, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? historyAll,
+    TResult Function(Uri base, R4ResourceType? type, String? fhirId, bool pretty, Summary summary, String format, List<String> elements, List<String> parameters, Parameters? fhirParameter, String operation, bool usePost, bool useFormData, MimeType? mimeType, String accept, @JsonKey(includeFromJson: false, includeToJson: false) Client? client, Map<String, String>? headers)? operation,
     required TResult orElse(),
   }) {
     if (operation != null) {
@@ -10387,7 +11138,8 @@ class _$FhirOperationRequest extends FhirOperationRequest {
           useFormData,
           mimeType,
           accept,
-          client);
+          client,
+          headers);
     }
     return orElse();
   }
@@ -10461,6 +11213,13 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FhirOperationRequestToJson(
+      this,
+    );
+  }
 }
 
 abstract class FhirOperationRequest extends FhirRequest {
@@ -10479,8 +11238,13 @@ abstract class FhirOperationRequest extends FhirRequest {
       final bool useFormData,
       final MimeType? mimeType,
       final String accept,
-      final Client? client}) = _$FhirOperationRequest;
+      @JsonKey(includeFromJson: false, includeToJson: false)
+          final Client? client,
+      final Map<String, String>? headers}) = _$FhirOperationRequest;
   const FhirOperationRequest._() : super._();
+
+  factory FhirOperationRequest.fromJson(Map<String, dynamic> json) =
+      _$FhirOperationRequest.fromJson;
 
   @override
 
@@ -10532,7 +11296,15 @@ abstract class FhirOperationRequest extends FhirRequest {
   @override
 
   /// [client] - if there's a specific client that you're going to be using
+// ignore: invalid_annotation_target
+  @JsonKey(includeFromJson: false, includeToJson: false)
   Client? get client;
+  @override
+
+  /// [headers] - because there are some times it's easier to incldue the
+  /// headers in the object instead of only passing it in with the
+  /// request
+  Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
   _$$FhirOperationRequestCopyWith<_$FhirOperationRequest> get copyWith =>

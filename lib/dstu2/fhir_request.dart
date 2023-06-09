@@ -13,6 +13,7 @@ import '../enums/enums.dart';
 import '../globals.dart' as globals;
 
 part 'fhir_request.freezed.dart';
+part 'fhir_request.g.dart';
 
 @freezed
 
@@ -70,7 +71,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirReadRequest;
 
   ///  VREAD constructor
@@ -125,7 +132,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirVReadRequest;
 
   ///  UPDATE constructor
@@ -171,7 +184,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirUpdateRequest;
 
   ///  PATCH constructor
@@ -217,7 +236,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirPatchRequest;
 
   ///  DELETE constructor
@@ -270,7 +295,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirDeleteRequest;
 
   ///  CREATE constructor
@@ -316,7 +347,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirCreateRequest;
 
   ///  SEARCH constructor
@@ -372,7 +409,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirSearchRequest;
 
   ///  SEARCH-ALL constructor
@@ -417,7 +460,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirSearchAllRequest;
 
   ///  SEARCH-ALL constructor
@@ -466,7 +515,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirCapabilitiesRequest;
 
   ///  TRANSACTION constructor
@@ -515,7 +570,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirTransactionRequest;
 
   ///  BATCH constructor
@@ -564,7 +625,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirBatchRequest;
 
   ///  HISTORY constructor
@@ -643,7 +710,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirHistoryRequest;
 
   ///  HISTORY-TYPE constructor
@@ -718,7 +791,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirHistoryTypeRequest;
 
   ///  HISTORY-ALL constructor
@@ -789,7 +868,13 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirHistoryAllRequest;
 
   ///  OPERATION constructor
@@ -849,8 +934,30 @@ class FhirRequest with _$FhirRequest {
     @Default('application/fhir+json') String accept,
 
     /// [client] - if there's a specific client that you're going to be using
-    Client? client,
+    // ignore: invalid_annotation_target
+    @JsonKey(includeFromJson: false, includeToJson: false) Client? client,
+
+    /// [headers] - because there are some times it's easier to incldue the
+    /// headers in the object instead of only passing it in with the
+    /// request
+    Map<String, String>? headers,
   }) = FhirOperationRequest;
+
+  /// Factory constructor, accepts [Map<String, dynamic>] as an argument
+  factory FhirRequest.fromJson(Map<String, dynamic> json) =>
+      _$FhirRequestFromJson(json);
+
+  /// Acts like a constructor, returns a [FhirRequest], accepts a
+  /// [String] as an argument, mostly because I got tired of typing it out
+  factory FhirRequest.fromJsonString(String source) {
+    final dynamic json = jsonDecode(source);
+    if (json is Map<String, dynamic>) {
+      return _$FhirRequestFromJson(json);
+    } else {
+      throw FormatException('FormatException:\nYou passed $json\n'
+          'This does not properly decode to a Map<String,dynamic>.');
+    }
+  }
 
   /// REQUEST
   /// after creating a request with the above constructors, they can be called
@@ -1331,7 +1438,7 @@ class FhirRequest with _$FhirRequest {
     ///   but there are some older systems that won't accept that
     MimeType? mimeType,
 
-    /// [client] - if there's a specific client that you're going to be using
+    /// [client] - if there's a specific client that you're going to be usClient? client,ing
     Client? client,
   }) async {
     headers ??= <String, String>{};

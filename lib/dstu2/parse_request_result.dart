@@ -1,8 +1,8 @@
 // Package imports:
-import 'package:fhir/r4.dart';
+import 'package:fhir/dstu2.dart';
 
 // Project imports:
-import '../r4.dart';
+import 'dstu2.dart';
 
 /// There are usually 3 types of responses from a RESTful request made to a FHIR
 /// server. It can be a single Resource, it can be a Bundle, or it can be an
@@ -38,7 +38,7 @@ ReturnResults<Resource> parseRequestResult(Resource result) => result is Bundle
 /// OperationOutcomes that don't contain a Resource
 ReturnResults<Resource> parseBundle(Bundle bundle) {
   final ReturnResults<Resource> returnResults = ReturnResults<Resource>();
-  if (bundle.type == FhirCode('transaction-response')) {
+  if (bundle.type == BundleType.transaction_response) {
     for (final BundleEntry entry in bundle.entry ?? <BundleEntry>[]) {
       if (entry.resource != null) {
         if (entry.resource is OperationOutcome) {
@@ -52,23 +52,12 @@ ReturnResults<Resource> parseBundle(Bundle bundle) {
         } else {
           returnResults.resources.add(entry.resource!);
         }
-      } else if (entry.response?.outcome != null) {
-        if (entry.response!.outcome is OperationOutcome) {
-          if (isInformational(entry.response!.outcome! as OperationOutcome)) {
-            returnResults.informationOperationOutcomes
-                .add(entry.response!.outcome! as OperationOutcome);
-          } else {
-            returnResults.errorOperationOutcomes
-                .add(entry.response!.outcome! as OperationOutcome);
-          }
-        } else {
-          returnResults.resources.add(entry.response!.outcome!);
-        }
       } else {
         returnResults.informationOperationOutcomes.add(
           OperationOutcome(
             issue: <OperationOutcomeIssue>[
               OperationOutcomeIssue(
+                severity: IssueSeverity.error,
                 code: FhirCode('informational'),
                 diagnostics: 'Status: ${entry.response?.status ?? "none"}'
                     '\nLocation: ${entry.response?.location ?? "none"}',
@@ -104,7 +93,7 @@ ReturnResults<T> parseRequestResultForType<T>(Resource result) => result
 /// are of type T
 ReturnResults<T> parseBundleForType<T>(Bundle bundle) {
   final ReturnResults<T> returnResults = ReturnResults<T>();
-  if (bundle.type == FhirCode('transaction-response')) {
+  if (bundle.type == BundleType.transaction_response) {
     for (final BundleEntry entry in bundle.entry ?? <BundleEntry>[]) {
       if (entry.resource != null) {
         if (entry.resource is OperationOutcome) {
@@ -121,26 +110,12 @@ ReturnResults<T> parseBundleForType<T>(Bundle bundle) {
           returnResults.errorOperationOutcomes
               .add(incorrectResultType<T>(entry.resource!));
         }
-      } else if (entry.response?.outcome != null) {
-        if (entry.response!.outcome is OperationOutcome) {
-          if (isInformational(entry.response!.outcome! as OperationOutcome)) {
-            returnResults.informationOperationOutcomes
-                .add(entry.response!.outcome! as OperationOutcome);
-          } else {
-            returnResults.errorOperationOutcomes
-                .add(entry.response!.outcome! as OperationOutcome);
-          }
-        } else if (entry.response!.outcome is T) {
-          returnResults.resources.add(entry.response!.outcome! as T);
-        } else {
-          returnResults.errorOperationOutcomes
-              .add(incorrectResultType<T>(entry.response!.outcome!));
-        }
       } else {
         returnResults.informationOperationOutcomes.add(
           OperationOutcome(
             issue: <OperationOutcomeIssue>[
               OperationOutcomeIssue(
+                severity: IssueSeverity.error,
                 code: FhirCode('informational'),
                 diagnostics: 'Status: ${entry.response?.status ?? "none"}'
                     '\nLocation: ${entry.response?.location ?? "none"}',
@@ -160,7 +135,7 @@ OperationOutcome incorrectResultType<T>(Resource result) => OperationOutcome(
       contained: <Resource>[result],
       issue: <OperationOutcomeIssue>[
         OperationOutcomeIssue(
-          severity: FhirCode('error'),
+          severity: IssueSeverity.error,
           code: FhirCode('structure'),
           diagnostics:
               'This request returned a bundle, and should have been a $T but '

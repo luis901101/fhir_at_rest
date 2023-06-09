@@ -1,5 +1,9 @@
 # fhir_at_rest
 
+## [0.11.1]
+
+* Update dependencies
+* Create toJson and fromJson for requests (doesn't include client)
 ## [0.11.0]
 
 * Dart 3.0.0
