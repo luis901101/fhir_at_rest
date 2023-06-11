@@ -1,5 +1,9 @@
 # fhir_at_rest
 
+## [0.11.2]
+
+* added toJsonString methods
+
 ## [0.11.1]
 
 * Update dependencies
