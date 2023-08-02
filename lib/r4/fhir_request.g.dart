@@ -961,3 +961,37 @@ Map<String, dynamic> _$$FhirOperationRequestToJson(
   val['runtimeType'] = instance.$type;
   return val;
 }
+
+_$_FhirHttpRequest _$$_FhirHttpRequestFromJson(Map<String, dynamic> json) =>
+    _$_FhirHttpRequest(
+      type: $enumDecode(_$RequestTypeEnumMap, json['type']),
+      url: json['url'] as String,
+      headers: Map<String, String>.from(json['headers'] as Map),
+      body: json['body'] as Map<String, dynamic>?,
+    );
+
+Map<String, dynamic> _$$_FhirHttpRequestToJson(_$_FhirHttpRequest instance) {
+  final val = <String, dynamic>{
+    'type': _$RequestTypeEnumMap[instance.type]!,
+    'url': instance.url,
+    'headers': instance.headers,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('body', instance.body);
+  return val;
+}
+
+const _$RequestTypeEnumMap = {
+  RequestType.getVerb: 'getVerb',
+  RequestType.headVerb: 'headVerb',
+  RequestType.postVerb: 'postVerb',
+  RequestType.putVerb: 'putVerb',
+  RequestType.deleteVerb: 'deleteVerb',
+  RequestType.patchVerb: 'patchVerb',
+};

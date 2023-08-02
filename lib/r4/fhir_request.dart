@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_dynamic_calls
+// ignore_for_file: avoid_dynamic_calls, sort_unnamed_constructors_first
 
 // Dart imports:
 import 'dart:convert';
@@ -968,254 +968,606 @@ class FhirRequest with _$FhirRequest {
   /// to interact with the server by using this method. If necessary,
   /// authorization or other headers can be passed in as well
   Future<Resource> request({Map<String, String>? headers}) async {
-    return await map(
+    switch (this) {
       /// READ
-      read: (FhirReadRequest request) async => _request(
-        RestfulRequest.get_,
-        uri(parameters: request.parameters),
-        headers,
-        'Read',
-        accept,
-        mimeType: request.mimeType,
-      ),
+      case FhirRequest.read:
+        return _request(
+          RestfulRequest.get_,
+          uri(parameters: parameters),
+          headers,
+          'Read',
+          accept,
+          mimeType: mimeType,
+        );
 
       /// VREAD
-      vRead: (FhirVReadRequest request) async => _request(
-        RestfulRequest.get_,
-        uri(parameters: request.parameters),
-        headers,
-        'Vread',
-        accept,
-        mimeType: request.mimeType,
-      ),
+      case FhirRequest.vRead:
+        return _request(
+          RestfulRequest.get_,
+          uri(parameters: parameters),
+          headers,
+          'Vread',
+          accept,
+          mimeType: mimeType,
+        );
 
       /// UPDATE
-      update: (FhirUpdateRequest request) async => _request(
-        RestfulRequest.put_,
-        uri(parameters: request.parameters),
-        headers,
-        'Update',
-        accept,
-        resource: request.resource,
-        mimeType: request.mimeType,
-      ),
+      case FhirRequest.update:
+        return _request(
+          RestfulRequest.put_,
+          uri(parameters: parameters),
+          headers,
+          'Update',
+          accept,
+          resource: (this as FhirUpdateRequest).resource,
+          mimeType: mimeType,
+        );
 
       /// PATCH
-      patch: (FhirPatchRequest request) async => _request(
-        RestfulRequest.patch_,
-        uri(parameters: request.parameters),
-        headers,
-        'Patch',
-        accept,
-        resource: request.resource,
-        mimeType: request.mimeType,
-      ),
+      case FhirRequest.patch:
+        return _request(
+          RestfulRequest.patch_,
+          uri(parameters: parameters),
+          headers,
+          'Patch',
+          accept,
+          resource: (this as FhirPatchRequest).resource,
+          mimeType: mimeType,
+        );
 
       /// DELETE
-      delete: (FhirDeleteRequest request) async => _request(
-        RestfulRequest.delete_,
-        uri(parameters: request.parameters),
-        headers,
-        'Delete',
-        accept,
-        mimeType: request.mimeType,
-      ),
+      case FhirRequest.delete:
+        return _request(
+          RestfulRequest.delete_,
+          uri(parameters: parameters),
+          headers,
+          'Delete',
+          accept,
+          mimeType: mimeType,
+        );
 
       /// CREATE
-      create: (FhirCreateRequest request) async => _request(
-        RestfulRequest.post_,
-        uri(parameters: request.parameters),
-        headers,
-        'Create',
-        accept,
-        resource: request.resource,
-        mimeType: request.mimeType,
-      ),
+      case FhirRequest.create:
+        return _request(
+          RestfulRequest.post_,
+          uri(parameters: parameters),
+          headers,
+          'Create',
+          accept,
+          resource: (this as FhirCreateRequest).resource,
+          mimeType: mimeType,
+        );
 
       /// SEARCH
-      search: (FhirSearchRequest request) async => _request(
-        request.usePost ? RestfulRequest.post_ : RestfulRequest.get_,
-        request.usePost ? url : uri(parameters: request.parameters),
-        headers,
-        'Search',
-        accept,
-        formData: request.usePost
-            ? request.formData(parameters: request.parameters)
-            : null,
-        mimeType: request.mimeType,
-      ),
+      case FhirRequest.search:
+        return _request(
+          (this as FhirSearchRequest).usePost
+              ? RestfulRequest.post_
+              : RestfulRequest.get_,
+          (this as FhirSearchRequest).usePost
+              ? url
+              : uri(parameters: parameters),
+          headers,
+          'Search',
+          accept,
+          formData: (this as FhirSearchRequest).usePost
+              ? (this as FhirSearchRequest).formData(parameters: parameters)
+              : null,
+          mimeType: mimeType,
+        );
 
       /// SEARCHALL
-      searchAll: (FhirSearchAllRequest request) async => _request(
-        RestfulRequest.get_,
-        uri(parameters: request.parameters),
-        headers,
-        'Search All',
-        accept,
-        mimeType: request.mimeType,
-      ),
+      case FhirRequest.searchAll:
+        return _request(
+          RestfulRequest.get_,
+          uri(parameters: parameters),
+          headers,
+          'Search All',
+          accept,
+          mimeType: mimeType,
+        );
 
       /// CAPABILITIES
-      capabilities: (FhirCapabilitiesRequest request) async => _request(
-        RestfulRequest.get_,
-        uri(parameters: request.parameters),
-        headers,
-        'Capabilities',
-        accept,
-        mimeType: request.mimeType,
-      ),
+      case FhirRequest.capabilities:
+        return _request(
+          RestfulRequest.get_,
+          uri(parameters: parameters),
+          headers,
+          'Capabilities',
+          accept,
+          mimeType: mimeType,
+        );
 
       /// TRANSACTION
-      transaction: (FhirTransactionRequest request) async {
-        if (request.bundle.type.toString() != 'transaction') {
-          return _operationOutcome(
-              'A Transaction request was made, but no Bundle was included.');
-        }
-        if (request.bundle.entry != null) {
-          for (final BundleEntry entry in request.bundle.entry!) {
-            if (entry.request == null) {
-              return _operationOutcome(
-                  'Each bundle entry requires a request, but at least one of '
-                  'the entries in this bundle is missing a request.');
-            } else if (entry.request?.method == null) {
-              return _operationOutcome(
-                  'Each bundle entry request needs a method type specified, but'
-                  ' at least one entry in this bundle is missing a method');
+      case FhirRequest.transaction:
+        {
+          if ((this as FhirTransactionRequest).bundle.type.toString() !=
+              'transaction') {
+            return _operationOutcome(
+                'A Transaction request was made, but no Bundle was included.');
+          }
+          if ((this as FhirTransactionRequest).bundle.entry != null) {
+            for (final BundleEntry entry
+                in (this as FhirTransactionRequest).bundle.entry!) {
+              if (entry.request == null) {
+                return _operationOutcome(
+                    'Each bundle entry requires a request, but at least one of '
+                    'the entries in this bundle is missing a request.');
+              } else if (entry.request?.method == null) {
+                return _operationOutcome(
+                    'Each bundle entry request needs a method type specified, but'
+                    ' at least one entry in this bundle is missing a method');
+              }
             }
           }
+          return _request(
+            RestfulRequest.post_,
+            uri(),
+            headers,
+            'Transaction',
+            accept,
+            resource: (this as FhirTransactionRequest).bundle,
+            mimeType: mimeType,
+          );
         }
-        return _request(
-          RestfulRequest.post_,
-          uri(),
-          headers,
-          'Transaction',
-          accept,
-          resource: request.bundle,
-          mimeType: request.mimeType,
-        );
-      },
 
       /// BATCH
-      batch: (FhirBatchRequest request) async {
-        if (request.bundle.type.toString() != 'batch') {
-          return _operationOutcome(
-              'A Batch request was made, but the included Bundle is not a'
-              ' batch type.');
-        }
-        if (request.bundle.entry != null) {
-          for (final BundleEntry entry in request.bundle.entry!) {
-            if (entry.request == null) {
-              return _operationOutcome(
-                  'Each bundle entry requires a request, but at least one of '
-                  'the entries in this bundle is missing a request.');
-            } else if (entry.request?.method == null) {
-              return _operationOutcome(
-                  'Each bundle entry request needs a method type specified, but'
-                  ' at least one entry in this bundle is missing a method');
+      case FhirRequest.batch:
+        {
+          if ((this as FhirBatchRequest).bundle.type.toString() != 'batch') {
+            return _operationOutcome(
+                'A Batch request was made, but the included Bundle is not a'
+                ' batch type.');
+          }
+          if ((this as FhirBatchRequest).bundle.entry != null) {
+            for (final BundleEntry entry
+                in (this as FhirBatchRequest).bundle.entry!) {
+              if (entry.request == null) {
+                return _operationOutcome(
+                    'Each bundle entry requires a request, but at least one of '
+                    'the entries in this bundle is missing a request.');
+              } else if (entry.request?.method == null) {
+                return _operationOutcome(
+                    'Each bundle entry request needs a method type specified, but'
+                    ' at least one entry in this bundle is missing a method');
+              }
             }
           }
+          return _request(
+            RestfulRequest.post_,
+            uri(),
+            headers,
+            'Batch',
+            accept,
+            resource: (this as FhirBatchRequest).bundle,
+            mimeType: mimeType,
+          );
         }
-        return _request(
-          RestfulRequest.post_,
-          uri(),
-          headers,
-          'Batch',
-          accept,
-          resource: request.bundle,
-          mimeType: request.mimeType,
-        );
-      },
 
       /// HISTORY
-      history: (FhirHistoryRequest request) async {
-        final List<String> parameterList = <String>[];
-        final List<String> hxList = _hxParameters(
-            request.count, request.since, request.at, request.reference);
+      case FhirRequest.history:
+        {
+          final List<String> parameterList = <String>[];
+          final List<String> hxList = _hxParameters(
+              (this as FhirHistoryRequest).count,
+              (this as FhirHistoryRequest).since,
+              (this as FhirHistoryRequest).at,
+              (this as FhirHistoryRequest).reference);
 
-        if (hxList.isNotEmpty) {
-          parameterList.addAll(hxList);
-        }
-        if (parameters.isNotEmpty) {
-          parameterList.addAll(parameters);
-        }
+          if (hxList.isNotEmpty) {
+            parameterList.addAll(hxList);
+          }
+          if (parameters.isNotEmpty) {
+            parameterList.addAll(parameters);
+          }
 
-        return _request(
-          RestfulRequest.get_,
-          uri(parameters: parameterList),
-          headers,
-          'History',
-          accept,
-          mimeType: request.mimeType,
-        );
-      },
+          return _request(
+            RestfulRequest.get_,
+            uri(parameters: parameterList),
+            headers,
+            'History',
+            accept,
+            mimeType: mimeType,
+          );
+        }
 
       /// HISTORYTYPE
-      historyType: (FhirHistoryTypeRequest request) async {
-        final List<String> parameterList = <String>[];
-        final List<String> hxList = _hxParameters(
-            request.count, request.since, request.at, request.reference);
+      case FhirRequest.historyType:
+        {
+          final List<String> parameterList = <String>[];
+          final List<String> hxList = _hxParameters(
+              (this as FhirHistoryTypeRequest).count,
+              (this as FhirHistoryTypeRequest).since,
+              (this as FhirHistoryTypeRequest).at,
+              (this as FhirHistoryTypeRequest).reference);
 
-        if (hxList.isNotEmpty) {
-          parameterList.addAll(hxList);
-        }
-        if (parameters.isNotEmpty) {
-          parameterList.addAll(parameters);
-        }
+          if (hxList.isNotEmpty) {
+            parameterList.addAll(hxList);
+          }
+          if (parameters.isNotEmpty) {
+            parameterList.addAll(parameters);
+          }
 
-        return _request(
-          RestfulRequest.get_,
-          uri(parameters: parameterList),
-          headers,
-          'History Type',
-          accept,
-          mimeType: request.mimeType,
-        );
-      },
+          return _request(
+            RestfulRequest.get_,
+            uri(parameters: parameterList),
+            headers,
+            'History Type',
+            accept,
+            mimeType: mimeType,
+          );
+        }
 
       /// HISTORYALL
-      historyAll: (FhirHistoryAllRequest request) async {
-        final List<String> parameterList = <String>[];
-        final List<String> hxList = _hxParameters(
-            request.count, request.since, request.at, request.reference);
+      case FhirRequest.historyAll:
+        {
+          final List<String> parameterList = <String>[];
+          final List<String> hxList = _hxParameters(
+              (this as FhirHistoryAllRequest).count,
+              (this as FhirHistoryAllRequest).since,
+              (this as FhirHistoryAllRequest).at,
+              (this as FhirHistoryAllRequest).reference);
 
-        if (hxList.isNotEmpty) {
-          parameterList.addAll(hxList);
-        }
-        if (parameters.isNotEmpty) {
-          parameterList.addAll(parameters);
-        }
+          if (hxList.isNotEmpty) {
+            parameterList.addAll(hxList);
+          }
+          if (parameters.isNotEmpty) {
+            parameterList.addAll(parameters);
+          }
 
-        return _request(
-          RestfulRequest.get_,
-          uri(parameters: parameterList),
-          headers,
-          'History all',
-          accept,
-          mimeType: request.mimeType,
-        );
-      },
+          return _request(
+            RestfulRequest.get_,
+            uri(parameters: parameterList),
+            headers,
+            'History all',
+            accept,
+            mimeType: mimeType,
+          );
+        }
 
       /// OPERATION
-      operation: (FhirOperationRequest request) async => _request(
-        request.usePost || request.fhirParameter != null
-            ? RestfulRequest.post_
-            : RestfulRequest.get_,
-        request.usePost || request.fhirParameter != null
-            ? url
-            : uri(parameters: parameters),
-        headers,
-        'Operation',
-        accept,
-        resource: (request.usePost && !request.useFormData) ||
-                request.fhirParameter != null
-            ? request.fhirParameter
-            : null,
-        formData: request.usePost && request.useFormData
-            ? request.formData(parameters: parameters)
-            : null,
-        mimeType: request.mimeType,
-      ),
-    );
+      case FhirRequest.operation:
+        return _request(
+          (this as FhirOperationRequest).usePost ||
+                  (this as FhirOperationRequest).fhirParameter != null
+              ? RestfulRequest.post_
+              : RestfulRequest.get_,
+          (this as FhirOperationRequest).usePost ||
+                  (this as FhirOperationRequest).fhirParameter != null
+              ? url
+              : uri(parameters: parameters),
+          headers,
+          'Operation',
+          accept,
+          resource: ((this as FhirOperationRequest).usePost &&
+                      !(this as FhirOperationRequest).useFormData) ||
+                  (this as FhirOperationRequest).fhirParameter != null
+              ? (this as FhirOperationRequest).fhirParameter
+              : null,
+          formData: (this as FhirOperationRequest).usePost &&
+                  (this as FhirOperationRequest).useFormData
+              ? (this as FhirOperationRequest).formData(parameters: parameters)
+              : null,
+          mimeType: mimeType,
+        );
+    }
+    return OperationOutcome(issue: <OperationOutcomeIssue>[
+      OperationOutcomeIssue(
+          severity: FhirCode('error'),
+          code: FhirCode('exception'),
+          diagnostics: 'An unknown request type was made.')
+    ]);
+  }
+
+  /// FhirHttpRequest
+  /// In order to send a these via the atProtocol, we need to change them into something
+  /// that can be easily serialized or deserialized.
+  Future<Resource> toFhirHttpRequest({Map<String, String>? headers}) async {
+    switch (this) {
+      /// READ
+      case FhirRequest.read:
+        {
+          return _request(
+            RestfulRequest.get_,
+            uri(parameters: parameters),
+            headers,
+            'Read',
+            accept,
+            mimeType: mimeType,
+          );
+        }
+
+      /// VREAD
+      case FhirRequest.vRead:
+        {
+          return _request(
+            RestfulRequest.get_,
+            uri(parameters: parameters),
+            headers,
+            'Vread',
+            accept,
+            mimeType: mimeType,
+          );
+        }
+
+      /// UPDATE
+      case FhirRequest.update:
+        {
+          return _request(
+            RestfulRequest.put_,
+            uri(parameters: parameters),
+            headers,
+            'Update',
+            accept,
+            resource: (this as FhirUpdateRequest).resource,
+            mimeType: mimeType,
+          );
+        }
+
+      /// PATCH
+      case FhirRequest.patch:
+        {
+          return _request(
+            RestfulRequest.patch_,
+            uri(parameters: parameters),
+            headers,
+            'Patch',
+            accept,
+            resource: (this as FhirPatchRequest).resource,
+            mimeType: mimeType,
+          );
+        }
+
+      /// DELETE
+      case FhirRequest.delete:
+        {
+          return _request(
+            RestfulRequest.delete_,
+            uri(parameters: parameters),
+            headers,
+            'Delete',
+            accept,
+            mimeType: mimeType,
+          );
+        }
+
+      /// CREATE
+      case FhirRequest.create:
+        {
+          return _request(
+            RestfulRequest.post_,
+            uri(parameters: parameters),
+            headers,
+            'Create',
+            accept,
+            resource: (this as FhirCreateRequest).resource,
+            mimeType: mimeType,
+          );
+        }
+
+      /// SEARCH
+      case FhirRequest.search:
+        {
+          return _request(
+            (this as FhirSearchRequest).usePost
+                ? RestfulRequest.post_
+                : RestfulRequest.get_,
+            (this as FhirSearchRequest).usePost
+                ? url
+                : uri(parameters: parameters),
+            headers,
+            'Search',
+            accept,
+            formData: (this as FhirSearchRequest).usePost
+                ? (this as FhirSearchRequest).formData(parameters: parameters)
+                : null,
+            mimeType: mimeType,
+          );
+        }
+
+      /// SEARCHALL
+      case FhirRequest.searchAll:
+        {
+          return _request(
+            RestfulRequest.get_,
+            uri(parameters: parameters),
+            headers,
+            'Search All',
+            accept,
+            mimeType: mimeType,
+          );
+        }
+
+      /// CAPABILITIES
+      case FhirRequest.capabilities:
+        {
+          return _request(
+            RestfulRequest.get_,
+            uri(parameters: parameters),
+            headers,
+            'Capabilities',
+            accept,
+            mimeType: mimeType,
+          );
+        }
+
+      /// TRANSACTION
+      case FhirRequest.transaction:
+        {
+          if ((this as FhirTransactionRequest).bundle.type.toString() !=
+              'transaction') {
+            throw const FormatException(
+                'A Transaction request was made, but no Bundle was included.');
+          }
+          if ((this as FhirTransactionRequest).bundle.entry != null) {
+            for (final BundleEntry entry
+                in (this as FhirTransactionRequest).bundle.entry!) {
+              if (entry.request == null) {
+                throw const FormatException(
+                    'Each bundle entry requires a request, but at least one of '
+                    'the entries in this bundle is missing a request.');
+              } else if (entry.request?.method == null) {
+                throw const FormatException(
+                    'Each bundle entry request needs a method type specified, but'
+                    ' at least one entry in this bundle is missing a method');
+              }
+            }
+          }
+          return _request(
+            RestfulRequest.post_,
+            uri(),
+            headers,
+            'Transaction',
+            accept,
+            resource: (this as FhirTransactionRequest).bundle,
+            mimeType: mimeType,
+          );
+        }
+
+      /// BATCH
+      case FhirRequest.batch:
+        {
+          if ((this as FhirBatchRequest).bundle.type.toString() != 'batch') {
+            throw const FormatException(
+                'A Batch request was made, but the included Bundle is not a'
+                ' batch type.');
+          }
+          if ((this as FhirBatchRequest).bundle.entry != null) {
+            for (final BundleEntry entry
+                in (this as FhirBatchRequest).bundle.entry!) {
+              if (entry.request == null) {
+                throw const FormatException(
+                    'Each bundle entry requires a request, but at least one of '
+                    'the entries in this bundle is missing a request.');
+              } else if (entry.request?.method == null) {
+                throw const FormatException(
+                    'Each bundle entry request needs a method type specified, but'
+                    ' at least one entry in this bundle is missing a method');
+              }
+            }
+          }
+          return _request(
+            RestfulRequest.post_,
+            uri(),
+            headers,
+            'Batch',
+            accept,
+            resource: (this as FhirBatchRequest).bundle,
+            mimeType: mimeType,
+          );
+        }
+
+      /// HISTORY
+      case FhirRequest.history:
+        {
+          final List<String> parameterList = <String>[];
+          final List<String> hxList = _hxParameters(
+              (this as FhirHistoryRequest).count,
+              (this as FhirHistoryRequest).since,
+              (this as FhirHistoryRequest).at,
+              (this as FhirHistoryRequest).reference);
+
+          if (hxList.isNotEmpty) {
+            parameterList.addAll(hxList);
+          }
+          if (parameters.isNotEmpty) {
+            parameterList.addAll(parameters);
+          }
+
+          return _request(
+            RestfulRequest.get_,
+            uri(parameters: parameterList),
+            headers,
+            'History',
+            accept,
+            mimeType: mimeType,
+          );
+        }
+
+      /// HISTORYTYPE
+      case FhirRequest.historyType:
+        {
+          final List<String> parameterList = <String>[];
+          final List<String> hxList = _hxParameters(
+              (this as FhirHistoryTypeRequest).count,
+              (this as FhirHistoryTypeRequest).since,
+              (this as FhirHistoryTypeRequest).at,
+              (this as FhirHistoryTypeRequest).reference);
+
+          if (hxList.isNotEmpty) {
+            parameterList.addAll(hxList);
+          }
+          if (parameters.isNotEmpty) {
+            parameterList.addAll(parameters);
+          }
+
+          return _request(
+            RestfulRequest.get_,
+            uri(parameters: parameterList),
+            headers,
+            'History Type',
+            accept,
+            mimeType: mimeType,
+          );
+        }
+
+      /// HISTORYALL
+      case FhirRequest.historyAll:
+        {
+          final List<String> parameterList = <String>[];
+          final List<String> hxList = _hxParameters(
+              (this as FhirHistoryAllRequest).count,
+              (this as FhirHistoryAllRequest).since,
+              (this as FhirHistoryAllRequest).at,
+              (this as FhirHistoryAllRequest).reference);
+
+          if (hxList.isNotEmpty) {
+            parameterList.addAll(hxList);
+          }
+          if (parameters.isNotEmpty) {
+            parameterList.addAll(parameters);
+          }
+
+          return _request(
+            RestfulRequest.get_,
+            uri(parameters: parameterList),
+            headers,
+            'History all',
+            accept,
+            mimeType: mimeType,
+          );
+        }
+
+      /// OPERATION
+      case FhirRequest.operation:
+        {
+          return _request(
+            (this as FhirOperationRequest).usePost ||
+                    (this as FhirOperationRequest).fhirParameter != null
+                ? RestfulRequest.post_
+                : RestfulRequest.get_,
+            (this as FhirOperationRequest).usePost ||
+                    (this as FhirOperationRequest).fhirParameter != null
+                ? url
+                : uri(parameters: parameters),
+            headers,
+            'Operation',
+            accept,
+            resource: ((this as FhirOperationRequest).usePost &&
+                        !(this as FhirOperationRequest).useFormData) ||
+                    (this as FhirOperationRequest).fhirParameter != null
+                ? (this as FhirOperationRequest).fhirParameter
+                : null,
+            formData: (this as FhirOperationRequest).usePost &&
+                    (this as FhirOperationRequest).useFormData
+                ? (this as FhirOperationRequest)
+                    .formData(parameters: parameters)
+                : null,
+            mimeType: mimeType,
+          );
+        }
+    }
+    throw const FormatException('Invalid request type');
   }
 
   /// _hxParameters
@@ -1661,4 +2013,95 @@ class FhirRequest with _$FhirRequest {
     412: 'Version Conflict',
     422: 'Unprocessable Entity',
   };
+}
+
+enum RequestType {
+  getVerb,
+  headVerb,
+  postVerb,
+  putVerb,
+  deleteVerb,
+  patchVerb,
+}
+
+@freezed
+class FhirHttpRequest with _$FhirHttpRequest {
+  const FhirHttpRequest._();
+  const factory FhirHttpRequest({
+    required RequestType type,
+    required String url,
+    required Map<String, String> headers,
+    Map<String, dynamic>? body,
+  }) = _FhirHttpRequest;
+
+  /// Factory constructor, accepts [Map<String, dynamic>] as an argument
+  factory FhirHttpRequest.fromJson(Map<String, dynamic> json) =>
+      _$FhirHttpRequestFromJson(json);
+
+  /// Acts like a constructor, returns a [CarePlan], accepts a
+  /// [String] as an argument, mostly because I got tired of typing it out
+  factory FhirHttpRequest.fromJsonString(String source) {
+    final dynamic json = jsonDecode(source);
+    if (json is Map<String, dynamic>) {
+      return _$FhirHttpRequestFromJson(json);
+    } else {
+      throw FormatException('FormatException:\nYou passed $json\n'
+          'This does not properly decode to a Map<String,dynamic>.');
+    }
+  }
+
+  /// Another convenience method because more and more I'm transmitting FHIR
+  /// data as a String and not a Map
+  String toJsonString() => jsonEncode(toJson());
+
+  /// Make the request
+  Future<Response> request() async {
+    final Client client = Client();
+    try {
+      switch (type) {
+        case RequestType.getVerb:
+          {
+            return await client.get(
+              Uri.parse(url),
+              headers: headers,
+            );
+          }
+        case RequestType.headVerb:
+        case RequestType.postVerb:
+          {
+            return await client.post(
+              Uri.parse(url),
+              headers: headers,
+              body: body,
+            );
+          }
+        case RequestType.putVerb:
+          {
+            return await client.put(
+              Uri.parse(url),
+              headers: headers,
+              body: body,
+            );
+          }
+        case RequestType.deleteVerb:
+          {
+            return await client.delete(
+              Uri.parse(url),
+              headers: headers,
+            );
+          }
+        case RequestType.patchVerb:
+          {
+            return await client.patch(
+              Uri.parse(url),
+              headers: headers,
+              body: body,
+            );
+          }
+      }
+    } catch (e, stack) {
+      return Response('$e', 500,
+          headers: <String, String>{'x-fhir-stack': stack.toString()});
+    }
+  }
 }
