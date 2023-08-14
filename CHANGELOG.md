@@ -1,5 +1,11 @@
 # fhir_at_rest
 
+## [0.11.3]
+
+* updated dependencies
+* added R5 testing
+* Added method to change FhirRequest to FhirHttpRequest (looks like a restful request, plan is to use this with the At Protocol)
+
 ## [0.11.2]
 
 * added toJsonString methods
@@ -8,6 +14,7 @@
 
 * Update dependencies
 * Create toJson and fromJson for requests (doesn't include client)
+
 ## [0.11.0]
 
 * Dart 3.0.0

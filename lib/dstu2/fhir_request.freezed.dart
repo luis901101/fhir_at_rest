@@ -97,7 +97,7 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -112,7 +112,7 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -156,7 +156,7 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -256,7 +256,7 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -310,7 +310,7 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -333,7 +333,7 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -348,7 +348,7 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -392,7 +392,7 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -492,7 +492,7 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -546,7 +546,7 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -569,7 +569,7 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -584,7 +584,7 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -628,7 +628,7 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -728,7 +728,7 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -782,7 +782,7 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -964,7 +964,7 @@ abstract class _$$FhirReadRequestCopyWith<$Res>
   $Res call(
       {Uri base,
       Dstu2ResourceType type,
-      FhirId fhirId,
+      String fhirId,
       bool pretty,
       Summary summary,
       String format,
@@ -1012,7 +1012,7 @@ class __$$FhirReadRequestCopyWithImpl<$Res>
       fhirId: null == fhirId
           ? _value.fhirId
           : fhirId // ignore: cast_nullable_to_non_nullable
-              as FhirId,
+              as String,
       pretty: null == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
@@ -1087,9 +1087,9 @@ class _$FhirReadRequest extends FhirReadRequest {
   @override
   final Dstu2ResourceType type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   @override
-  final FhirId fhirId;
+  final String fhirId;
 
   /// [pretty] - pretty print the json formatting in the response
   @override
@@ -1224,7 +1224,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1239,7 +1239,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -1283,7 +1283,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1383,7 +1383,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1437,7 +1437,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1464,7 +1464,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1479,7 +1479,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -1523,7 +1523,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1623,7 +1623,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1677,7 +1677,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1704,7 +1704,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1719,7 +1719,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -1763,7 +1763,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1863,7 +1863,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -1917,7 +1917,7 @@ class _$FhirReadRequest extends FhirReadRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2024,7 +2024,7 @@ abstract class FhirReadRequest extends FhirRequest {
   const factory FhirReadRequest(
       {required final Uri base,
       required final Dstu2ResourceType type,
-      required final FhirId fhirId,
+      required final String fhirId,
       final bool pretty,
       final Summary summary,
       final String format,
@@ -2048,8 +2048,8 @@ abstract class FhirReadRequest extends FhirRequest {
   /// [type] - the type of resource you're looking for
   Dstu2ResourceType get type;
 
-  /// [id] - the id for the resource
-  FhirId get fhirId;
+  /// [fhirId] - the id for the resource
+  String get fhirId;
   @override
 
   /// [pretty] - pretty print the json formatting in the response
@@ -2111,7 +2111,7 @@ abstract class _$$FhirVReadRequestCopyWith<$Res>
   $Res call(
       {Uri base,
       Dstu2ResourceType type,
-      FhirId fhirId,
+      String fhirId,
       FhirId vid,
       bool pretty,
       Summary summary,
@@ -2161,7 +2161,7 @@ class __$$FhirVReadRequestCopyWithImpl<$Res>
       fhirId: null == fhirId
           ? _value.fhirId
           : fhirId // ignore: cast_nullable_to_non_nullable
-              as FhirId,
+              as String,
       vid: null == vid
           ? _value.vid
           : vid // ignore: cast_nullable_to_non_nullable
@@ -2241,9 +2241,9 @@ class _$FhirVReadRequest extends FhirVReadRequest {
   @override
   final Dstu2ResourceType type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   @override
-  final FhirId fhirId;
+  final String fhirId;
   @override
   final FhirId vid;
 
@@ -2382,7 +2382,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2397,7 +2397,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -2441,7 +2441,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2541,7 +2541,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2595,7 +2595,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2622,7 +2622,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2637,7 +2637,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -2681,7 +2681,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2781,7 +2781,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2835,7 +2835,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2862,7 +2862,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -2877,7 +2877,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -2921,7 +2921,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3021,7 +3021,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3075,7 +3075,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3182,7 +3182,7 @@ abstract class FhirVReadRequest extends FhirRequest {
   const factory FhirVReadRequest(
       {required final Uri base,
       required final Dstu2ResourceType type,
-      required final FhirId fhirId,
+      required final String fhirId,
       required final FhirId vid,
       final bool pretty,
       final Summary summary,
@@ -3207,8 +3207,8 @@ abstract class FhirVReadRequest extends FhirRequest {
   /// [type] - the type of resource you're looking for
   Dstu2ResourceType get type;
 
-  /// [id] - the id for the resource
-  FhirId get fhirId;
+  /// [fhirId] - the id for the resource
+  String get fhirId;
   FhirId get vid;
   @override
 
@@ -3517,7 +3517,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3532,7 +3532,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -3576,7 +3576,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3676,7 +3676,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3730,7 +3730,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3757,7 +3757,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3772,7 +3772,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -3816,7 +3816,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3916,7 +3916,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3970,7 +3970,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -3997,7 +3997,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4012,7 +4012,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -4056,7 +4056,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4156,7 +4156,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4210,7 +4210,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4644,7 +4644,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4659,7 +4659,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -4703,7 +4703,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4803,7 +4803,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4857,7 +4857,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4884,7 +4884,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -4899,7 +4899,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -4943,7 +4943,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5043,7 +5043,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5097,7 +5097,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5124,7 +5124,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5139,7 +5139,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -5183,7 +5183,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5283,7 +5283,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5337,7 +5337,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5525,7 +5525,7 @@ abstract class _$$FhirDeleteRequestCopyWith<$Res>
   $Res call(
       {Uri base,
       Dstu2ResourceType type,
-      FhirId fhirId,
+      String fhirId,
       bool pretty,
       Summary summary,
       String format,
@@ -5573,7 +5573,7 @@ class __$$FhirDeleteRequestCopyWithImpl<$Res>
       fhirId: null == fhirId
           ? _value.fhirId
           : fhirId // ignore: cast_nullable_to_non_nullable
-              as FhirId,
+              as String,
       pretty: null == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
@@ -5648,9 +5648,9 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
   @override
   final Dstu2ResourceType type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   @override
-  final FhirId fhirId;
+  final String fhirId;
 
   /// [pretty] - pretty print the json formatting in the response
   @override
@@ -5785,7 +5785,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5800,7 +5800,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -5844,7 +5844,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5944,7 +5944,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -5998,7 +5998,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6025,7 +6025,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6040,7 +6040,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -6084,7 +6084,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6184,7 +6184,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6238,7 +6238,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6265,7 +6265,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6280,7 +6280,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -6324,7 +6324,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6424,7 +6424,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6478,7 +6478,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6585,7 +6585,7 @@ abstract class FhirDeleteRequest extends FhirRequest {
   const factory FhirDeleteRequest(
       {required final Uri base,
       required final Dstu2ResourceType type,
-      required final FhirId fhirId,
+      required final String fhirId,
       final bool pretty,
       final Summary summary,
       final String format,
@@ -6609,8 +6609,8 @@ abstract class FhirDeleteRequest extends FhirRequest {
   /// [type] - the type of resource you're looking for
   Dstu2ResourceType get type;
 
-  /// [id] - the id for the resource
-  FhirId get fhirId;
+  /// [fhirId] - the id for the resource
+  String get fhirId;
   @override
 
   /// [pretty] - pretty print the json formatting in the response
@@ -6918,7 +6918,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -6933,7 +6933,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -6977,7 +6977,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7077,7 +7077,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7131,7 +7131,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7158,7 +7158,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7173,7 +7173,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -7217,7 +7217,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7317,7 +7317,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7371,7 +7371,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7398,7 +7398,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7413,7 +7413,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -7457,7 +7457,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7557,7 +7557,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -7611,7 +7611,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8074,7 +8074,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8089,7 +8089,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -8133,7 +8133,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8233,7 +8233,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8287,7 +8287,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8314,7 +8314,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8329,7 +8329,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -8373,7 +8373,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8473,7 +8473,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8527,7 +8527,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8554,7 +8554,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8569,7 +8569,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -8613,7 +8613,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8713,7 +8713,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -8767,7 +8767,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9199,7 +9199,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9214,7 +9214,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -9258,7 +9258,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9358,7 +9358,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9412,7 +9412,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9439,7 +9439,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9454,7 +9454,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -9498,7 +9498,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9598,7 +9598,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9652,7 +9652,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9679,7 +9679,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9694,7 +9694,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -9738,7 +9738,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9838,7 +9838,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -9892,7 +9892,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10327,7 +10327,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10342,7 +10342,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -10386,7 +10386,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10486,7 +10486,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10540,7 +10540,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10567,7 +10567,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10582,7 +10582,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -10626,7 +10626,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10726,7 +10726,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10780,7 +10780,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10807,7 +10807,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10822,7 +10822,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -10866,7 +10866,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -10966,7 +10966,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -11020,7 +11020,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -11468,7 +11468,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -11483,7 +11483,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -11527,7 +11527,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -11627,7 +11627,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -11681,7 +11681,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -11708,7 +11708,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -11723,7 +11723,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -11767,7 +11767,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -11867,7 +11867,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -11921,7 +11921,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -11948,7 +11948,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -11963,7 +11963,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -12007,7 +12007,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -12107,7 +12107,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -12161,7 +12161,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -12608,7 +12608,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -12623,7 +12623,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -12667,7 +12667,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -12767,7 +12767,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -12821,7 +12821,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -12848,7 +12848,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -12863,7 +12863,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -12907,7 +12907,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -13007,7 +13007,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -13061,7 +13061,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -13088,7 +13088,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -13103,7 +13103,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -13147,7 +13147,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -13247,7 +13247,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -13301,7 +13301,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -13491,7 +13491,7 @@ abstract class _$$FhirHistoryRequestCopyWith<$Res>
   $Res call(
       {Uri base,
       Dstu2ResourceType type,
-      FhirId fhirId,
+      String fhirId,
       bool pretty,
       Summary summary,
       String format,
@@ -13547,7 +13547,7 @@ class __$$FhirHistoryRequestCopyWithImpl<$Res>
       fhirId: null == fhirId
           ? _value.fhirId
           : fhirId // ignore: cast_nullable_to_non_nullable
-              as FhirId,
+              as String,
       pretty: null == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
@@ -13642,9 +13642,9 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
   @override
   final Dstu2ResourceType type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   @override
-  final FhirId fhirId;
+  final String fhirId;
 
   /// [pretty] - pretty print the json formatting in the response
   @override
@@ -13810,7 +13810,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -13825,7 +13825,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -13869,7 +13869,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -13969,7 +13969,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -14023,7 +14023,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -14065,7 +14065,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -14080,7 +14080,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -14124,7 +14124,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -14224,7 +14224,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -14278,7 +14278,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -14320,7 +14320,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -14335,7 +14335,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -14379,7 +14379,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -14479,7 +14479,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -14533,7 +14533,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -14655,7 +14655,7 @@ abstract class FhirHistoryRequest extends FhirRequest {
   const factory FhirHistoryRequest(
       {required final Uri base,
       required final Dstu2ResourceType type,
-      required final FhirId fhirId,
+      required final String fhirId,
       final bool pretty,
       final Summary summary,
       final String format,
@@ -14683,8 +14683,8 @@ abstract class FhirHistoryRequest extends FhirRequest {
   /// [type] - the type of resource you're looking for
   Dstu2ResourceType get type;
 
-  /// [id] - the id for the resource
-  FhirId get fhirId;
+  /// [fhirId] - the id for the resource
+  String get fhirId;
   @override
 
   /// [pretty] - pretty print the json formatting in the response
@@ -15069,7 +15069,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -15084,7 +15084,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -15128,7 +15128,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -15228,7 +15228,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -15282,7 +15282,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -15323,7 +15323,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -15338,7 +15338,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -15382,7 +15382,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -15482,7 +15482,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -15536,7 +15536,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -15577,7 +15577,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -15592,7 +15592,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -15636,7 +15636,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -15736,7 +15736,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -15790,7 +15790,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -16308,7 +16308,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -16323,7 +16323,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -16367,7 +16367,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -16467,7 +16467,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -16521,7 +16521,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -16548,7 +16548,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -16563,7 +16563,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -16607,7 +16607,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -16707,7 +16707,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -16761,7 +16761,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -16788,7 +16788,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -16803,7 +16803,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -16847,7 +16847,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -16947,7 +16947,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -17001,7 +17001,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -17208,7 +17208,7 @@ abstract class _$$FhirOperationRequestCopyWith<$Res>
   $Res call(
       {Uri base,
       Dstu2ResourceType? type,
-      FhirId? fhirId,
+      String? fhirId,
       bool pretty,
       Summary summary,
       String format,
@@ -17266,7 +17266,7 @@ class __$$FhirOperationRequestCopyWithImpl<$Res>
       fhirId: freezed == fhirId
           ? _value.fhirId
           : fhirId // ignore: cast_nullable_to_non_nullable
-              as FhirId?,
+              as String?,
       pretty: null == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
@@ -17371,7 +17371,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
   @override
   final Dstu2ResourceType? type;
   @override
-  final FhirId? fhirId;
+  final String? fhirId;
 
   /// [pretty] - pretty print the json formatting in the response
   @override
@@ -17533,7 +17533,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -17548,7 +17548,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -17592,7 +17592,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -17692,7 +17692,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -17746,7 +17746,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -17788,7 +17788,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -17803,7 +17803,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -17847,7 +17847,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -17947,7 +17947,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -18001,7 +18001,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -18043,7 +18043,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -18058,7 +18058,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             FhirId vid,
             bool pretty,
             Summary summary,
@@ -18102,7 +18102,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -18202,7 +18202,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType type,
-            FhirId fhirId,
+            String fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -18256,7 +18256,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
     TResult Function(
             Uri base,
             Dstu2ResourceType? type,
-            FhirId? fhirId,
+            String? fhirId,
             bool pretty,
             Summary summary,
             String format,
@@ -18378,7 +18378,7 @@ abstract class FhirOperationRequest extends FhirRequest {
   const factory FhirOperationRequest(
       {required final Uri base,
       final Dstu2ResourceType? type,
-      final FhirId? fhirId,
+      final String? fhirId,
       final bool pretty,
       final Summary summary,
       final String format,
@@ -18403,7 +18403,7 @@ abstract class FhirOperationRequest extends FhirRequest {
   /// [base] - the base URI for the FHIR server
   Uri get base;
   Dstu2ResourceType? get type;
-  FhirId? get fhirId;
+  String? get fhirId;
   @override
 
   /// [pretty] - pretty print the json formatting in the response
@@ -18460,5 +18460,227 @@ abstract class FhirOperationRequest extends FhirRequest {
   @override
   @JsonKey(ignore: true)
   _$$FhirOperationRequestCopyWith<_$FhirOperationRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+FhirHttpRequest _$FhirHttpRequestFromJson(Map<String, dynamic> json) {
+  return _FhirHttpRequest.fromJson(json);
+}
+
+/// @nodoc
+mixin _$FhirHttpRequest {
+  RestfulRequest get type => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
+  Map<String, String> get headers => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get body => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $FhirHttpRequestCopyWith<FhirHttpRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FhirHttpRequestCopyWith<$Res> {
+  factory $FhirHttpRequestCopyWith(
+          FhirHttpRequest value, $Res Function(FhirHttpRequest) then) =
+      _$FhirHttpRequestCopyWithImpl<$Res, FhirHttpRequest>;
+  @useResult
+  $Res call(
+      {RestfulRequest type,
+      String url,
+      Map<String, String> headers,
+      Map<String, dynamic>? body});
+}
+
+/// @nodoc
+class _$FhirHttpRequestCopyWithImpl<$Res, $Val extends FhirHttpRequest>
+    implements $FhirHttpRequestCopyWith<$Res> {
+  _$FhirHttpRequestCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? url = null,
+    Object? headers = null,
+    Object? body = freezed,
+  }) {
+    return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as RestfulRequest,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      headers: null == headers
+          ? _value.headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      body: freezed == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_FhirHttpRequestCopyWith<$Res>
+    implements $FhirHttpRequestCopyWith<$Res> {
+  factory _$$_FhirHttpRequestCopyWith(
+          _$_FhirHttpRequest value, $Res Function(_$_FhirHttpRequest) then) =
+      __$$_FhirHttpRequestCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {RestfulRequest type,
+      String url,
+      Map<String, String> headers,
+      Map<String, dynamic>? body});
+}
+
+/// @nodoc
+class __$$_FhirHttpRequestCopyWithImpl<$Res>
+    extends _$FhirHttpRequestCopyWithImpl<$Res, _$_FhirHttpRequest>
+    implements _$$_FhirHttpRequestCopyWith<$Res> {
+  __$$_FhirHttpRequestCopyWithImpl(
+      _$_FhirHttpRequest _value, $Res Function(_$_FhirHttpRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? url = null,
+    Object? headers = null,
+    Object? body = freezed,
+  }) {
+    return _then(_$_FhirHttpRequest(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as RestfulRequest,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      headers: null == headers
+          ? _value._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      body: freezed == body
+          ? _value._body
+          : body // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_FhirHttpRequest extends _FhirHttpRequest {
+  const _$_FhirHttpRequest(
+      {required this.type,
+      required this.url,
+      required final Map<String, String> headers,
+      final Map<String, dynamic>? body})
+      : _headers = headers,
+        _body = body,
+        super._();
+
+  factory _$_FhirHttpRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_FhirHttpRequestFromJson(json);
+
+  @override
+  final RestfulRequest type;
+  @override
+  final String url;
+  final Map<String, String> _headers;
+  @override
+  Map<String, String> get headers {
+    if (_headers is EqualUnmodifiableMapView) return _headers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_headers);
+  }
+
+  final Map<String, dynamic>? _body;
+  @override
+  Map<String, dynamic>? get body {
+    final value = _body;
+    if (value == null) return null;
+    if (_body is EqualUnmodifiableMapView) return _body;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @override
+  String toString() {
+    return 'FhirHttpRequest(type: $type, url: $url, headers: $headers, body: $body)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FhirHttpRequest &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.url, url) || other.url == url) &&
+            const DeepCollectionEquality().equals(other._headers, _headers) &&
+            const DeepCollectionEquality().equals(other._body, _body));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      url,
+      const DeepCollectionEquality().hash(_headers),
+      const DeepCollectionEquality().hash(_body));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FhirHttpRequestCopyWith<_$_FhirHttpRequest> get copyWith =>
+      __$$_FhirHttpRequestCopyWithImpl<_$_FhirHttpRequest>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_FhirHttpRequestToJson(
+      this,
+    );
+  }
+}
+
+abstract class _FhirHttpRequest extends FhirHttpRequest {
+  const factory _FhirHttpRequest(
+      {required final RestfulRequest type,
+      required final String url,
+      required final Map<String, String> headers,
+      final Map<String, dynamic>? body}) = _$_FhirHttpRequest;
+  const _FhirHttpRequest._() : super._();
+
+  factory _FhirHttpRequest.fromJson(Map<String, dynamic> json) =
+      _$_FhirHttpRequest.fromJson;
+
+  @override
+  RestfulRequest get type;
+  @override
+  String get url;
+  @override
+  Map<String, String> get headers;
+  @override
+  Map<String, dynamic>? get body;
+  @override
+  @JsonKey(ignore: true)
+  _$$_FhirHttpRequestCopyWith<_$_FhirHttpRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
