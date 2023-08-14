@@ -1087,7 +1087,7 @@ class _$FhirReadRequest extends FhirReadRequest {
   @override
   final R4ResourceType type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   @override
   final String fhirId;
 
@@ -2048,7 +2048,7 @@ abstract class FhirReadRequest extends FhirRequest {
   /// [type] - the type of resource you're looking for
   R4ResourceType get type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   String get fhirId;
   @override
 
@@ -2241,7 +2241,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
   @override
   final R4ResourceType type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   @override
   final String fhirId;
   @override
@@ -3207,7 +3207,7 @@ abstract class FhirVReadRequest extends FhirRequest {
   /// [type] - the type of resource you're looking for
   R4ResourceType get type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   String get fhirId;
   FhirId get vid;
   @override
@@ -5648,7 +5648,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
   @override
   final R4ResourceType type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   @override
   final String fhirId;
 
@@ -6609,7 +6609,7 @@ abstract class FhirDeleteRequest extends FhirRequest {
   /// [type] - the type of resource you're looking for
   R4ResourceType get type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   String get fhirId;
   @override
 
@@ -13642,7 +13642,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
   @override
   final R4ResourceType type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   @override
   final String fhirId;
 
@@ -14683,7 +14683,7 @@ abstract class FhirHistoryRequest extends FhirRequest {
   /// [type] - the type of resource you're looking for
   R4ResourceType get type;
 
-  /// [id] - the id for the resource
+  /// [fhirId] - the id for the resource
   String get fhirId;
   @override
 
@@ -18469,7 +18469,7 @@ FhirHttpRequest _$FhirHttpRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FhirHttpRequest {
-  RequestType get type => throw _privateConstructorUsedError;
+  RestfulRequest get type => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   Map<String, String> get headers => throw _privateConstructorUsedError;
   Map<String, dynamic>? get body => throw _privateConstructorUsedError;
@@ -18487,7 +18487,7 @@ abstract class $FhirHttpRequestCopyWith<$Res> {
       _$FhirHttpRequestCopyWithImpl<$Res, FhirHttpRequest>;
   @useResult
   $Res call(
-      {RequestType type,
+      {RestfulRequest type,
       String url,
       Map<String, String> headers,
       Map<String, dynamic>? body});
@@ -18515,7 +18515,7 @@ class _$FhirHttpRequestCopyWithImpl<$Res, $Val extends FhirHttpRequest>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as RequestType,
+              as RestfulRequest,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -18541,7 +18541,7 @@ abstract class _$$_FhirHttpRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {RequestType type,
+      {RestfulRequest type,
       String url,
       Map<String, String> headers,
       Map<String, dynamic>? body});
@@ -18567,7 +18567,7 @@ class __$$_FhirHttpRequestCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as RequestType,
+              as RestfulRequest,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -18600,7 +18600,7 @@ class _$_FhirHttpRequest extends _FhirHttpRequest {
       _$$_FhirHttpRequestFromJson(json);
 
   @override
-  final RequestType type;
+  final RestfulRequest type;
   @override
   final String url;
   final Map<String, String> _headers;
@@ -18662,7 +18662,7 @@ class _$_FhirHttpRequest extends _FhirHttpRequest {
 
 abstract class _FhirHttpRequest extends FhirHttpRequest {
   const factory _FhirHttpRequest(
-      {required final RequestType type,
+      {required final RestfulRequest type,
       required final String url,
       required final Map<String, String> headers,
       final Map<String, dynamic>? body}) = _$_FhirHttpRequest;
@@ -18672,7 +18672,7 @@ abstract class _FhirHttpRequest extends FhirHttpRequest {
       _$_FhirHttpRequest.fromJson;
 
   @override
-  RequestType get type;
+  RestfulRequest get type;
   @override
   String get url;
   @override

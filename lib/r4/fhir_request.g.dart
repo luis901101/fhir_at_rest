@@ -518,11 +518,11 @@ Map<String, dynamic> _$$FhirSearchRequestToJson(_$FhirSearchRequest instance) {
 }
 
 const _$RestfulRequestEnumMap = {
-  RestfulRequest.get_: 'get_',
-  RestfulRequest.put_: 'put_',
-  RestfulRequest.delete_: 'delete_',
-  RestfulRequest.post_: 'post_',
-  RestfulRequest.patch_: 'patch_',
+  RestfulRequest.get_: 'GET',
+  RestfulRequest.put_: 'PUT',
+  RestfulRequest.delete_: 'DELETE',
+  RestfulRequest.post_: 'POST',
+  RestfulRequest.patch_: 'PATCH',
 };
 
 _$FhirSearchAllRequest _$$FhirSearchAllRequestFromJson(
@@ -964,7 +964,7 @@ Map<String, dynamic> _$$FhirOperationRequestToJson(
 
 _$_FhirHttpRequest _$$_FhirHttpRequestFromJson(Map<String, dynamic> json) =>
     _$_FhirHttpRequest(
-      type: $enumDecode(_$RequestTypeEnumMap, json['type']),
+      type: $enumDecode(_$RestfulRequestEnumMap, json['type']),
       url: json['url'] as String,
       headers: Map<String, String>.from(json['headers'] as Map),
       body: json['body'] as Map<String, dynamic>?,
@@ -972,7 +972,7 @@ _$_FhirHttpRequest _$$_FhirHttpRequestFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_FhirHttpRequestToJson(_$_FhirHttpRequest instance) {
   final val = <String, dynamic>{
-    'type': _$RequestTypeEnumMap[instance.type]!,
+    'type': _$RestfulRequestEnumMap[instance.type]!,
     'url': instance.url,
     'headers': instance.headers,
   };
@@ -986,12 +986,3 @@ Map<String, dynamic> _$$_FhirHttpRequestToJson(_$_FhirHttpRequest instance) {
   writeNotNull('body', instance.body);
   return val;
 }
-
-const _$RequestTypeEnumMap = {
-  RequestType.getVerb: 'getVerb',
-  RequestType.headVerb: 'headVerb',
-  RequestType.postVerb: 'postVerb',
-  RequestType.putVerb: 'putVerb',
-  RequestType.deleteVerb: 'deleteVerb',
-  RequestType.patchVerb: 'patchVerb',
-};

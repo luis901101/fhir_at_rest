@@ -493,11 +493,11 @@ Map<String, dynamic> _$$FhirSearchRequestToJson(_$FhirSearchRequest instance) {
 }
 
 const _$RestfulRequestEnumMap = {
-  RestfulRequest.get_: 'get_',
-  RestfulRequest.put_: 'put_',
-  RestfulRequest.delete_: 'delete_',
-  RestfulRequest.post_: 'post_',
-  RestfulRequest.patch_: 'patch_',
+  RestfulRequest.get_: 'GET',
+  RestfulRequest.put_: 'PUT',
+  RestfulRequest.delete_: 'DELETE',
+  RestfulRequest.post_: 'POST',
+  RestfulRequest.patch_: 'PATCH',
 };
 
 _$FhirSearchAllRequest _$$FhirSearchAllRequestFromJson(
