@@ -954,11 +954,11 @@ class _$FhirRequestCopyWithImpl<$Res, $Val extends FhirRequest>
 }
 
 /// @nodoc
-abstract class _$$FhirReadRequestCopyWith<$Res>
+abstract class _$$FhirReadRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirReadRequestCopyWith(
-          _$FhirReadRequest value, $Res Function(_$FhirReadRequest) then) =
-      __$$FhirReadRequestCopyWithImpl<$Res>;
+  factory _$$FhirReadRequestImplCopyWith(_$FhirReadRequestImpl value,
+          $Res Function(_$FhirReadRequestImpl) then) =
+      __$$FhirReadRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -977,11 +977,11 @@ abstract class _$$FhirReadRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirReadRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirReadRequest>
-    implements _$$FhirReadRequestCopyWith<$Res> {
-  __$$FhirReadRequestCopyWithImpl(
-      _$FhirReadRequest _value, $Res Function(_$FhirReadRequest) _then)
+class __$$FhirReadRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirReadRequestImpl>
+    implements _$$FhirReadRequestImplCopyWith<$Res> {
+  __$$FhirReadRequestImplCopyWithImpl(
+      _$FhirReadRequestImpl _value, $Res Function(_$FhirReadRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1000,7 +1000,7 @@ class __$$FhirReadRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirReadRequest(
+    return _then(_$FhirReadRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -1055,8 +1055,8 @@ class __$$FhirReadRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirReadRequest extends FhirReadRequest {
-  const _$FhirReadRequest(
+class _$FhirReadRequestImpl extends FhirReadRequest {
+  const _$FhirReadRequestImpl(
       {required this.base,
       required this.type,
       required this.fhirId,
@@ -1076,8 +1076,8 @@ class _$FhirReadRequest extends FhirReadRequest {
         $type = $type ?? 'read',
         super._();
 
-  factory _$FhirReadRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirReadRequestFromJson(json);
+  factory _$FhirReadRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirReadRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -1178,7 +1178,7 @@ class _$FhirReadRequest extends FhirReadRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirReadRequest &&
+            other is _$FhirReadRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.fhirId, fhirId) || other.fhirId == fhirId) &&
@@ -1215,8 +1215,9 @@ class _$FhirReadRequest extends FhirReadRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirReadRequestCopyWith<_$FhirReadRequest> get copyWith =>
-      __$$FhirReadRequestCopyWithImpl<_$FhirReadRequest>(this, _$identity);
+  _$$FhirReadRequestImplCopyWith<_$FhirReadRequestImpl> get copyWith =>
+      __$$FhirReadRequestImplCopyWithImpl<_$FhirReadRequestImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2014,7 +2015,7 @@ class _$FhirReadRequest extends FhirReadRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirReadRequestToJson(
+    return _$$FhirReadRequestImplToJson(
       this,
     );
   }
@@ -2034,11 +2035,11 @@ abstract class FhirReadRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirReadRequest;
+      final Map<String, String>? headers}) = _$FhirReadRequestImpl;
   const FhirReadRequest._() : super._();
 
   factory FhirReadRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirReadRequest.fromJson;
+      _$FhirReadRequestImpl.fromJson;
 
   @override
 
@@ -2096,16 +2097,16 @@ abstract class FhirReadRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirReadRequestCopyWith<_$FhirReadRequest> get copyWith =>
+  _$$FhirReadRequestImplCopyWith<_$FhirReadRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirVReadRequestCopyWith<$Res>
+abstract class _$$FhirVReadRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirVReadRequestCopyWith(
-          _$FhirVReadRequest value, $Res Function(_$FhirVReadRequest) then) =
-      __$$FhirVReadRequestCopyWithImpl<$Res>;
+  factory _$$FhirVReadRequestImplCopyWith(_$FhirVReadRequestImpl value,
+          $Res Function(_$FhirVReadRequestImpl) then) =
+      __$$FhirVReadRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2125,11 +2126,11 @@ abstract class _$$FhirVReadRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirVReadRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirVReadRequest>
-    implements _$$FhirVReadRequestCopyWith<$Res> {
-  __$$FhirVReadRequestCopyWithImpl(
-      _$FhirVReadRequest _value, $Res Function(_$FhirVReadRequest) _then)
+class __$$FhirVReadRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirVReadRequestImpl>
+    implements _$$FhirVReadRequestImplCopyWith<$Res> {
+  __$$FhirVReadRequestImplCopyWithImpl(_$FhirVReadRequestImpl _value,
+      $Res Function(_$FhirVReadRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2149,7 +2150,7 @@ class __$$FhirVReadRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirVReadRequest(
+    return _then(_$FhirVReadRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -2208,8 +2209,8 @@ class __$$FhirVReadRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirVReadRequest extends FhirVReadRequest {
-  const _$FhirVReadRequest(
+class _$FhirVReadRequestImpl extends FhirVReadRequest {
+  const _$FhirVReadRequestImpl(
       {required this.base,
       required this.type,
       required this.fhirId,
@@ -2230,8 +2231,8 @@ class _$FhirVReadRequest extends FhirVReadRequest {
         $type = $type ?? 'vRead',
         super._();
 
-  factory _$FhirVReadRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirVReadRequestFromJson(json);
+  factory _$FhirVReadRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirVReadRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -2334,7 +2335,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirVReadRequest &&
+            other is _$FhirVReadRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.fhirId, fhirId) || other.fhirId == fhirId) &&
@@ -2373,8 +2374,9 @@ class _$FhirVReadRequest extends FhirVReadRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirVReadRequestCopyWith<_$FhirVReadRequest> get copyWith =>
-      __$$FhirVReadRequestCopyWithImpl<_$FhirVReadRequest>(this, _$identity);
+  _$$FhirVReadRequestImplCopyWith<_$FhirVReadRequestImpl> get copyWith =>
+      __$$FhirVReadRequestImplCopyWithImpl<_$FhirVReadRequestImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3172,7 +3174,7 @@ class _$FhirVReadRequest extends FhirVReadRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirVReadRequestToJson(
+    return _$$FhirVReadRequestImplToJson(
       this,
     );
   }
@@ -3193,11 +3195,11 @@ abstract class FhirVReadRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirVReadRequest;
+      final Map<String, String>? headers}) = _$FhirVReadRequestImpl;
   const FhirVReadRequest._() : super._();
 
   factory FhirVReadRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirVReadRequest.fromJson;
+      _$FhirVReadRequestImpl.fromJson;
 
   @override
 
@@ -3256,16 +3258,16 @@ abstract class FhirVReadRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirVReadRequestCopyWith<_$FhirVReadRequest> get copyWith =>
+  _$$FhirVReadRequestImplCopyWith<_$FhirVReadRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirUpdateRequestCopyWith<$Res>
+abstract class _$$FhirUpdateRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirUpdateRequestCopyWith(
-          _$FhirUpdateRequest value, $Res Function(_$FhirUpdateRequest) then) =
-      __$$FhirUpdateRequestCopyWithImpl<$Res>;
+  factory _$$FhirUpdateRequestImplCopyWith(_$FhirUpdateRequestImpl value,
+          $Res Function(_$FhirUpdateRequestImpl) then) =
+      __$$FhirUpdateRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -3283,11 +3285,11 @@ abstract class _$$FhirUpdateRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirUpdateRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirUpdateRequest>
-    implements _$$FhirUpdateRequestCopyWith<$Res> {
-  __$$FhirUpdateRequestCopyWithImpl(
-      _$FhirUpdateRequest _value, $Res Function(_$FhirUpdateRequest) _then)
+class __$$FhirUpdateRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirUpdateRequestImpl>
+    implements _$$FhirUpdateRequestImplCopyWith<$Res> {
+  __$$FhirUpdateRequestImplCopyWithImpl(_$FhirUpdateRequestImpl _value,
+      $Res Function(_$FhirUpdateRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3305,7 +3307,7 @@ class __$$FhirUpdateRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirUpdateRequest(
+    return _then(_$FhirUpdateRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -3356,8 +3358,8 @@ class __$$FhirUpdateRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirUpdateRequest extends FhirUpdateRequest {
-  const _$FhirUpdateRequest(
+class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
+  const _$FhirUpdateRequestImpl(
       {required this.base,
       required this.resource,
       this.pretty = false,
@@ -3376,8 +3378,8 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
         $type = $type ?? 'update',
         super._();
 
-  factory _$FhirUpdateRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirUpdateRequestFromJson(json);
+  factory _$FhirUpdateRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirUpdateRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -3472,7 +3474,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirUpdateRequest &&
+            other is _$FhirUpdateRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.resource, resource) ||
                 other.resource == resource) &&
@@ -3508,8 +3510,9 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirUpdateRequestCopyWith<_$FhirUpdateRequest> get copyWith =>
-      __$$FhirUpdateRequestCopyWithImpl<_$FhirUpdateRequest>(this, _$identity);
+  _$$FhirUpdateRequestImplCopyWith<_$FhirUpdateRequestImpl> get copyWith =>
+      __$$FhirUpdateRequestImplCopyWithImpl<_$FhirUpdateRequestImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4307,7 +4310,7 @@ class _$FhirUpdateRequest extends FhirUpdateRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirUpdateRequestToJson(
+    return _$$FhirUpdateRequestImplToJson(
       this,
     );
   }
@@ -4326,11 +4329,11 @@ abstract class FhirUpdateRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirUpdateRequest;
+      final Map<String, String>? headers}) = _$FhirUpdateRequestImpl;
   const FhirUpdateRequest._() : super._();
 
   factory FhirUpdateRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirUpdateRequest.fromJson;
+      _$FhirUpdateRequestImpl.fromJson;
 
   @override
 
@@ -4383,16 +4386,16 @@ abstract class FhirUpdateRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirUpdateRequestCopyWith<_$FhirUpdateRequest> get copyWith =>
+  _$$FhirUpdateRequestImplCopyWith<_$FhirUpdateRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirPatchRequestCopyWith<$Res>
+abstract class _$$FhirPatchRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirPatchRequestCopyWith(
-          _$FhirPatchRequest value, $Res Function(_$FhirPatchRequest) then) =
-      __$$FhirPatchRequestCopyWithImpl<$Res>;
+  factory _$$FhirPatchRequestImplCopyWith(_$FhirPatchRequestImpl value,
+          $Res Function(_$FhirPatchRequestImpl) then) =
+      __$$FhirPatchRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -4410,11 +4413,11 @@ abstract class _$$FhirPatchRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirPatchRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirPatchRequest>
-    implements _$$FhirPatchRequestCopyWith<$Res> {
-  __$$FhirPatchRequestCopyWithImpl(
-      _$FhirPatchRequest _value, $Res Function(_$FhirPatchRequest) _then)
+class __$$FhirPatchRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirPatchRequestImpl>
+    implements _$$FhirPatchRequestImplCopyWith<$Res> {
+  __$$FhirPatchRequestImplCopyWithImpl(_$FhirPatchRequestImpl _value,
+      $Res Function(_$FhirPatchRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4432,7 +4435,7 @@ class __$$FhirPatchRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirPatchRequest(
+    return _then(_$FhirPatchRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -4483,8 +4486,8 @@ class __$$FhirPatchRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirPatchRequest extends FhirPatchRequest {
-  const _$FhirPatchRequest(
+class _$FhirPatchRequestImpl extends FhirPatchRequest {
+  const _$FhirPatchRequestImpl(
       {required this.base,
       required this.resource,
       this.pretty = false,
@@ -4503,8 +4506,8 @@ class _$FhirPatchRequest extends FhirPatchRequest {
         $type = $type ?? 'patch',
         super._();
 
-  factory _$FhirPatchRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirPatchRequestFromJson(json);
+  factory _$FhirPatchRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirPatchRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -4599,7 +4602,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirPatchRequest &&
+            other is _$FhirPatchRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.resource, resource) ||
                 other.resource == resource) &&
@@ -4635,8 +4638,9 @@ class _$FhirPatchRequest extends FhirPatchRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirPatchRequestCopyWith<_$FhirPatchRequest> get copyWith =>
-      __$$FhirPatchRequestCopyWithImpl<_$FhirPatchRequest>(this, _$identity);
+  _$$FhirPatchRequestImplCopyWith<_$FhirPatchRequestImpl> get copyWith =>
+      __$$FhirPatchRequestImplCopyWithImpl<_$FhirPatchRequestImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5434,7 +5438,7 @@ class _$FhirPatchRequest extends FhirPatchRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirPatchRequestToJson(
+    return _$$FhirPatchRequestImplToJson(
       this,
     );
   }
@@ -5453,11 +5457,11 @@ abstract class FhirPatchRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirPatchRequest;
+      final Map<String, String>? headers}) = _$FhirPatchRequestImpl;
   const FhirPatchRequest._() : super._();
 
   factory FhirPatchRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirPatchRequest.fromJson;
+      _$FhirPatchRequestImpl.fromJson;
 
   @override
 
@@ -5510,16 +5514,16 @@ abstract class FhirPatchRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirPatchRequestCopyWith<_$FhirPatchRequest> get copyWith =>
+  _$$FhirPatchRequestImplCopyWith<_$FhirPatchRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirDeleteRequestCopyWith<$Res>
+abstract class _$$FhirDeleteRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirDeleteRequestCopyWith(
-          _$FhirDeleteRequest value, $Res Function(_$FhirDeleteRequest) then) =
-      __$$FhirDeleteRequestCopyWithImpl<$Res>;
+  factory _$$FhirDeleteRequestImplCopyWith(_$FhirDeleteRequestImpl value,
+          $Res Function(_$FhirDeleteRequestImpl) then) =
+      __$$FhirDeleteRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -5538,11 +5542,11 @@ abstract class _$$FhirDeleteRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirDeleteRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirDeleteRequest>
-    implements _$$FhirDeleteRequestCopyWith<$Res> {
-  __$$FhirDeleteRequestCopyWithImpl(
-      _$FhirDeleteRequest _value, $Res Function(_$FhirDeleteRequest) _then)
+class __$$FhirDeleteRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirDeleteRequestImpl>
+    implements _$$FhirDeleteRequestImplCopyWith<$Res> {
+  __$$FhirDeleteRequestImplCopyWithImpl(_$FhirDeleteRequestImpl _value,
+      $Res Function(_$FhirDeleteRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5561,7 +5565,7 @@ class __$$FhirDeleteRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirDeleteRequest(
+    return _then(_$FhirDeleteRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -5616,8 +5620,8 @@ class __$$FhirDeleteRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirDeleteRequest extends FhirDeleteRequest {
-  const _$FhirDeleteRequest(
+class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
+  const _$FhirDeleteRequestImpl(
       {required this.base,
       required this.type,
       required this.fhirId,
@@ -5637,8 +5641,8 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
         $type = $type ?? 'delete',
         super._();
 
-  factory _$FhirDeleteRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirDeleteRequestFromJson(json);
+  factory _$FhirDeleteRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirDeleteRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -5739,7 +5743,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirDeleteRequest &&
+            other is _$FhirDeleteRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.fhirId, fhirId) || other.fhirId == fhirId) &&
@@ -5776,8 +5780,9 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirDeleteRequestCopyWith<_$FhirDeleteRequest> get copyWith =>
-      __$$FhirDeleteRequestCopyWithImpl<_$FhirDeleteRequest>(this, _$identity);
+  _$$FhirDeleteRequestImplCopyWith<_$FhirDeleteRequestImpl> get copyWith =>
+      __$$FhirDeleteRequestImplCopyWithImpl<_$FhirDeleteRequestImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -6575,7 +6580,7 @@ class _$FhirDeleteRequest extends FhirDeleteRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirDeleteRequestToJson(
+    return _$$FhirDeleteRequestImplToJson(
       this,
     );
   }
@@ -6595,11 +6600,11 @@ abstract class FhirDeleteRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirDeleteRequest;
+      final Map<String, String>? headers}) = _$FhirDeleteRequestImpl;
   const FhirDeleteRequest._() : super._();
 
   factory FhirDeleteRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirDeleteRequest.fromJson;
+      _$FhirDeleteRequestImpl.fromJson;
 
   @override
 
@@ -6657,16 +6662,16 @@ abstract class FhirDeleteRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirDeleteRequestCopyWith<_$FhirDeleteRequest> get copyWith =>
+  _$$FhirDeleteRequestImplCopyWith<_$FhirDeleteRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirCreateRequestCopyWith<$Res>
+abstract class _$$FhirCreateRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirCreateRequestCopyWith(
-          _$FhirCreateRequest value, $Res Function(_$FhirCreateRequest) then) =
-      __$$FhirCreateRequestCopyWithImpl<$Res>;
+  factory _$$FhirCreateRequestImplCopyWith(_$FhirCreateRequestImpl value,
+          $Res Function(_$FhirCreateRequestImpl) then) =
+      __$$FhirCreateRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -6684,11 +6689,11 @@ abstract class _$$FhirCreateRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirCreateRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirCreateRequest>
-    implements _$$FhirCreateRequestCopyWith<$Res> {
-  __$$FhirCreateRequestCopyWithImpl(
-      _$FhirCreateRequest _value, $Res Function(_$FhirCreateRequest) _then)
+class __$$FhirCreateRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirCreateRequestImpl>
+    implements _$$FhirCreateRequestImplCopyWith<$Res> {
+  __$$FhirCreateRequestImplCopyWithImpl(_$FhirCreateRequestImpl _value,
+      $Res Function(_$FhirCreateRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -6706,7 +6711,7 @@ class __$$FhirCreateRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirCreateRequest(
+    return _then(_$FhirCreateRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -6757,8 +6762,8 @@ class __$$FhirCreateRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirCreateRequest extends FhirCreateRequest {
-  const _$FhirCreateRequest(
+class _$FhirCreateRequestImpl extends FhirCreateRequest {
+  const _$FhirCreateRequestImpl(
       {required this.base,
       required this.resource,
       this.pretty = false,
@@ -6777,8 +6782,8 @@ class _$FhirCreateRequest extends FhirCreateRequest {
         $type = $type ?? 'create',
         super._();
 
-  factory _$FhirCreateRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirCreateRequestFromJson(json);
+  factory _$FhirCreateRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirCreateRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -6873,7 +6878,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirCreateRequest &&
+            other is _$FhirCreateRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.resource, resource) ||
                 other.resource == resource) &&
@@ -6909,8 +6914,9 @@ class _$FhirCreateRequest extends FhirCreateRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirCreateRequestCopyWith<_$FhirCreateRequest> get copyWith =>
-      __$$FhirCreateRequestCopyWithImpl<_$FhirCreateRequest>(this, _$identity);
+  _$$FhirCreateRequestImplCopyWith<_$FhirCreateRequestImpl> get copyWith =>
+      __$$FhirCreateRequestImplCopyWithImpl<_$FhirCreateRequestImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7708,7 +7714,7 @@ class _$FhirCreateRequest extends FhirCreateRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirCreateRequestToJson(
+    return _$$FhirCreateRequestImplToJson(
       this,
     );
   }
@@ -7727,11 +7733,11 @@ abstract class FhirCreateRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirCreateRequest;
+      final Map<String, String>? headers}) = _$FhirCreateRequestImpl;
   const FhirCreateRequest._() : super._();
 
   factory FhirCreateRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirCreateRequest.fromJson;
+      _$FhirCreateRequestImpl.fromJson;
 
   @override
 
@@ -7784,16 +7790,16 @@ abstract class FhirCreateRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirCreateRequestCopyWith<_$FhirCreateRequest> get copyWith =>
+  _$$FhirCreateRequestImplCopyWith<_$FhirCreateRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirSearchRequestCopyWith<$Res>
+abstract class _$$FhirSearchRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirSearchRequestCopyWith(
-          _$FhirSearchRequest value, $Res Function(_$FhirSearchRequest) then) =
-      __$$FhirSearchRequestCopyWithImpl<$Res>;
+  factory _$$FhirSearchRequestImplCopyWith(_$FhirSearchRequestImpl value,
+          $Res Function(_$FhirSearchRequestImpl) then) =
+      __$$FhirSearchRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -7813,11 +7819,11 @@ abstract class _$$FhirSearchRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirSearchRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirSearchRequest>
-    implements _$$FhirSearchRequestCopyWith<$Res> {
-  __$$FhirSearchRequestCopyWithImpl(
-      _$FhirSearchRequest _value, $Res Function(_$FhirSearchRequest) _then)
+class __$$FhirSearchRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirSearchRequestImpl>
+    implements _$$FhirSearchRequestImplCopyWith<$Res> {
+  __$$FhirSearchRequestImplCopyWithImpl(_$FhirSearchRequestImpl _value,
+      $Res Function(_$FhirSearchRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -7837,7 +7843,7 @@ class __$$FhirSearchRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirSearchRequest(
+    return _then(_$FhirSearchRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -7896,8 +7902,8 @@ class __$$FhirSearchRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirSearchRequest extends FhirSearchRequest {
-  const _$FhirSearchRequest(
+class _$FhirSearchRequestImpl extends FhirSearchRequest {
+  const _$FhirSearchRequestImpl(
       {required this.base,
       required this.type,
       this.pretty = false,
@@ -7918,8 +7924,8 @@ class _$FhirSearchRequest extends FhirSearchRequest {
         $type = $type ?? 'search',
         super._();
 
-  factory _$FhirSearchRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirSearchRequestFromJson(json);
+  factory _$FhirSearchRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirSearchRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -8025,7 +8031,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirSearchRequest &&
+            other is _$FhirSearchRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
@@ -8065,8 +8071,9 @@ class _$FhirSearchRequest extends FhirSearchRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirSearchRequestCopyWith<_$FhirSearchRequest> get copyWith =>
-      __$$FhirSearchRequestCopyWithImpl<_$FhirSearchRequest>(this, _$identity);
+  _$$FhirSearchRequestImplCopyWith<_$FhirSearchRequestImpl> get copyWith =>
+      __$$FhirSearchRequestImplCopyWithImpl<_$FhirSearchRequestImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -8864,7 +8871,7 @@ class _$FhirSearchRequest extends FhirSearchRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirSearchRequestToJson(
+    return _$$FhirSearchRequestImplToJson(
       this,
     );
   }
@@ -8885,11 +8892,11 @@ abstract class FhirSearchRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirSearchRequest;
+      final Map<String, String>? headers}) = _$FhirSearchRequestImpl;
   const FhirSearchRequest._() : super._();
 
   factory FhirSearchRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirSearchRequest.fromJson;
+      _$FhirSearchRequestImpl.fromJson;
 
   @override
 
@@ -8949,16 +8956,16 @@ abstract class FhirSearchRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirSearchRequestCopyWith<_$FhirSearchRequest> get copyWith =>
+  _$$FhirSearchRequestImplCopyWith<_$FhirSearchRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirSearchAllRequestCopyWith<$Res>
+abstract class _$$FhirSearchAllRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirSearchAllRequestCopyWith(_$FhirSearchAllRequest value,
-          $Res Function(_$FhirSearchAllRequest) then) =
-      __$$FhirSearchAllRequestCopyWithImpl<$Res>;
+  factory _$$FhirSearchAllRequestImplCopyWith(_$FhirSearchAllRequestImpl value,
+          $Res Function(_$FhirSearchAllRequestImpl) then) =
+      __$$FhirSearchAllRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -8975,11 +8982,11 @@ abstract class _$$FhirSearchAllRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirSearchAllRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirSearchAllRequest>
-    implements _$$FhirSearchAllRequestCopyWith<$Res> {
-  __$$FhirSearchAllRequestCopyWithImpl(_$FhirSearchAllRequest _value,
-      $Res Function(_$FhirSearchAllRequest) _then)
+class __$$FhirSearchAllRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirSearchAllRequestImpl>
+    implements _$$FhirSearchAllRequestImplCopyWith<$Res> {
+  __$$FhirSearchAllRequestImplCopyWithImpl(_$FhirSearchAllRequestImpl _value,
+      $Res Function(_$FhirSearchAllRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -8996,7 +9003,7 @@ class __$$FhirSearchAllRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirSearchAllRequest(
+    return _then(_$FhirSearchAllRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -9043,8 +9050,8 @@ class __$$FhirSearchAllRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirSearchAllRequest extends FhirSearchAllRequest {
-  const _$FhirSearchAllRequest(
+class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
+  const _$FhirSearchAllRequestImpl(
       {required this.base,
       this.pretty = false,
       this.summary = Summary.none,
@@ -9062,8 +9069,8 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
         $type = $type ?? 'searchAll',
         super._();
 
-  factory _$FhirSearchAllRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirSearchAllRequestFromJson(json);
+  factory _$FhirSearchAllRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirSearchAllRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -9156,7 +9163,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirSearchAllRequest &&
+            other is _$FhirSearchAllRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
             (identical(other.summary, summary) || other.summary == summary) &&
@@ -9189,9 +9196,10 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirSearchAllRequestCopyWith<_$FhirSearchAllRequest> get copyWith =>
-      __$$FhirSearchAllRequestCopyWithImpl<_$FhirSearchAllRequest>(
-          this, _$identity);
+  _$$FhirSearchAllRequestImplCopyWith<_$FhirSearchAllRequestImpl>
+      get copyWith =>
+          __$$FhirSearchAllRequestImplCopyWithImpl<_$FhirSearchAllRequestImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -9989,7 +9997,7 @@ class _$FhirSearchAllRequest extends FhirSearchAllRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirSearchAllRequestToJson(
+    return _$$FhirSearchAllRequestImplToJson(
       this,
     );
   }
@@ -10007,11 +10015,11 @@ abstract class FhirSearchAllRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirSearchAllRequest;
+      final Map<String, String>? headers}) = _$FhirSearchAllRequestImpl;
   const FhirSearchAllRequest._() : super._();
 
   factory FhirSearchAllRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirSearchAllRequest.fromJson;
+      _$FhirSearchAllRequestImpl.fromJson;
 
   @override
 
@@ -10063,16 +10071,17 @@ abstract class FhirSearchAllRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirSearchAllRequestCopyWith<_$FhirSearchAllRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FhirSearchAllRequestImplCopyWith<_$FhirSearchAllRequestImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirCapabilitiesRequestCopyWith<$Res>
+abstract class _$$FhirCapabilitiesRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirCapabilitiesRequestCopyWith(_$FhirCapabilitiesRequest value,
-          $Res Function(_$FhirCapabilitiesRequest) then) =
-      __$$FhirCapabilitiesRequestCopyWithImpl<$Res>;
+  factory _$$FhirCapabilitiesRequestImplCopyWith(
+          _$FhirCapabilitiesRequestImpl value,
+          $Res Function(_$FhirCapabilitiesRequestImpl) then) =
+      __$$FhirCapabilitiesRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -10090,11 +10099,12 @@ abstract class _$$FhirCapabilitiesRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirCapabilitiesRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirCapabilitiesRequest>
-    implements _$$FhirCapabilitiesRequestCopyWith<$Res> {
-  __$$FhirCapabilitiesRequestCopyWithImpl(_$FhirCapabilitiesRequest _value,
-      $Res Function(_$FhirCapabilitiesRequest) _then)
+class __$$FhirCapabilitiesRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirCapabilitiesRequestImpl>
+    implements _$$FhirCapabilitiesRequestImplCopyWith<$Res> {
+  __$$FhirCapabilitiesRequestImplCopyWithImpl(
+      _$FhirCapabilitiesRequestImpl _value,
+      $Res Function(_$FhirCapabilitiesRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -10112,7 +10122,7 @@ class __$$FhirCapabilitiesRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirCapabilitiesRequest(
+    return _then(_$FhirCapabilitiesRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -10163,8 +10173,8 @@ class __$$FhirCapabilitiesRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
-  const _$FhirCapabilitiesRequest(
+class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
+  const _$FhirCapabilitiesRequestImpl(
       {required this.base,
       this.pretty = false,
       this.summary = Summary.none,
@@ -10183,8 +10193,8 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
         $type = $type ?? 'capabilities',
         super._();
 
-  factory _$FhirCapabilitiesRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirCapabilitiesRequestFromJson(json);
+  factory _$FhirCapabilitiesRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirCapabilitiesRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -10282,7 +10292,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirCapabilitiesRequest &&
+            other is _$FhirCapabilitiesRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
             (identical(other.summary, summary) || other.summary == summary) &&
@@ -10317,9 +10327,9 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirCapabilitiesRequestCopyWith<_$FhirCapabilitiesRequest> get copyWith =>
-      __$$FhirCapabilitiesRequestCopyWithImpl<_$FhirCapabilitiesRequest>(
-          this, _$identity);
+  _$$FhirCapabilitiesRequestImplCopyWith<_$FhirCapabilitiesRequestImpl>
+      get copyWith => __$$FhirCapabilitiesRequestImplCopyWithImpl<
+          _$FhirCapabilitiesRequestImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -11117,7 +11127,7 @@ class _$FhirCapabilitiesRequest extends FhirCapabilitiesRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirCapabilitiesRequestToJson(
+    return _$$FhirCapabilitiesRequestImplToJson(
       this,
     );
   }
@@ -11136,11 +11146,11 @@ abstract class FhirCapabilitiesRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirCapabilitiesRequest;
+      final Map<String, String>? headers}) = _$FhirCapabilitiesRequestImpl;
   const FhirCapabilitiesRequest._() : super._();
 
   factory FhirCapabilitiesRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirCapabilitiesRequest.fromJson;
+      _$FhirCapabilitiesRequestImpl.fromJson;
 
   @override
 
@@ -11195,16 +11205,17 @@ abstract class FhirCapabilitiesRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirCapabilitiesRequestCopyWith<_$FhirCapabilitiesRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FhirCapabilitiesRequestImplCopyWith<_$FhirCapabilitiesRequestImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirTransactionRequestCopyWith<$Res>
+abstract class _$$FhirTransactionRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirTransactionRequestCopyWith(_$FhirTransactionRequest value,
-          $Res Function(_$FhirTransactionRequest) then) =
-      __$$FhirTransactionRequestCopyWithImpl<$Res>;
+  factory _$$FhirTransactionRequestImplCopyWith(
+          _$FhirTransactionRequestImpl value,
+          $Res Function(_$FhirTransactionRequestImpl) then) =
+      __$$FhirTransactionRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -11224,11 +11235,12 @@ abstract class _$$FhirTransactionRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirTransactionRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirTransactionRequest>
-    implements _$$FhirTransactionRequestCopyWith<$Res> {
-  __$$FhirTransactionRequestCopyWithImpl(_$FhirTransactionRequest _value,
-      $Res Function(_$FhirTransactionRequest) _then)
+class __$$FhirTransactionRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirTransactionRequestImpl>
+    implements _$$FhirTransactionRequestImplCopyWith<$Res> {
+  __$$FhirTransactionRequestImplCopyWithImpl(
+      _$FhirTransactionRequestImpl _value,
+      $Res Function(_$FhirTransactionRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -11246,7 +11258,7 @@ class __$$FhirTransactionRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirTransactionRequest(
+    return _then(_$FhirTransactionRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -11305,8 +11317,8 @@ class __$$FhirTransactionRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirTransactionRequest extends FhirTransactionRequest {
-  const _$FhirTransactionRequest(
+class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
+  const _$FhirTransactionRequestImpl(
       {required this.base,
       this.pretty = false,
       this.summary = Summary.none,
@@ -11325,8 +11337,8 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
         $type = $type ?? 'transaction',
         super._();
 
-  factory _$FhirTransactionRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirTransactionRequestFromJson(json);
+  factory _$FhirTransactionRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirTransactionRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -11423,7 +11435,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirTransactionRequest &&
+            other is _$FhirTransactionRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
             (identical(other.summary, summary) || other.summary == summary) &&
@@ -11458,9 +11470,9 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirTransactionRequestCopyWith<_$FhirTransactionRequest> get copyWith =>
-      __$$FhirTransactionRequestCopyWithImpl<_$FhirTransactionRequest>(
-          this, _$identity);
+  _$$FhirTransactionRequestImplCopyWith<_$FhirTransactionRequestImpl>
+      get copyWith => __$$FhirTransactionRequestImplCopyWithImpl<
+          _$FhirTransactionRequestImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -12258,7 +12270,7 @@ class _$FhirTransactionRequest extends FhirTransactionRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirTransactionRequestToJson(
+    return _$$FhirTransactionRequestImplToJson(
       this,
     );
   }
@@ -12277,11 +12289,11 @@ abstract class FhirTransactionRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirTransactionRequest;
+      final Map<String, String>? headers}) = _$FhirTransactionRequestImpl;
   const FhirTransactionRequest._() : super._();
 
   factory FhirTransactionRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirTransactionRequest.fromJson;
+      _$FhirTransactionRequestImpl.fromJson;
 
   @override
 
@@ -12336,16 +12348,16 @@ abstract class FhirTransactionRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirTransactionRequestCopyWith<_$FhirTransactionRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FhirTransactionRequestImplCopyWith<_$FhirTransactionRequestImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirBatchRequestCopyWith<$Res>
+abstract class _$$FhirBatchRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirBatchRequestCopyWith(
-          _$FhirBatchRequest value, $Res Function(_$FhirBatchRequest) then) =
-      __$$FhirBatchRequestCopyWithImpl<$Res>;
+  factory _$$FhirBatchRequestImplCopyWith(_$FhirBatchRequestImpl value,
+          $Res Function(_$FhirBatchRequestImpl) then) =
+      __$$FhirBatchRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -12365,11 +12377,11 @@ abstract class _$$FhirBatchRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirBatchRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirBatchRequest>
-    implements _$$FhirBatchRequestCopyWith<$Res> {
-  __$$FhirBatchRequestCopyWithImpl(
-      _$FhirBatchRequest _value, $Res Function(_$FhirBatchRequest) _then)
+class __$$FhirBatchRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirBatchRequestImpl>
+    implements _$$FhirBatchRequestImplCopyWith<$Res> {
+  __$$FhirBatchRequestImplCopyWithImpl(_$FhirBatchRequestImpl _value,
+      $Res Function(_$FhirBatchRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -12387,7 +12399,7 @@ class __$$FhirBatchRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirBatchRequest(
+    return _then(_$FhirBatchRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -12446,8 +12458,8 @@ class __$$FhirBatchRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirBatchRequest extends FhirBatchRequest {
-  const _$FhirBatchRequest(
+class _$FhirBatchRequestImpl extends FhirBatchRequest {
+  const _$FhirBatchRequestImpl(
       {required this.base,
       this.pretty = false,
       this.summary = Summary.none,
@@ -12466,8 +12478,8 @@ class _$FhirBatchRequest extends FhirBatchRequest {
         $type = $type ?? 'batch',
         super._();
 
-  factory _$FhirBatchRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirBatchRequestFromJson(json);
+  factory _$FhirBatchRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirBatchRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -12564,7 +12576,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirBatchRequest &&
+            other is _$FhirBatchRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
             (identical(other.summary, summary) || other.summary == summary) &&
@@ -12599,8 +12611,9 @@ class _$FhirBatchRequest extends FhirBatchRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirBatchRequestCopyWith<_$FhirBatchRequest> get copyWith =>
-      __$$FhirBatchRequestCopyWithImpl<_$FhirBatchRequest>(this, _$identity);
+  _$$FhirBatchRequestImplCopyWith<_$FhirBatchRequestImpl> get copyWith =>
+      __$$FhirBatchRequestImplCopyWithImpl<_$FhirBatchRequestImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -13398,7 +13411,7 @@ class _$FhirBatchRequest extends FhirBatchRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirBatchRequestToJson(
+    return _$$FhirBatchRequestImplToJson(
       this,
     );
   }
@@ -13417,11 +13430,11 @@ abstract class FhirBatchRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirBatchRequest;
+      final Map<String, String>? headers}) = _$FhirBatchRequestImpl;
   const FhirBatchRequest._() : super._();
 
   factory FhirBatchRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirBatchRequest.fromJson;
+      _$FhirBatchRequestImpl.fromJson;
 
   @override
 
@@ -13476,16 +13489,16 @@ abstract class FhirBatchRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirBatchRequestCopyWith<_$FhirBatchRequest> get copyWith =>
+  _$$FhirBatchRequestImplCopyWith<_$FhirBatchRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirHistoryRequestCopyWith<$Res>
+abstract class _$$FhirHistoryRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirHistoryRequestCopyWith(_$FhirHistoryRequest value,
-          $Res Function(_$FhirHistoryRequest) then) =
-      __$$FhirHistoryRequestCopyWithImpl<$Res>;
+  factory _$$FhirHistoryRequestImplCopyWith(_$FhirHistoryRequestImpl value,
+          $Res Function(_$FhirHistoryRequestImpl) then) =
+      __$$FhirHistoryRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -13508,11 +13521,11 @@ abstract class _$$FhirHistoryRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirHistoryRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirHistoryRequest>
-    implements _$$FhirHistoryRequestCopyWith<$Res> {
-  __$$FhirHistoryRequestCopyWithImpl(
-      _$FhirHistoryRequest _value, $Res Function(_$FhirHistoryRequest) _then)
+class __$$FhirHistoryRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirHistoryRequestImpl>
+    implements _$$FhirHistoryRequestImplCopyWith<$Res> {
+  __$$FhirHistoryRequestImplCopyWithImpl(_$FhirHistoryRequestImpl _value,
+      $Res Function(_$FhirHistoryRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -13535,7 +13548,7 @@ class __$$FhirHistoryRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirHistoryRequest(
+    return _then(_$FhirHistoryRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -13606,8 +13619,8 @@ class __$$FhirHistoryRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirHistoryRequest extends FhirHistoryRequest {
-  const _$FhirHistoryRequest(
+class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
+  const _$FhirHistoryRequestImpl(
       {required this.base,
       required this.type,
       required this.fhirId,
@@ -13631,8 +13644,8 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
         $type = $type ?? 'history',
         super._();
 
-  factory _$FhirHistoryRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirHistoryRequestFromJson(json);
+  factory _$FhirHistoryRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirHistoryRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -13754,7 +13767,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirHistoryRequest &&
+            other is _$FhirHistoryRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.fhirId, fhirId) || other.fhirId == fhirId) &&
@@ -13800,8 +13813,8 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirHistoryRequestCopyWith<_$FhirHistoryRequest> get copyWith =>
-      __$$FhirHistoryRequestCopyWithImpl<_$FhirHistoryRequest>(
+  _$$FhirHistoryRequestImplCopyWith<_$FhirHistoryRequestImpl> get copyWith =>
+      __$$FhirHistoryRequestImplCopyWithImpl<_$FhirHistoryRequestImpl>(
           this, _$identity);
 
   @override
@@ -14645,7 +14658,7 @@ class _$FhirHistoryRequest extends FhirHistoryRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirHistoryRequestToJson(
+    return _$$FhirHistoryRequestImplToJson(
       this,
     );
   }
@@ -14669,11 +14682,11 @@ abstract class FhirHistoryRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirHistoryRequest;
+      final Map<String, String>? headers}) = _$FhirHistoryRequestImpl;
   const FhirHistoryRequest._() : super._();
 
   factory FhirHistoryRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirHistoryRequest.fromJson;
+      _$FhirHistoryRequestImpl.fromJson;
 
   @override
 
@@ -14748,16 +14761,17 @@ abstract class FhirHistoryRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirHistoryRequestCopyWith<_$FhirHistoryRequest> get copyWith =>
+  _$$FhirHistoryRequestImplCopyWith<_$FhirHistoryRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirHistoryTypeRequestCopyWith<$Res>
+abstract class _$$FhirHistoryTypeRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirHistoryTypeRequestCopyWith(_$FhirHistoryTypeRequest value,
-          $Res Function(_$FhirHistoryTypeRequest) then) =
-      __$$FhirHistoryTypeRequestCopyWithImpl<$Res>;
+  factory _$$FhirHistoryTypeRequestImplCopyWith(
+          _$FhirHistoryTypeRequestImpl value,
+          $Res Function(_$FhirHistoryTypeRequestImpl) then) =
+      __$$FhirHistoryTypeRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -14779,11 +14793,12 @@ abstract class _$$FhirHistoryTypeRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirHistoryTypeRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirHistoryTypeRequest>
-    implements _$$FhirHistoryTypeRequestCopyWith<$Res> {
-  __$$FhirHistoryTypeRequestCopyWithImpl(_$FhirHistoryTypeRequest _value,
-      $Res Function(_$FhirHistoryTypeRequest) _then)
+class __$$FhirHistoryTypeRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirHistoryTypeRequestImpl>
+    implements _$$FhirHistoryTypeRequestImplCopyWith<$Res> {
+  __$$FhirHistoryTypeRequestImplCopyWithImpl(
+      _$FhirHistoryTypeRequestImpl _value,
+      $Res Function(_$FhirHistoryTypeRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -14805,7 +14820,7 @@ class __$$FhirHistoryTypeRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirHistoryTypeRequest(
+    return _then(_$FhirHistoryTypeRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -14872,8 +14887,8 @@ class __$$FhirHistoryTypeRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
-  const _$FhirHistoryTypeRequest(
+class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
+  const _$FhirHistoryTypeRequestImpl(
       {required this.base,
       required this.type,
       this.pretty = false,
@@ -14896,8 +14911,8 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
         $type = $type ?? 'historyType',
         super._();
 
-  factory _$FhirHistoryTypeRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirHistoryTypeRequestFromJson(json);
+  factory _$FhirHistoryTypeRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirHistoryTypeRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -15015,7 +15030,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirHistoryTypeRequest &&
+            other is _$FhirHistoryTypeRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
@@ -15059,9 +15074,9 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirHistoryTypeRequestCopyWith<_$FhirHistoryTypeRequest> get copyWith =>
-      __$$FhirHistoryTypeRequestCopyWithImpl<_$FhirHistoryTypeRequest>(
-          this, _$identity);
+  _$$FhirHistoryTypeRequestImplCopyWith<_$FhirHistoryTypeRequestImpl>
+      get copyWith => __$$FhirHistoryTypeRequestImplCopyWithImpl<
+          _$FhirHistoryTypeRequestImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -15901,7 +15916,7 @@ class _$FhirHistoryTypeRequest extends FhirHistoryTypeRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirHistoryTypeRequestToJson(
+    return _$$FhirHistoryTypeRequestImplToJson(
       this,
     );
   }
@@ -15924,11 +15939,11 @@ abstract class FhirHistoryTypeRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirHistoryTypeRequest;
+      final Map<String, String>? headers}) = _$FhirHistoryTypeRequestImpl;
   const FhirHistoryTypeRequest._() : super._();
 
   factory FhirHistoryTypeRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirHistoryTypeRequest.fromJson;
+      _$FhirHistoryTypeRequestImpl.fromJson;
 
   @override
 
@@ -16000,16 +16015,17 @@ abstract class FhirHistoryTypeRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirHistoryTypeRequestCopyWith<_$FhirHistoryTypeRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FhirHistoryTypeRequestImplCopyWith<_$FhirHistoryTypeRequestImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirHistoryAllRequestCopyWith<$Res>
+abstract class _$$FhirHistoryAllRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirHistoryAllRequestCopyWith(_$FhirHistoryAllRequest value,
-          $Res Function(_$FhirHistoryAllRequest) then) =
-      __$$FhirHistoryAllRequestCopyWithImpl<$Res>;
+  factory _$$FhirHistoryAllRequestImplCopyWith(
+          _$FhirHistoryAllRequestImpl value,
+          $Res Function(_$FhirHistoryAllRequestImpl) then) =
+      __$$FhirHistoryAllRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -16030,11 +16046,11 @@ abstract class _$$FhirHistoryAllRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirHistoryAllRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirHistoryAllRequest>
-    implements _$$FhirHistoryAllRequestCopyWith<$Res> {
-  __$$FhirHistoryAllRequestCopyWithImpl(_$FhirHistoryAllRequest _value,
-      $Res Function(_$FhirHistoryAllRequest) _then)
+class __$$FhirHistoryAllRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirHistoryAllRequestImpl>
+    implements _$$FhirHistoryAllRequestImplCopyWith<$Res> {
+  __$$FhirHistoryAllRequestImplCopyWithImpl(_$FhirHistoryAllRequestImpl _value,
+      $Res Function(_$FhirHistoryAllRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -16055,7 +16071,7 @@ class __$$FhirHistoryAllRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirHistoryAllRequest(
+    return _then(_$FhirHistoryAllRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -16118,8 +16134,8 @@ class __$$FhirHistoryAllRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
-  const _$FhirHistoryAllRequest(
+class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
+  const _$FhirHistoryAllRequestImpl(
       {required this.base,
       this.pretty = false,
       this.summary = Summary.none,
@@ -16141,8 +16157,8 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
         $type = $type ?? 'historyAll',
         super._();
 
-  factory _$FhirHistoryAllRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirHistoryAllRequestFromJson(json);
+  factory _$FhirHistoryAllRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirHistoryAllRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -16256,7 +16272,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirHistoryAllRequest &&
+            other is _$FhirHistoryAllRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.pretty, pretty) || other.pretty == pretty) &&
             (identical(other.summary, summary) || other.summary == summary) &&
@@ -16298,9 +16314,9 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirHistoryAllRequestCopyWith<_$FhirHistoryAllRequest> get copyWith =>
-      __$$FhirHistoryAllRequestCopyWithImpl<_$FhirHistoryAllRequest>(
-          this, _$identity);
+  _$$FhirHistoryAllRequestImplCopyWith<_$FhirHistoryAllRequestImpl>
+      get copyWith => __$$FhirHistoryAllRequestImplCopyWithImpl<
+          _$FhirHistoryAllRequestImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -17098,7 +17114,7 @@ class _$FhirHistoryAllRequest extends FhirHistoryAllRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirHistoryAllRequestToJson(
+    return _$$FhirHistoryAllRequestImplToJson(
       this,
     );
   }
@@ -17120,11 +17136,11 @@ abstract class FhirHistoryAllRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirHistoryAllRequest;
+      final Map<String, String>? headers}) = _$FhirHistoryAllRequestImpl;
   const FhirHistoryAllRequest._() : super._();
 
   factory FhirHistoryAllRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirHistoryAllRequest.fromJson;
+      _$FhirHistoryAllRequestImpl.fromJson;
 
   @override
 
@@ -17193,16 +17209,16 @@ abstract class FhirHistoryAllRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirHistoryAllRequestCopyWith<_$FhirHistoryAllRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FhirHistoryAllRequestImplCopyWith<_$FhirHistoryAllRequestImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FhirOperationRequestCopyWith<$Res>
+abstract class _$$FhirOperationRequestImplCopyWith<$Res>
     implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirOperationRequestCopyWith(_$FhirOperationRequest value,
-          $Res Function(_$FhirOperationRequest) then) =
-      __$$FhirOperationRequestCopyWithImpl<$Res>;
+  factory _$$FhirOperationRequestImplCopyWith(_$FhirOperationRequestImpl value,
+          $Res Function(_$FhirOperationRequestImpl) then) =
+      __$$FhirOperationRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -17227,11 +17243,11 @@ abstract class _$$FhirOperationRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirOperationRequestCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirOperationRequest>
-    implements _$$FhirOperationRequestCopyWith<$Res> {
-  __$$FhirOperationRequestCopyWithImpl(_$FhirOperationRequest _value,
-      $Res Function(_$FhirOperationRequest) _then)
+class __$$FhirOperationRequestImplCopyWithImpl<$Res>
+    extends _$FhirRequestCopyWithImpl<$Res, _$FhirOperationRequestImpl>
+    implements _$$FhirOperationRequestImplCopyWith<$Res> {
+  __$$FhirOperationRequestImplCopyWithImpl(_$FhirOperationRequestImpl _value,
+      $Res Function(_$FhirOperationRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -17254,7 +17270,7 @@ class __$$FhirOperationRequestCopyWithImpl<$Res>
     Object? client = freezed,
     Object? headers = freezed,
   }) {
-    return _then(_$FhirOperationRequest(
+    return _then(_$FhirOperationRequestImpl(
       base: null == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -17337,8 +17353,8 @@ class __$$FhirOperationRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FhirOperationRequest extends FhirOperationRequest {
-  const _$FhirOperationRequest(
+class _$FhirOperationRequestImpl extends FhirOperationRequest {
+  const _$FhirOperationRequestImpl(
       {required this.base,
       this.type,
       this.fhirId,
@@ -17362,8 +17378,8 @@ class _$FhirOperationRequest extends FhirOperationRequest {
         $type = $type ?? 'operation',
         super._();
 
-  factory _$FhirOperationRequest.fromJson(Map<String, dynamic> json) =>
-      _$$FhirOperationRequestFromJson(json);
+  factory _$FhirOperationRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirOperationRequestImplFromJson(json);
 
   /// [base] - the base URI for the FHIR server
   @override
@@ -17475,7 +17491,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirOperationRequest &&
+            other is _$FhirOperationRequestImpl &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.fhirId, fhirId) || other.fhirId == fhirId) &&
@@ -17523,9 +17539,10 @@ class _$FhirOperationRequest extends FhirOperationRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirOperationRequestCopyWith<_$FhirOperationRequest> get copyWith =>
-      __$$FhirOperationRequestCopyWithImpl<_$FhirOperationRequest>(
-          this, _$identity);
+  _$$FhirOperationRequestImplCopyWith<_$FhirOperationRequestImpl>
+      get copyWith =>
+          __$$FhirOperationRequestImplCopyWithImpl<_$FhirOperationRequestImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -18368,7 +18385,7 @@ class _$FhirOperationRequest extends FhirOperationRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FhirOperationRequestToJson(
+    return _$$FhirOperationRequestImplToJson(
       this,
     );
   }
@@ -18392,11 +18409,11 @@ abstract class FhirOperationRequest extends FhirRequest {
       final String accept,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Client? client,
-      final Map<String, String>? headers}) = _$FhirOperationRequest;
+      final Map<String, String>? headers}) = _$FhirOperationRequestImpl;
   const FhirOperationRequest._() : super._();
 
   factory FhirOperationRequest.fromJson(Map<String, dynamic> json) =
-      _$FhirOperationRequest.fromJson;
+      _$FhirOperationRequestImpl.fromJson;
 
   @override
 
@@ -18459,8 +18476,8 @@ abstract class FhirOperationRequest extends FhirRequest {
   Map<String, String>? get headers;
   @override
   @JsonKey(ignore: true)
-  _$$FhirOperationRequestCopyWith<_$FhirOperationRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FhirOperationRequestImplCopyWith<_$FhirOperationRequestImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 FhirHttpRequest _$FhirHttpRequestFromJson(Map<String, dynamic> json) {
@@ -18533,11 +18550,11 @@ class _$FhirHttpRequestCopyWithImpl<$Res, $Val extends FhirHttpRequest>
 }
 
 /// @nodoc
-abstract class _$$_FhirHttpRequestCopyWith<$Res>
+abstract class _$$FhirHttpRequestImplCopyWith<$Res>
     implements $FhirHttpRequestCopyWith<$Res> {
-  factory _$$_FhirHttpRequestCopyWith(
-          _$_FhirHttpRequest value, $Res Function(_$_FhirHttpRequest) then) =
-      __$$_FhirHttpRequestCopyWithImpl<$Res>;
+  factory _$$FhirHttpRequestImplCopyWith(_$FhirHttpRequestImpl value,
+          $Res Function(_$FhirHttpRequestImpl) then) =
+      __$$FhirHttpRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -18548,11 +18565,11 @@ abstract class _$$_FhirHttpRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FhirHttpRequestCopyWithImpl<$Res>
-    extends _$FhirHttpRequestCopyWithImpl<$Res, _$_FhirHttpRequest>
-    implements _$$_FhirHttpRequestCopyWith<$Res> {
-  __$$_FhirHttpRequestCopyWithImpl(
-      _$_FhirHttpRequest _value, $Res Function(_$_FhirHttpRequest) _then)
+class __$$FhirHttpRequestImplCopyWithImpl<$Res>
+    extends _$FhirHttpRequestCopyWithImpl<$Res, _$FhirHttpRequestImpl>
+    implements _$$FhirHttpRequestImplCopyWith<$Res> {
+  __$$FhirHttpRequestImplCopyWithImpl(
+      _$FhirHttpRequestImpl _value, $Res Function(_$FhirHttpRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -18563,7 +18580,7 @@ class __$$_FhirHttpRequestCopyWithImpl<$Res>
     Object? headers = null,
     Object? body = freezed,
   }) {
-    return _then(_$_FhirHttpRequest(
+    return _then(_$FhirHttpRequestImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -18586,8 +18603,8 @@ class __$$_FhirHttpRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FhirHttpRequest extends _FhirHttpRequest {
-  const _$_FhirHttpRequest(
+class _$FhirHttpRequestImpl extends _FhirHttpRequest {
+  const _$FhirHttpRequestImpl(
       {required this.type,
       required this.url,
       required final Map<String, String> headers,
@@ -18596,8 +18613,8 @@ class _$_FhirHttpRequest extends _FhirHttpRequest {
         _body = body,
         super._();
 
-  factory _$_FhirHttpRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_FhirHttpRequestFromJson(json);
+  factory _$FhirHttpRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FhirHttpRequestImplFromJson(json);
 
   @override
   final RestfulRequest type;
@@ -18630,7 +18647,7 @@ class _$_FhirHttpRequest extends _FhirHttpRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FhirHttpRequest &&
+            other is _$FhirHttpRequestImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.url, url) || other.url == url) &&
             const DeepCollectionEquality().equals(other._headers, _headers) &&
@@ -18649,12 +18666,13 @@ class _$_FhirHttpRequest extends _FhirHttpRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FhirHttpRequestCopyWith<_$_FhirHttpRequest> get copyWith =>
-      __$$_FhirHttpRequestCopyWithImpl<_$_FhirHttpRequest>(this, _$identity);
+  _$$FhirHttpRequestImplCopyWith<_$FhirHttpRequestImpl> get copyWith =>
+      __$$FhirHttpRequestImplCopyWithImpl<_$FhirHttpRequestImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FhirHttpRequestToJson(
+    return _$$FhirHttpRequestImplToJson(
       this,
     );
   }
@@ -18665,11 +18683,11 @@ abstract class _FhirHttpRequest extends FhirHttpRequest {
       {required final RestfulRequest type,
       required final String url,
       required final Map<String, String> headers,
-      final Map<String, dynamic>? body}) = _$_FhirHttpRequest;
+      final Map<String, dynamic>? body}) = _$FhirHttpRequestImpl;
   const _FhirHttpRequest._() : super._();
 
   factory _FhirHttpRequest.fromJson(Map<String, dynamic> json) =
-      _$_FhirHttpRequest.fromJson;
+      _$FhirHttpRequestImpl.fromJson;
 
   @override
   RestfulRequest get type;
@@ -18681,6 +18699,6 @@ abstract class _FhirHttpRequest extends FhirHttpRequest {
   Map<String, dynamic>? get body;
   @override
   @JsonKey(ignore: true)
-  _$$_FhirHttpRequestCopyWith<_$_FhirHttpRequest> get copyWith =>
+  _$$FhirHttpRequestImplCopyWith<_$FhirHttpRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

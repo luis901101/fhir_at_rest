@@ -6,8 +6,9 @@ part of 'fhir_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FhirReadRequest _$$FhirReadRequestFromJson(Map<String, dynamic> json) =>
-    _$FhirReadRequest(
+_$FhirReadRequestImpl _$$FhirReadRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$FhirReadRequestImpl(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$Dstu2ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
@@ -31,7 +32,8 @@ _$FhirReadRequest _$$FhirReadRequestFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirReadRequestToJson(_$FhirReadRequest instance) {
+Map<String, dynamic> _$$FhirReadRequestImplToJson(
+    _$FhirReadRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'type': _$Dstu2ResourceTypeEnumMap[instance.type]!,
@@ -170,8 +172,9 @@ const _$MimeTypeEnumMap = {
   MimeType.x_www_form_urlencoded: 'x_www_form_urlencoded',
 };
 
-_$FhirVReadRequest _$$FhirVReadRequestFromJson(Map<String, dynamic> json) =>
-    _$FhirVReadRequest(
+_$FhirVReadRequestImpl _$$FhirVReadRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$FhirVReadRequestImpl(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$Dstu2ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
@@ -196,7 +199,8 @@ _$FhirVReadRequest _$$FhirVReadRequestFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirVReadRequestToJson(_$FhirVReadRequest instance) {
+Map<String, dynamic> _$$FhirVReadRequestImplToJson(
+    _$FhirVReadRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'type': _$Dstu2ResourceTypeEnumMap[instance.type]!,
@@ -222,8 +226,9 @@ Map<String, dynamic> _$$FhirVReadRequestToJson(_$FhirVReadRequest instance) {
   return val;
 }
 
-_$FhirUpdateRequest _$$FhirUpdateRequestFromJson(Map<String, dynamic> json) =>
-    _$FhirUpdateRequest(
+_$FhirUpdateRequestImpl _$$FhirUpdateRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$FhirUpdateRequestImpl(
       base: Uri.parse(json['base'] as String),
       resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
       pretty: json['pretty'] as bool? ?? false,
@@ -246,7 +251,8 @@ _$FhirUpdateRequest _$$FhirUpdateRequestFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirUpdateRequestToJson(_$FhirUpdateRequest instance) {
+Map<String, dynamic> _$$FhirUpdateRequestImplToJson(
+    _$FhirUpdateRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'resource': instance.resource.toJson(),
@@ -270,8 +276,9 @@ Map<String, dynamic> _$$FhirUpdateRequestToJson(_$FhirUpdateRequest instance) {
   return val;
 }
 
-_$FhirPatchRequest _$$FhirPatchRequestFromJson(Map<String, dynamic> json) =>
-    _$FhirPatchRequest(
+_$FhirPatchRequestImpl _$$FhirPatchRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$FhirPatchRequestImpl(
       base: Uri.parse(json['base'] as String),
       resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
       pretty: json['pretty'] as bool? ?? false,
@@ -294,7 +301,8 @@ _$FhirPatchRequest _$$FhirPatchRequestFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirPatchRequestToJson(_$FhirPatchRequest instance) {
+Map<String, dynamic> _$$FhirPatchRequestImplToJson(
+    _$FhirPatchRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'resource': instance.resource.toJson(),
@@ -318,8 +326,9 @@ Map<String, dynamic> _$$FhirPatchRequestToJson(_$FhirPatchRequest instance) {
   return val;
 }
 
-_$FhirDeleteRequest _$$FhirDeleteRequestFromJson(Map<String, dynamic> json) =>
-    _$FhirDeleteRequest(
+_$FhirDeleteRequestImpl _$$FhirDeleteRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$FhirDeleteRequestImpl(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$Dstu2ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
@@ -343,7 +352,8 @@ _$FhirDeleteRequest _$$FhirDeleteRequestFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirDeleteRequestToJson(_$FhirDeleteRequest instance) {
+Map<String, dynamic> _$$FhirDeleteRequestImplToJson(
+    _$FhirDeleteRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'type': _$Dstu2ResourceTypeEnumMap[instance.type]!,
@@ -368,8 +378,9 @@ Map<String, dynamic> _$$FhirDeleteRequestToJson(_$FhirDeleteRequest instance) {
   return val;
 }
 
-_$FhirCreateRequest _$$FhirCreateRequestFromJson(Map<String, dynamic> json) =>
-    _$FhirCreateRequest(
+_$FhirCreateRequestImpl _$$FhirCreateRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$FhirCreateRequestImpl(
       base: Uri.parse(json['base'] as String),
       resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
       pretty: json['pretty'] as bool? ?? false,
@@ -392,7 +403,8 @@ _$FhirCreateRequest _$$FhirCreateRequestFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirCreateRequestToJson(_$FhirCreateRequest instance) {
+Map<String, dynamic> _$$FhirCreateRequestImplToJson(
+    _$FhirCreateRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'resource': instance.resource.toJson(),
@@ -416,8 +428,9 @@ Map<String, dynamic> _$$FhirCreateRequestToJson(_$FhirCreateRequest instance) {
   return val;
 }
 
-_$FhirSearchRequest _$$FhirSearchRequestFromJson(Map<String, dynamic> json) =>
-    _$FhirSearchRequest(
+_$FhirSearchRequestImpl _$$FhirSearchRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$FhirSearchRequestImpl(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$Dstu2ResourceTypeEnumMap, json['type']),
       pretty: json['pretty'] as bool? ?? false,
@@ -444,7 +457,8 @@ _$FhirSearchRequest _$$FhirSearchRequestFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirSearchRequestToJson(_$FhirSearchRequest instance) {
+Map<String, dynamic> _$$FhirSearchRequestImplToJson(
+    _$FhirSearchRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'type': _$Dstu2ResourceTypeEnumMap[instance.type]!,
@@ -478,9 +492,9 @@ const _$RestfulRequestEnumMap = {
   RestfulRequest.patch_: 'PATCH',
 };
 
-_$FhirSearchAllRequest _$$FhirSearchAllRequestFromJson(
+_$FhirSearchAllRequestImpl _$$FhirSearchAllRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$FhirSearchAllRequest(
+    _$FhirSearchAllRequestImpl(
       base: Uri.parse(json['base'] as String),
       pretty: json['pretty'] as bool? ?? false,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
@@ -502,8 +516,8 @@ _$FhirSearchAllRequest _$$FhirSearchAllRequestFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirSearchAllRequestToJson(
-    _$FhirSearchAllRequest instance) {
+Map<String, dynamic> _$$FhirSearchAllRequestImplToJson(
+    _$FhirSearchAllRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'pretty': instance.pretty,
@@ -526,9 +540,9 @@ Map<String, dynamic> _$$FhirSearchAllRequestToJson(
   return val;
 }
 
-_$FhirCapabilitiesRequest _$$FhirCapabilitiesRequestFromJson(
+_$FhirCapabilitiesRequestImpl _$$FhirCapabilitiesRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$FhirCapabilitiesRequest(
+    _$FhirCapabilitiesRequestImpl(
       base: Uri.parse(json['base'] as String),
       pretty: json['pretty'] as bool? ?? false,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
@@ -551,8 +565,8 @@ _$FhirCapabilitiesRequest _$$FhirCapabilitiesRequestFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirCapabilitiesRequestToJson(
-    _$FhirCapabilitiesRequest instance) {
+Map<String, dynamic> _$$FhirCapabilitiesRequestImplToJson(
+    _$FhirCapabilitiesRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'pretty': instance.pretty,
@@ -582,9 +596,9 @@ const _$ModeEnumMap = {
   Mode.terminology: 'terminology',
 };
 
-_$FhirTransactionRequest _$$FhirTransactionRequestFromJson(
+_$FhirTransactionRequestImpl _$$FhirTransactionRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$FhirTransactionRequest(
+    _$FhirTransactionRequestImpl(
       base: Uri.parse(json['base'] as String),
       pretty: json['pretty'] as bool? ?? false,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
@@ -607,8 +621,8 @@ _$FhirTransactionRequest _$$FhirTransactionRequestFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirTransactionRequestToJson(
-    _$FhirTransactionRequest instance) {
+Map<String, dynamic> _$$FhirTransactionRequestImplToJson(
+    _$FhirTransactionRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'pretty': instance.pretty,
@@ -632,8 +646,9 @@ Map<String, dynamic> _$$FhirTransactionRequestToJson(
   return val;
 }
 
-_$FhirBatchRequest _$$FhirBatchRequestFromJson(Map<String, dynamic> json) =>
-    _$FhirBatchRequest(
+_$FhirBatchRequestImpl _$$FhirBatchRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$FhirBatchRequestImpl(
       base: Uri.parse(json['base'] as String),
       pretty: json['pretty'] as bool? ?? false,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
@@ -656,7 +671,8 @@ _$FhirBatchRequest _$$FhirBatchRequestFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirBatchRequestToJson(_$FhirBatchRequest instance) {
+Map<String, dynamic> _$$FhirBatchRequestImplToJson(
+    _$FhirBatchRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'pretty': instance.pretty,
@@ -680,8 +696,9 @@ Map<String, dynamic> _$$FhirBatchRequestToJson(_$FhirBatchRequest instance) {
   return val;
 }
 
-_$FhirHistoryRequest _$$FhirHistoryRequestFromJson(Map<String, dynamic> json) =>
-    _$FhirHistoryRequest(
+_$FhirHistoryRequestImpl _$$FhirHistoryRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$FhirHistoryRequestImpl(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$Dstu2ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
@@ -709,8 +726,8 @@ _$FhirHistoryRequest _$$FhirHistoryRequestFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirHistoryRequestToJson(
-    _$FhirHistoryRequest instance) {
+Map<String, dynamic> _$$FhirHistoryRequestImplToJson(
+    _$FhirHistoryRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'type': _$Dstu2ResourceTypeEnumMap[instance.type]!,
@@ -739,9 +756,9 @@ Map<String, dynamic> _$$FhirHistoryRequestToJson(
   return val;
 }
 
-_$FhirHistoryTypeRequest _$$FhirHistoryTypeRequestFromJson(
+_$FhirHistoryTypeRequestImpl _$$FhirHistoryTypeRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$FhirHistoryTypeRequest(
+    _$FhirHistoryTypeRequestImpl(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$Dstu2ResourceTypeEnumMap, json['type']),
       pretty: json['pretty'] as bool? ?? false,
@@ -768,8 +785,8 @@ _$FhirHistoryTypeRequest _$$FhirHistoryTypeRequestFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirHistoryTypeRequestToJson(
-    _$FhirHistoryTypeRequest instance) {
+Map<String, dynamic> _$$FhirHistoryTypeRequestImplToJson(
+    _$FhirHistoryTypeRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'type': _$Dstu2ResourceTypeEnumMap[instance.type]!,
@@ -797,9 +814,9 @@ Map<String, dynamic> _$$FhirHistoryTypeRequestToJson(
   return val;
 }
 
-_$FhirHistoryAllRequest _$$FhirHistoryAllRequestFromJson(
+_$FhirHistoryAllRequestImpl _$$FhirHistoryAllRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$FhirHistoryAllRequest(
+    _$FhirHistoryAllRequestImpl(
       base: Uri.parse(json['base'] as String),
       pretty: json['pretty'] as bool? ?? false,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
@@ -825,8 +842,8 @@ _$FhirHistoryAllRequest _$$FhirHistoryAllRequestFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirHistoryAllRequestToJson(
-    _$FhirHistoryAllRequest instance) {
+Map<String, dynamic> _$$FhirHistoryAllRequestImplToJson(
+    _$FhirHistoryAllRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'pretty': instance.pretty,
@@ -853,9 +870,9 @@ Map<String, dynamic> _$$FhirHistoryAllRequestToJson(
   return val;
 }
 
-_$FhirOperationRequest _$$FhirOperationRequestFromJson(
+_$FhirOperationRequestImpl _$$FhirOperationRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$FhirOperationRequest(
+    _$FhirOperationRequestImpl(
       base: Uri.parse(json['base'] as String),
       type: $enumDecodeNullable(_$Dstu2ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String?,
@@ -885,8 +902,8 @@ _$FhirOperationRequest _$$FhirOperationRequestFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$FhirOperationRequestToJson(
-    _$FhirOperationRequest instance) {
+Map<String, dynamic> _$$FhirOperationRequestImplToJson(
+    _$FhirOperationRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
   };
@@ -915,15 +932,17 @@ Map<String, dynamic> _$$FhirOperationRequestToJson(
   return val;
 }
 
-_$_FhirHttpRequest _$$_FhirHttpRequestFromJson(Map<String, dynamic> json) =>
-    _$_FhirHttpRequest(
+_$FhirHttpRequestImpl _$$FhirHttpRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$FhirHttpRequestImpl(
       type: $enumDecode(_$RestfulRequestEnumMap, json['type']),
       url: json['url'] as String,
       headers: Map<String, String>.from(json['headers'] as Map),
       body: json['body'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$$_FhirHttpRequestToJson(_$_FhirHttpRequest instance) {
+Map<String, dynamic> _$$FhirHttpRequestImplToJson(
+    _$FhirHttpRequestImpl instance) {
   final val = <String, dynamic>{
     'type': _$RestfulRequestEnumMap[instance.type]!,
     'url': instance.url,
