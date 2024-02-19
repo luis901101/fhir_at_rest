@@ -46,15 +46,14 @@ class FhirRequest with _$FhirRequest {
     required String fhirId,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -107,15 +106,14 @@ class FhirRequest with _$FhirRequest {
     required FhirId vid,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -159,15 +157,14 @@ class FhirRequest with _$FhirRequest {
     required Resource resource,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -211,15 +208,14 @@ class FhirRequest with _$FhirRequest {
     required Resource resource,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -270,15 +266,14 @@ class FhirRequest with _$FhirRequest {
     required String fhirId,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -322,15 +317,14 @@ class FhirRequest with _$FhirRequest {
     required Resource resource,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -379,15 +373,14 @@ class FhirRequest with _$FhirRequest {
     required R4ResourceType type,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -435,15 +428,14 @@ class FhirRequest with _$FhirRequest {
     required Uri base,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -487,15 +479,14 @@ class FhirRequest with _$FhirRequest {
     required Uri base,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -542,15 +533,14 @@ class FhirRequest with _$FhirRequest {
     required Uri base,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -597,15 +587,14 @@ class FhirRequest with _$FhirRequest {
     required Uri base,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -668,15 +657,14 @@ class FhirRequest with _$FhirRequest {
     required String fhirId,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -749,15 +737,14 @@ class FhirRequest with _$FhirRequest {
     required R4ResourceType type,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -826,15 +813,14 @@ class FhirRequest with _$FhirRequest {
     required Uri base,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -900,15 +886,14 @@ class FhirRequest with _$FhirRequest {
     String? fhirId,
 
     /// [pretty] - pretty print the json formatting in the response
-    @Default(false) bool pretty,
+    bool? pretty,
 
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - currently requests json, but could consider requesting
-    ///   json+fhir or fhir+json (would not request XML as this library doesn't
-    ///   work with XML)
-    @Default('json') String format,
+    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// (would not request XML as this library doesn't work with XML)
+    String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -1586,13 +1571,13 @@ class FhirRequest with _$FhirRequest {
       orElse: () => '');
 
   /// specifies the format
-  String _format({bool join = false}) => maybeMap(
+  String _format({bool join = false}) => format == null ? '' : maybeMap(
       capabilities: (FhirCapabilitiesRequest request) =>
           _encodeParam('_format=${request.format}'),
       orElse: () => _encodeParam('_format=$format', join: join));
 
   /// assigns if you want it pretty
-  String _pretty({bool join = true}) =>
+  String _pretty({bool join = true}) => pretty == null ? '' :
       _encodeParam('_pretty=$pretty', join: join);
 
   /// assigns if you want the summary

@@ -12,10 +12,10 @@ _$FhirReadRequestImpl _$$FhirReadRequestImplFromJson(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$R5ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -38,11 +38,6 @@ Map<String, dynamic> _$$FhirReadRequestImplToJson(
     'base': instance.base.toString(),
     'type': _$R5ResourceTypeEnumMap[instance.type]!,
     'fhirId': instance.fhirId,
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -51,6 +46,11 @@ Map<String, dynamic> _$$FhirReadRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
   writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
   val['accept'] = instance.accept;
   writeNotNull('headers', instance.headers);
@@ -244,10 +244,10 @@ _$FhirVReadRequestImpl _$$FhirVReadRequestImplFromJson(
       type: $enumDecode(_$R5ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
       vid: FhirId.fromJson(json['vid']),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -271,11 +271,6 @@ Map<String, dynamic> _$$FhirVReadRequestImplToJson(
     'type': _$R5ResourceTypeEnumMap[instance.type]!,
     'fhirId': instance.fhirId,
     'vid': instance.vid.toJson(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -284,6 +279,11 @@ Map<String, dynamic> _$$FhirVReadRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
   writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
   val['accept'] = instance.accept;
   writeNotNull('headers', instance.headers);
@@ -296,10 +296,10 @@ _$FhirUpdateRequestImpl _$$FhirUpdateRequestImplFromJson(
     _$FhirUpdateRequestImpl(
       base: Uri.parse(json['base'] as String),
       resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -321,11 +321,6 @@ Map<String, dynamic> _$$FhirUpdateRequestImplToJson(
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'resource': instance.resource.toJson(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -334,6 +329,11 @@ Map<String, dynamic> _$$FhirUpdateRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
   writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
   val['accept'] = instance.accept;
   writeNotNull('headers', instance.headers);
@@ -346,10 +346,10 @@ _$FhirPatchRequestImpl _$$FhirPatchRequestImplFromJson(
     _$FhirPatchRequestImpl(
       base: Uri.parse(json['base'] as String),
       resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -371,11 +371,6 @@ Map<String, dynamic> _$$FhirPatchRequestImplToJson(
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'resource': instance.resource.toJson(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -384,6 +379,11 @@ Map<String, dynamic> _$$FhirPatchRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
   writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
   val['accept'] = instance.accept;
   writeNotNull('headers', instance.headers);
@@ -397,10 +397,10 @@ _$FhirDeleteRequestImpl _$$FhirDeleteRequestImplFromJson(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$R5ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -423,11 +423,6 @@ Map<String, dynamic> _$$FhirDeleteRequestImplToJson(
     'base': instance.base.toString(),
     'type': _$R5ResourceTypeEnumMap[instance.type]!,
     'fhirId': instance.fhirId,
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -436,6 +431,11 @@ Map<String, dynamic> _$$FhirDeleteRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
   writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
   val['accept'] = instance.accept;
   writeNotNull('headers', instance.headers);
@@ -448,10 +448,10 @@ _$FhirCreateRequestImpl _$$FhirCreateRequestImplFromJson(
     _$FhirCreateRequestImpl(
       base: Uri.parse(json['base'] as String),
       resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -473,11 +473,6 @@ Map<String, dynamic> _$$FhirCreateRequestImplToJson(
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'resource': instance.resource.toJson(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -486,6 +481,11 @@ Map<String, dynamic> _$$FhirCreateRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
   writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
   val['accept'] = instance.accept;
   writeNotNull('headers', instance.headers);
@@ -498,10 +498,10 @@ _$FhirSearchRequestImpl _$$FhirSearchRequestImplFromJson(
     _$FhirSearchRequestImpl(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$R5ResourceTypeEnumMap, json['type']),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -527,13 +527,6 @@ Map<String, dynamic> _$$FhirSearchRequestImplToJson(
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'type': _$R5ResourceTypeEnumMap[instance.type]!,
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-    'usePost': instance.usePost,
-    'restfulRequest': _$RestfulRequestEnumMap[instance.restfulRequest]!,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -542,6 +535,13 @@ Map<String, dynamic> _$$FhirSearchRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
+  val['usePost'] = instance.usePost;
+  val['restfulRequest'] = _$RestfulRequestEnumMap[instance.restfulRequest]!;
   writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
   val['accept'] = instance.accept;
   writeNotNull('headers', instance.headers);
@@ -561,10 +561,10 @@ _$FhirSearchAllRequestImpl _$$FhirSearchAllRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$FhirSearchAllRequestImpl(
       base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -585,11 +585,6 @@ Map<String, dynamic> _$$FhirSearchAllRequestImplToJson(
     _$FhirSearchAllRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -598,6 +593,11 @@ Map<String, dynamic> _$$FhirSearchAllRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
   writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
   val['accept'] = instance.accept;
   writeNotNull('headers', instance.headers);
@@ -609,10 +609,10 @@ _$FhirCapabilitiesRequestImpl _$$FhirCapabilitiesRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$FhirCapabilitiesRequestImpl(
       base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -634,12 +634,6 @@ Map<String, dynamic> _$$FhirCapabilitiesRequestImplToJson(
     _$FhirCapabilitiesRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-    'mode': _$ModeEnumMap[instance.mode]!,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -648,6 +642,12 @@ Map<String, dynamic> _$$FhirCapabilitiesRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
+  val['mode'] = _$ModeEnumMap[instance.mode]!;
   writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
   val['accept'] = instance.accept;
   writeNotNull('headers', instance.headers);
@@ -665,10 +665,10 @@ _$FhirTransactionRequestImpl _$$FhirTransactionRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$FhirTransactionRequestImpl(
       base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -690,12 +690,6 @@ Map<String, dynamic> _$$FhirTransactionRequestImplToJson(
     _$FhirTransactionRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-    'bundle': instance.bundle.toJson(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -704,6 +698,12 @@ Map<String, dynamic> _$$FhirTransactionRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
+  val['bundle'] = instance.bundle.toJson();
   writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
   val['accept'] = instance.accept;
   writeNotNull('headers', instance.headers);
@@ -715,10 +715,10 @@ _$FhirBatchRequestImpl _$$FhirBatchRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$FhirBatchRequestImpl(
       base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -740,12 +740,6 @@ Map<String, dynamic> _$$FhirBatchRequestImplToJson(
     _$FhirBatchRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-    'bundle': instance.bundle.toJson(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -754,6 +748,12 @@ Map<String, dynamic> _$$FhirBatchRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
+  val['bundle'] = instance.bundle.toJson();
   writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
   val['accept'] = instance.accept;
   writeNotNull('headers', instance.headers);
@@ -767,10 +767,10 @@ _$FhirHistoryRequestImpl _$$FhirHistoryRequestImplFromJson(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$R5ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -801,11 +801,6 @@ Map<String, dynamic> _$$FhirHistoryRequestImplToJson(
     'base': instance.base.toString(),
     'type': _$R5ResourceTypeEnumMap[instance.type]!,
     'fhirId': instance.fhirId,
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -814,6 +809,11 @@ Map<String, dynamic> _$$FhirHistoryRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
   writeNotNull('count', instance.count);
   writeNotNull('since', instance.since?.toJson());
   writeNotNull('at', instance.at?.toJson());
@@ -830,10 +830,10 @@ _$FhirHistoryTypeRequestImpl _$$FhirHistoryTypeRequestImplFromJson(
     _$FhirHistoryTypeRequestImpl(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$R5ResourceTypeEnumMap, json['type']),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -863,11 +863,6 @@ Map<String, dynamic> _$$FhirHistoryTypeRequestImplToJson(
   final val = <String, dynamic>{
     'base': instance.base.toString(),
     'type': _$R5ResourceTypeEnumMap[instance.type]!,
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -876,6 +871,11 @@ Map<String, dynamic> _$$FhirHistoryTypeRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
   writeNotNull('count', instance.count);
   writeNotNull('since', instance.since?.toJson());
   writeNotNull('at', instance.at?.toJson());
@@ -891,10 +891,10 @@ _$FhirHistoryAllRequestImpl _$$FhirHistoryAllRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$FhirHistoryAllRequestImpl(
       base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -923,11 +923,6 @@ Map<String, dynamic> _$$FhirHistoryAllRequestImplToJson(
     _$FhirHistoryAllRequestImpl instance) {
   final val = <String, dynamic>{
     'base': instance.base.toString(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -936,6 +931,11 @@ Map<String, dynamic> _$$FhirHistoryAllRequestImplToJson(
     }
   }
 
+  writeNotNull('pretty', instance.pretty);
+  val['summary'] = _$SummaryEnumMap[instance.summary]!;
+  writeNotNull('format', instance.format);
+  val['elements'] = instance.elements;
+  val['parameters'] = instance.parameters;
   writeNotNull('count', instance.count);
   writeNotNull('since', instance.since?.toJson());
   writeNotNull('at', instance.at?.toJson());
@@ -953,10 +953,10 @@ _$FhirOperationRequestImpl _$$FhirOperationRequestImplFromJson(
       base: Uri.parse(json['base'] as String),
       type: $enumDecodeNullable(_$R5ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String?,
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -993,9 +993,9 @@ Map<String, dynamic> _$$FhirOperationRequestImplToJson(
 
   writeNotNull('type', _$R5ResourceTypeEnumMap[instance.type]);
   writeNotNull('fhirId', instance.fhirId);
-  val['pretty'] = instance.pretty;
+  writeNotNull('pretty', instance.pretty);
   val['summary'] = _$SummaryEnumMap[instance.summary]!;
-  val['format'] = instance.format;
+  writeNotNull('format', instance.format);
   val['elements'] = instance.elements;
   val['parameters'] = instance.parameters;
   writeNotNull('fhirParameter', instance.fhirParameter?.toJson());

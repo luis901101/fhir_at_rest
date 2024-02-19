@@ -59,15 +59,14 @@ mixin _$FhirRequest {
   Uri get base => throw _privateConstructorUsedError;
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty => throw _privateConstructorUsedError;
+  bool? get pretty => throw _privateConstructorUsedError;
 
   /// [summary] - do you want the result to be a summary
   Summary get summary => throw _privateConstructorUsedError;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format => throw _privateConstructorUsedError;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format => throw _privateConstructorUsedError;
 
   /// [elements] - elements you need to pass in
   List<String> get elements => throw _privateConstructorUsedError;
@@ -98,9 +97,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -114,9 +113,9 @@ mixin _$FhirRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -128,9 +127,9 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -142,9 +141,9 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -157,9 +156,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -171,9 +170,9 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -185,9 +184,9 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -200,9 +199,9 @@ mixin _$FhirRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -213,9 +212,9 @@ mixin _$FhirRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -227,9 +226,9 @@ mixin _$FhirRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -241,9 +240,9 @@ mixin _$FhirRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -257,9 +256,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -275,9 +274,9 @@ mixin _$FhirRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -292,9 +291,9 @@ mixin _$FhirRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -311,9 +310,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -334,9 +333,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -350,9 +349,9 @@ mixin _$FhirRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -364,9 +363,9 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -378,9 +377,9 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -393,9 +392,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -407,9 +406,9 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -421,9 +420,9 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -436,9 +435,9 @@ mixin _$FhirRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -449,9 +448,9 @@ mixin _$FhirRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -463,9 +462,9 @@ mixin _$FhirRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -477,9 +476,9 @@ mixin _$FhirRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -493,9 +492,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -511,9 +510,9 @@ mixin _$FhirRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -528,9 +527,9 @@ mixin _$FhirRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -547,9 +546,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -570,9 +569,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -586,9 +585,9 @@ mixin _$FhirRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -600,9 +599,9 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -614,9 +613,9 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -629,9 +628,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -643,9 +642,9 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -657,9 +656,9 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -672,9 +671,9 @@ mixin _$FhirRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -685,9 +684,9 @@ mixin _$FhirRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -699,9 +698,9 @@ mixin _$FhirRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -713,9 +712,9 @@ mixin _$FhirRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -729,9 +728,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -747,9 +746,9 @@ mixin _$FhirRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -764,9 +763,9 @@ mixin _$FhirRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -783,9 +782,9 @@ mixin _$FhirRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -873,9 +872,9 @@ abstract class $FhirRequestCopyWith<$Res> {
   @useResult
   $Res call(
       {Uri base,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       MimeType? mimeType,
@@ -898,9 +897,9 @@ class _$FhirRequestCopyWithImpl<$Res, $Val extends FhirRequest>
   @override
   $Res call({
     Object? base = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? mimeType = freezed,
@@ -913,18 +912,18 @@ class _$FhirRequestCopyWithImpl<$Res, $Val extends FhirRequest>
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
               as Uri,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value.elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -965,9 +964,9 @@ abstract class _$$FhirReadRequestImplCopyWith<$Res>
       {Uri base,
       R5ResourceType type,
       String fhirId,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       MimeType? mimeType,
@@ -990,9 +989,9 @@ class __$$FhirReadRequestImplCopyWithImpl<$Res>
     Object? base = null,
     Object? type = null,
     Object? fhirId = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? mimeType = freezed,
@@ -1013,18 +1012,18 @@ class __$$FhirReadRequestImplCopyWithImpl<$Res>
           ? _value.fhirId
           : fhirId // ignore: cast_nullable_to_non_nullable
               as String,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -1060,9 +1059,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
       {required this.base,
       required this.type,
       required this.fhirId,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.mimeType,
@@ -1093,20 +1092,17 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -1226,9 +1222,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1242,9 +1238,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1256,9 +1252,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1270,9 +1266,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1285,9 +1281,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1299,9 +1295,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1313,9 +1309,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -1328,9 +1324,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1341,9 +1337,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -1355,9 +1351,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -1369,9 +1365,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -1385,9 +1381,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -1403,9 +1399,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -1420,9 +1416,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -1439,9 +1435,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -1466,9 +1462,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1482,9 +1478,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1496,9 +1492,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1510,9 +1506,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1525,9 +1521,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1539,9 +1535,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1553,9 +1549,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -1568,9 +1564,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1581,9 +1577,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -1595,9 +1591,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -1609,9 +1605,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -1625,9 +1621,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -1643,9 +1639,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -1660,9 +1656,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -1679,9 +1675,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -1706,9 +1702,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1722,9 +1718,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1736,9 +1732,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1750,9 +1746,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1765,9 +1761,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1779,9 +1775,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1793,9 +1789,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -1808,9 +1804,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -1821,9 +1817,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -1835,9 +1831,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -1849,9 +1845,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -1865,9 +1861,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -1883,9 +1879,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -1900,9 +1896,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -1919,9 +1915,9 @@ class _$FhirReadRequestImpl extends FhirReadRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -2026,9 +2022,9 @@ abstract class FhirReadRequest extends FhirRequest {
       {required final Uri base,
       required final R5ResourceType type,
       required final String fhirId,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final MimeType? mimeType,
@@ -2054,17 +2050,16 @@ abstract class FhirReadRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -2114,9 +2109,9 @@ abstract class _$$FhirVReadRequestImplCopyWith<$Res>
       R5ResourceType type,
       String fhirId,
       FhirId vid,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       MimeType? mimeType,
@@ -2140,9 +2135,9 @@ class __$$FhirVReadRequestImplCopyWithImpl<$Res>
     Object? type = null,
     Object? fhirId = null,
     Object? vid = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? mimeType = freezed,
@@ -2167,18 +2162,18 @@ class __$$FhirVReadRequestImplCopyWithImpl<$Res>
           ? _value.vid
           : vid // ignore: cast_nullable_to_non_nullable
               as FhirId,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -2215,9 +2210,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
       required this.type,
       required this.fhirId,
       required this.vid,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.mimeType,
@@ -2250,20 +2245,17 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -2385,9 +2377,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2401,9 +2393,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2415,9 +2407,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2429,9 +2421,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2444,9 +2436,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2458,9 +2450,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2472,9 +2464,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -2487,9 +2479,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2500,9 +2492,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -2514,9 +2506,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -2528,9 +2520,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -2544,9 +2536,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -2562,9 +2554,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -2579,9 +2571,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -2598,9 +2590,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -2625,9 +2617,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2641,9 +2633,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2655,9 +2647,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2669,9 +2661,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2684,9 +2676,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2698,9 +2690,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2712,9 +2704,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -2727,9 +2719,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2740,9 +2732,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -2754,9 +2746,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -2768,9 +2760,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -2784,9 +2776,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -2802,9 +2794,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -2819,9 +2811,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -2838,9 +2830,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -2865,9 +2857,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2881,9 +2873,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2895,9 +2887,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2909,9 +2901,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2924,9 +2916,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2938,9 +2930,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2952,9 +2944,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -2967,9 +2959,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -2980,9 +2972,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -2994,9 +2986,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -3008,9 +3000,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -3024,9 +3016,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -3042,9 +3034,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -3059,9 +3051,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -3078,9 +3070,9 @@ class _$FhirVReadRequestImpl extends FhirVReadRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -3186,9 +3178,9 @@ abstract class FhirVReadRequest extends FhirRequest {
       required final R5ResourceType type,
       required final String fhirId,
       required final FhirId vid,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final MimeType? mimeType,
@@ -3215,17 +3207,16 @@ abstract class FhirVReadRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -3273,9 +3264,9 @@ abstract class _$$FhirUpdateRequestImplCopyWith<$Res>
   $Res call(
       {Uri base,
       Resource resource,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       MimeType? mimeType,
@@ -3297,9 +3288,9 @@ class __$$FhirUpdateRequestImplCopyWithImpl<$Res>
   $Res call({
     Object? base = null,
     Object? resource = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? mimeType = freezed,
@@ -3316,18 +3307,18 @@ class __$$FhirUpdateRequestImplCopyWithImpl<$Res>
           ? _value.resource
           : resource // ignore: cast_nullable_to_non_nullable
               as Resource,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -3362,9 +3353,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
   const _$FhirUpdateRequestImpl(
       {required this.base,
       required this.resource,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.mimeType,
@@ -3389,20 +3380,17 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -3521,9 +3509,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3537,9 +3525,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3551,9 +3539,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3565,9 +3553,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3580,9 +3568,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3594,9 +3582,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3608,9 +3596,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -3623,9 +3611,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3636,9 +3624,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -3650,9 +3638,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -3664,9 +3652,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -3680,9 +3668,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -3698,9 +3686,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -3715,9 +3703,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -3734,9 +3722,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -3761,9 +3749,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3777,9 +3765,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3791,9 +3779,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3805,9 +3793,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3820,9 +3808,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3834,9 +3822,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3848,9 +3836,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -3863,9 +3851,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -3876,9 +3864,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -3890,9 +3878,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -3904,9 +3892,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -3920,9 +3908,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -3938,9 +3926,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -3955,9 +3943,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -3974,9 +3962,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -4001,9 +3989,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4017,9 +4005,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4031,9 +4019,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4045,9 +4033,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4060,9 +4048,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4074,9 +4062,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4088,9 +4076,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -4103,9 +4091,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4116,9 +4104,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -4130,9 +4118,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -4144,9 +4132,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -4160,9 +4148,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -4178,9 +4166,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -4195,9 +4183,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -4214,9 +4202,9 @@ class _$FhirUpdateRequestImpl extends FhirUpdateRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -4320,9 +4308,9 @@ abstract class FhirUpdateRequest extends FhirRequest {
   const factory FhirUpdateRequest(
       {required final Uri base,
       required final Resource resource,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final MimeType? mimeType,
@@ -4343,17 +4331,16 @@ abstract class FhirUpdateRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -4401,9 +4388,9 @@ abstract class _$$FhirPatchRequestImplCopyWith<$Res>
   $Res call(
       {Uri base,
       Resource resource,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       MimeType? mimeType,
@@ -4425,9 +4412,9 @@ class __$$FhirPatchRequestImplCopyWithImpl<$Res>
   $Res call({
     Object? base = null,
     Object? resource = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? mimeType = freezed,
@@ -4444,18 +4431,18 @@ class __$$FhirPatchRequestImplCopyWithImpl<$Res>
           ? _value.resource
           : resource // ignore: cast_nullable_to_non_nullable
               as Resource,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -4490,9 +4477,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
   const _$FhirPatchRequestImpl(
       {required this.base,
       required this.resource,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.mimeType,
@@ -4517,20 +4504,17 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -4649,9 +4633,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4665,9 +4649,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4679,9 +4663,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4693,9 +4677,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4708,9 +4692,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4722,9 +4706,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4736,9 +4720,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -4751,9 +4735,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4764,9 +4748,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -4778,9 +4762,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -4792,9 +4776,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -4808,9 +4792,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -4826,9 +4810,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -4843,9 +4827,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -4862,9 +4846,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -4889,9 +4873,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4905,9 +4889,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4919,9 +4903,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4933,9 +4917,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4948,9 +4932,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4962,9 +4946,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -4976,9 +4960,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -4991,9 +4975,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5004,9 +4988,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -5018,9 +5002,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -5032,9 +5016,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -5048,9 +5032,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -5066,9 +5050,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -5083,9 +5067,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -5102,9 +5086,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -5129,9 +5113,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5145,9 +5129,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5159,9 +5143,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5173,9 +5157,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5188,9 +5172,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5202,9 +5186,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5216,9 +5200,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -5231,9 +5215,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5244,9 +5228,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -5258,9 +5242,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -5272,9 +5256,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -5288,9 +5272,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -5306,9 +5290,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -5323,9 +5307,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -5342,9 +5326,9 @@ class _$FhirPatchRequestImpl extends FhirPatchRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -5448,9 +5432,9 @@ abstract class FhirPatchRequest extends FhirRequest {
   const factory FhirPatchRequest(
       {required final Uri base,
       required final Resource resource,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final MimeType? mimeType,
@@ -5471,17 +5455,16 @@ abstract class FhirPatchRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -5530,9 +5513,9 @@ abstract class _$$FhirDeleteRequestImplCopyWith<$Res>
       {Uri base,
       R5ResourceType type,
       String fhirId,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       MimeType? mimeType,
@@ -5555,9 +5538,9 @@ class __$$FhirDeleteRequestImplCopyWithImpl<$Res>
     Object? base = null,
     Object? type = null,
     Object? fhirId = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? mimeType = freezed,
@@ -5578,18 +5561,18 @@ class __$$FhirDeleteRequestImplCopyWithImpl<$Res>
           ? _value.fhirId
           : fhirId // ignore: cast_nullable_to_non_nullable
               as String,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -5625,9 +5608,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
       {required this.base,
       required this.type,
       required this.fhirId,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.mimeType,
@@ -5658,20 +5641,17 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -5791,9 +5771,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5807,9 +5787,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5821,9 +5801,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5835,9 +5815,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5850,9 +5830,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5864,9 +5844,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5878,9 +5858,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -5893,9 +5873,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -5906,9 +5886,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -5920,9 +5900,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -5934,9 +5914,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -5950,9 +5930,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -5968,9 +5948,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -5985,9 +5965,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -6004,9 +5984,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -6031,9 +6011,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6047,9 +6027,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6061,9 +6041,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6075,9 +6055,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6090,9 +6070,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6104,9 +6084,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6118,9 +6098,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -6133,9 +6113,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6146,9 +6126,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -6160,9 +6140,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -6174,9 +6154,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -6190,9 +6170,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -6208,9 +6188,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -6225,9 +6205,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -6244,9 +6224,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -6271,9 +6251,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6287,9 +6267,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6301,9 +6281,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6315,9 +6295,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6330,9 +6310,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6344,9 +6324,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6358,9 +6338,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -6373,9 +6353,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6386,9 +6366,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -6400,9 +6380,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -6414,9 +6394,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -6430,9 +6410,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -6448,9 +6428,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -6465,9 +6445,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -6484,9 +6464,9 @@ class _$FhirDeleteRequestImpl extends FhirDeleteRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -6591,9 +6571,9 @@ abstract class FhirDeleteRequest extends FhirRequest {
       {required final Uri base,
       required final R5ResourceType type,
       required final String fhirId,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final MimeType? mimeType,
@@ -6619,17 +6599,16 @@ abstract class FhirDeleteRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -6677,9 +6656,9 @@ abstract class _$$FhirCreateRequestImplCopyWith<$Res>
   $Res call(
       {Uri base,
       Resource resource,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       MimeType? mimeType,
@@ -6701,9 +6680,9 @@ class __$$FhirCreateRequestImplCopyWithImpl<$Res>
   $Res call({
     Object? base = null,
     Object? resource = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? mimeType = freezed,
@@ -6720,18 +6699,18 @@ class __$$FhirCreateRequestImplCopyWithImpl<$Res>
           ? _value.resource
           : resource // ignore: cast_nullable_to_non_nullable
               as Resource,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -6766,9 +6745,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
   const _$FhirCreateRequestImpl(
       {required this.base,
       required this.resource,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.mimeType,
@@ -6793,20 +6772,17 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -6925,9 +6901,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6941,9 +6917,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6955,9 +6931,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6969,9 +6945,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6984,9 +6960,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -6998,9 +6974,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7012,9 +6988,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -7027,9 +7003,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7040,9 +7016,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -7054,9 +7030,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -7068,9 +7044,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -7084,9 +7060,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -7102,9 +7078,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -7119,9 +7095,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -7138,9 +7114,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -7165,9 +7141,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7181,9 +7157,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7195,9 +7171,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7209,9 +7185,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7224,9 +7200,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7238,9 +7214,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7252,9 +7228,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -7267,9 +7243,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7280,9 +7256,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -7294,9 +7270,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -7308,9 +7284,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -7324,9 +7300,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -7342,9 +7318,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -7359,9 +7335,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -7378,9 +7354,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -7405,9 +7381,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7421,9 +7397,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7435,9 +7411,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7449,9 +7425,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7464,9 +7440,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7478,9 +7454,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7492,9 +7468,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -7507,9 +7483,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -7520,9 +7496,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -7534,9 +7510,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -7548,9 +7524,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -7564,9 +7540,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -7582,9 +7558,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -7599,9 +7575,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -7618,9 +7594,9 @@ class _$FhirCreateRequestImpl extends FhirCreateRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -7724,9 +7700,9 @@ abstract class FhirCreateRequest extends FhirRequest {
   const factory FhirCreateRequest(
       {required final Uri base,
       required final Resource resource,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final MimeType? mimeType,
@@ -7747,17 +7723,16 @@ abstract class FhirCreateRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -7805,9 +7780,9 @@ abstract class _$$FhirSearchRequestImplCopyWith<$Res>
   $Res call(
       {Uri base,
       R5ResourceType type,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       bool usePost,
@@ -7831,9 +7806,9 @@ class __$$FhirSearchRequestImplCopyWithImpl<$Res>
   $Res call({
     Object? base = null,
     Object? type = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? usePost = null,
@@ -7852,18 +7827,18 @@ class __$$FhirSearchRequestImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as R5ResourceType,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -7906,9 +7881,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
   const _$FhirSearchRequestImpl(
       {required this.base,
       required this.type,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.usePost = false,
@@ -7937,20 +7912,17 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -8082,9 +8054,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8098,9 +8070,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8112,9 +8084,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8126,9 +8098,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8141,9 +8113,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8155,9 +8127,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8169,9 +8141,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -8184,9 +8156,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8197,9 +8169,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -8211,9 +8183,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -8225,9 +8197,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -8241,9 +8213,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -8259,9 +8231,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -8276,9 +8248,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -8295,9 +8267,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -8322,9 +8294,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8338,9 +8310,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8352,9 +8324,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8366,9 +8338,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8381,9 +8353,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8395,9 +8367,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8409,9 +8381,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -8424,9 +8396,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8437,9 +8409,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -8451,9 +8423,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -8465,9 +8437,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -8481,9 +8453,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -8499,9 +8471,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -8516,9 +8488,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -8535,9 +8507,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -8562,9 +8534,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8578,9 +8550,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8592,9 +8564,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8606,9 +8578,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8621,9 +8593,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8635,9 +8607,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8649,9 +8621,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -8664,9 +8636,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -8677,9 +8649,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -8691,9 +8663,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -8705,9 +8677,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -8721,9 +8693,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -8739,9 +8711,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -8756,9 +8728,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -8775,9 +8747,9 @@ class _$FhirSearchRequestImpl extends FhirSearchRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -8881,9 +8853,9 @@ abstract class FhirSearchRequest extends FhirRequest {
   const factory FhirSearchRequest(
       {required final Uri base,
       required final R5ResourceType type,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final bool usePost,
@@ -8908,17 +8880,16 @@ abstract class FhirSearchRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -8970,9 +8941,9 @@ abstract class _$$FhirSearchAllRequestImplCopyWith<$Res>
   @useResult
   $Res call(
       {Uri base,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       MimeType? mimeType,
@@ -8993,9 +8964,9 @@ class __$$FhirSearchAllRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? base = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? mimeType = freezed,
@@ -9008,18 +8979,18 @@ class __$$FhirSearchAllRequestImplCopyWithImpl<$Res>
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
               as Uri,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -9053,9 +9024,9 @@ class __$$FhirSearchAllRequestImplCopyWithImpl<$Res>
 class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
   const _$FhirSearchAllRequestImpl(
       {required this.base,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.mimeType,
@@ -9078,20 +9049,17 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -9208,9 +9176,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9224,9 +9192,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9238,9 +9206,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9252,9 +9220,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9267,9 +9235,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9281,9 +9249,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9295,9 +9263,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -9310,9 +9278,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9323,9 +9291,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -9337,9 +9305,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -9351,9 +9319,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -9367,9 +9335,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -9385,9 +9353,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -9402,9 +9370,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -9421,9 +9389,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -9448,9 +9416,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9464,9 +9432,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9478,9 +9446,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9492,9 +9460,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9507,9 +9475,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9521,9 +9489,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9535,9 +9503,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -9550,9 +9518,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9563,9 +9531,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -9577,9 +9545,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -9591,9 +9559,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -9607,9 +9575,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -9625,9 +9593,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -9642,9 +9610,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -9661,9 +9629,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -9688,9 +9656,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9704,9 +9672,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9718,9 +9686,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9732,9 +9700,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9747,9 +9715,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9761,9 +9729,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9775,9 +9743,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -9790,9 +9758,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -9803,9 +9771,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -9817,9 +9785,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -9831,9 +9799,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -9847,9 +9815,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -9865,9 +9833,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -9882,9 +9850,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -9901,9 +9869,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -10006,9 +9974,9 @@ class _$FhirSearchAllRequestImpl extends FhirSearchAllRequest {
 abstract class FhirSearchAllRequest extends FhirRequest {
   const factory FhirSearchAllRequest(
       {required final Uri base,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final MimeType? mimeType,
@@ -10028,17 +9996,16 @@ abstract class FhirSearchAllRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -10086,9 +10053,9 @@ abstract class _$$FhirCapabilitiesRequestImplCopyWith<$Res>
   @useResult
   $Res call(
       {Uri base,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       Mode mode,
@@ -10111,9 +10078,9 @@ class __$$FhirCapabilitiesRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? base = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? mode = null,
@@ -10127,18 +10094,18 @@ class __$$FhirCapabilitiesRequestImplCopyWithImpl<$Res>
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
               as Uri,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -10176,9 +10143,9 @@ class __$$FhirCapabilitiesRequestImplCopyWithImpl<$Res>
 class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
   const _$FhirCapabilitiesRequestImpl(
       {required this.base,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.mode = Mode.full,
@@ -10202,20 +10169,17 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -10338,9 +10302,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10354,9 +10318,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10368,9 +10332,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10382,9 +10346,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10397,9 +10361,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10411,9 +10375,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10425,9 +10389,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -10440,9 +10404,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10453,9 +10417,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -10467,9 +10431,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -10481,9 +10445,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -10497,9 +10461,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -10515,9 +10479,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -10532,9 +10496,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -10551,9 +10515,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -10578,9 +10542,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10594,9 +10558,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10608,9 +10572,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10622,9 +10586,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10637,9 +10601,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10651,9 +10615,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10665,9 +10629,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -10680,9 +10644,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10693,9 +10657,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -10707,9 +10671,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -10721,9 +10685,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -10737,9 +10701,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -10755,9 +10719,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -10772,9 +10736,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -10791,9 +10755,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -10818,9 +10782,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10834,9 +10798,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10848,9 +10812,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10862,9 +10826,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10877,9 +10841,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10891,9 +10855,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10905,9 +10869,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -10920,9 +10884,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -10933,9 +10897,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -10947,9 +10911,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -10961,9 +10925,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -10977,9 +10941,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -10995,9 +10959,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -11012,9 +10976,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -11031,9 +10995,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -11136,9 +11100,9 @@ class _$FhirCapabilitiesRequestImpl extends FhirCapabilitiesRequest {
 abstract class FhirCapabilitiesRequest extends FhirRequest {
   const factory FhirCapabilitiesRequest(
       {required final Uri base,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final Mode mode,
@@ -11159,17 +11123,16 @@ abstract class FhirCapabilitiesRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -11220,9 +11183,9 @@ abstract class _$$FhirTransactionRequestImplCopyWith<$Res>
   @useResult
   $Res call(
       {Uri base,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       Bundle bundle,
@@ -11247,9 +11210,9 @@ class __$$FhirTransactionRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? base = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? bundle = null,
@@ -11263,18 +11226,18 @@ class __$$FhirTransactionRequestImplCopyWithImpl<$Res>
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
               as Uri,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -11320,9 +11283,9 @@ class __$$FhirTransactionRequestImplCopyWithImpl<$Res>
 class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
   const _$FhirTransactionRequestImpl(
       {required this.base,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       required this.bundle,
@@ -11346,20 +11309,17 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -11481,9 +11441,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11497,9 +11457,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11511,9 +11471,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11525,9 +11485,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11540,9 +11500,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11554,9 +11514,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11568,9 +11528,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -11583,9 +11543,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11596,9 +11556,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -11610,9 +11570,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -11624,9 +11584,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -11640,9 +11600,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -11658,9 +11618,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -11675,9 +11635,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -11694,9 +11654,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -11721,9 +11681,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11737,9 +11697,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11751,9 +11711,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11765,9 +11725,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11780,9 +11740,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11794,9 +11754,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11808,9 +11768,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -11823,9 +11783,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11836,9 +11796,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -11850,9 +11810,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -11864,9 +11824,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -11880,9 +11840,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -11898,9 +11858,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -11915,9 +11875,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -11934,9 +11894,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -11961,9 +11921,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11977,9 +11937,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -11991,9 +11951,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12005,9 +11965,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12020,9 +11980,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12034,9 +11994,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12048,9 +12008,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -12063,9 +12023,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12076,9 +12036,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -12090,9 +12050,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -12104,9 +12064,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -12120,9 +12080,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -12138,9 +12098,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -12155,9 +12115,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -12174,9 +12134,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -12279,9 +12239,9 @@ class _$FhirTransactionRequestImpl extends FhirTransactionRequest {
 abstract class FhirTransactionRequest extends FhirRequest {
   const factory FhirTransactionRequest(
       {required final Uri base,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       required final Bundle bundle,
@@ -12302,17 +12262,16 @@ abstract class FhirTransactionRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -12362,9 +12321,9 @@ abstract class _$$FhirBatchRequestImplCopyWith<$Res>
   @useResult
   $Res call(
       {Uri base,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       Bundle bundle,
@@ -12388,9 +12347,9 @@ class __$$FhirBatchRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? base = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? bundle = null,
@@ -12404,18 +12363,18 @@ class __$$FhirBatchRequestImplCopyWithImpl<$Res>
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
               as Uri,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -12461,9 +12420,9 @@ class __$$FhirBatchRequestImplCopyWithImpl<$Res>
 class _$FhirBatchRequestImpl extends FhirBatchRequest {
   const _$FhirBatchRequestImpl(
       {required this.base,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       required this.bundle,
@@ -12487,20 +12446,17 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -12622,9 +12578,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12638,9 +12594,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12652,9 +12608,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12666,9 +12622,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12681,9 +12637,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12695,9 +12651,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12709,9 +12665,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -12724,9 +12680,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12737,9 +12693,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -12751,9 +12707,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -12765,9 +12721,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -12781,9 +12737,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -12799,9 +12755,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -12816,9 +12772,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -12835,9 +12791,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -12862,9 +12818,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12878,9 +12834,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12892,9 +12848,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12906,9 +12862,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12921,9 +12877,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12935,9 +12891,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12949,9 +12905,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -12964,9 +12920,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -12977,9 +12933,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -12991,9 +12947,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -13005,9 +12961,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -13021,9 +12977,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -13039,9 +12995,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -13056,9 +13012,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -13075,9 +13031,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -13102,9 +13058,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13118,9 +13074,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13132,9 +13088,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13146,9 +13102,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13161,9 +13117,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13175,9 +13131,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13189,9 +13145,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -13204,9 +13160,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13217,9 +13173,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -13231,9 +13187,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -13245,9 +13201,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -13261,9 +13217,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -13279,9 +13235,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -13296,9 +13252,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -13315,9 +13271,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -13420,9 +13376,9 @@ class _$FhirBatchRequestImpl extends FhirBatchRequest {
 abstract class FhirBatchRequest extends FhirRequest {
   const factory FhirBatchRequest(
       {required final Uri base,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       required final Bundle bundle,
@@ -13443,17 +13399,16 @@ abstract class FhirBatchRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -13505,9 +13460,9 @@ abstract class _$$FhirHistoryRequestImplCopyWith<$Res>
       {Uri base,
       R5ResourceType type,
       String fhirId,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       int? count,
@@ -13534,9 +13489,9 @@ class __$$FhirHistoryRequestImplCopyWithImpl<$Res>
     Object? base = null,
     Object? type = null,
     Object? fhirId = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? count = freezed,
@@ -13561,18 +13516,18 @@ class __$$FhirHistoryRequestImplCopyWithImpl<$Res>
           ? _value.fhirId
           : fhirId // ignore: cast_nullable_to_non_nullable
               as String,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -13624,9 +13579,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
       {required this.base,
       required this.type,
       required this.fhirId,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.count,
@@ -13661,20 +13616,17 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -13824,9 +13776,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13840,9 +13792,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13854,9 +13806,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13868,9 +13820,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13883,9 +13835,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13897,9 +13849,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13911,9 +13863,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -13926,9 +13878,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -13939,9 +13891,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -13953,9 +13905,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -13967,9 +13919,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -13983,9 +13935,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -14001,9 +13953,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -14018,9 +13970,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -14037,9 +13989,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -14079,9 +14031,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14095,9 +14047,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14109,9 +14061,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14123,9 +14075,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14138,9 +14090,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14152,9 +14104,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14166,9 +14118,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -14181,9 +14133,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14194,9 +14146,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -14208,9 +14160,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -14222,9 +14174,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -14238,9 +14190,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -14256,9 +14208,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -14273,9 +14225,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -14292,9 +14244,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -14334,9 +14286,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14350,9 +14302,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14364,9 +14316,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14378,9 +14330,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14393,9 +14345,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14407,9 +14359,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14421,9 +14373,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -14436,9 +14388,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -14449,9 +14401,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -14463,9 +14415,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -14477,9 +14429,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -14493,9 +14445,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -14511,9 +14463,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -14528,9 +14480,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -14547,9 +14499,9 @@ class _$FhirHistoryRequestImpl extends FhirHistoryRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -14669,9 +14621,9 @@ abstract class FhirHistoryRequest extends FhirRequest {
       {required final Uri base,
       required final R5ResourceType type,
       required final String fhirId,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final int? count,
@@ -14701,17 +14653,16 @@ abstract class FhirHistoryRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -14777,9 +14728,9 @@ abstract class _$$FhirHistoryTypeRequestImplCopyWith<$Res>
   $Res call(
       {Uri base,
       R5ResourceType type,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       int? count,
@@ -14806,9 +14757,9 @@ class __$$FhirHistoryTypeRequestImplCopyWithImpl<$Res>
   $Res call({
     Object? base = null,
     Object? type = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? count = freezed,
@@ -14829,18 +14780,18 @@ class __$$FhirHistoryTypeRequestImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as R5ResourceType,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -14891,9 +14842,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
   const _$FhirHistoryTypeRequestImpl(
       {required this.base,
       required this.type,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.count,
@@ -14924,20 +14875,17 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -15085,9 +15033,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15101,9 +15049,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15115,9 +15063,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15129,9 +15077,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15144,9 +15092,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15158,9 +15106,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15172,9 +15120,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -15187,9 +15135,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15200,9 +15148,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -15214,9 +15162,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -15228,9 +15176,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -15244,9 +15192,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -15262,9 +15210,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -15279,9 +15227,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -15298,9 +15246,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -15339,9 +15287,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15355,9 +15303,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15369,9 +15317,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15383,9 +15331,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15398,9 +15346,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15412,9 +15360,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15426,9 +15374,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -15441,9 +15389,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15454,9 +15402,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -15468,9 +15416,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -15482,9 +15430,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -15498,9 +15446,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -15516,9 +15464,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -15533,9 +15481,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -15552,9 +15500,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -15593,9 +15541,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15609,9 +15557,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15623,9 +15571,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15637,9 +15585,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15652,9 +15600,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15666,9 +15614,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15680,9 +15628,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -15695,9 +15643,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -15708,9 +15656,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -15722,9 +15670,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -15736,9 +15684,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -15752,9 +15700,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -15770,9 +15718,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -15787,9 +15735,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -15806,9 +15754,9 @@ class _$FhirHistoryTypeRequestImpl extends FhirHistoryTypeRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -15926,9 +15874,9 @@ abstract class FhirHistoryTypeRequest extends FhirRequest {
   const factory FhirHistoryTypeRequest(
       {required final Uri base,
       required final R5ResourceType type,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final int? count,
@@ -15955,17 +15903,16 @@ abstract class FhirHistoryTypeRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -16030,9 +15977,9 @@ abstract class _$$FhirHistoryAllRequestImplCopyWith<$Res>
   @useResult
   $Res call(
       {Uri base,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       int? count,
@@ -16057,9 +16004,9 @@ class __$$FhirHistoryAllRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? base = null,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? count = freezed,
@@ -16076,18 +16023,18 @@ class __$$FhirHistoryAllRequestImplCopyWithImpl<$Res>
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
               as Uri,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -16137,9 +16084,9 @@ class __$$FhirHistoryAllRequestImplCopyWithImpl<$Res>
 class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
   const _$FhirHistoryAllRequestImpl(
       {required this.base,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.count,
@@ -16166,20 +16113,17 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -16325,9 +16269,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16341,9 +16285,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16355,9 +16299,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16369,9 +16313,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16384,9 +16328,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16398,9 +16342,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16412,9 +16356,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -16427,9 +16371,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16440,9 +16384,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -16454,9 +16398,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -16468,9 +16412,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -16484,9 +16428,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -16502,9 +16446,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -16519,9 +16463,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -16538,9 +16482,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -16565,9 +16509,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16581,9 +16525,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16595,9 +16539,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16609,9 +16553,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16624,9 +16568,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16638,9 +16582,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16652,9 +16596,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -16667,9 +16611,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16680,9 +16624,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -16694,9 +16638,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -16708,9 +16652,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -16724,9 +16668,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -16742,9 +16686,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -16759,9 +16703,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -16778,9 +16722,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -16805,9 +16749,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16821,9 +16765,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16835,9 +16779,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16849,9 +16793,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16864,9 +16808,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16878,9 +16822,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16892,9 +16836,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -16907,9 +16851,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -16920,9 +16864,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -16934,9 +16878,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -16948,9 +16892,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -16964,9 +16908,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -16982,9 +16926,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -16999,9 +16943,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -17018,9 +16962,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -17123,9 +17067,9 @@ class _$FhirHistoryAllRequestImpl extends FhirHistoryAllRequest {
 abstract class FhirHistoryAllRequest extends FhirRequest {
   const factory FhirHistoryAllRequest(
       {required final Uri base,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final int? count,
@@ -17149,17 +17093,16 @@ abstract class FhirHistoryAllRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
@@ -17225,9 +17168,9 @@ abstract class _$$FhirOperationRequestImplCopyWith<$Res>
       {Uri base,
       R5ResourceType? type,
       String? fhirId,
-      bool pretty,
+      bool? pretty,
       Summary summary,
-      String format,
+      String? format,
       List<String> elements,
       List<String> parameters,
       Parameters? fhirParameter,
@@ -17256,9 +17199,9 @@ class __$$FhirOperationRequestImplCopyWithImpl<$Res>
     Object? base = null,
     Object? type = freezed,
     Object? fhirId = freezed,
-    Object? pretty = null,
+    Object? pretty = freezed,
     Object? summary = null,
-    Object? format = null,
+    Object? format = freezed,
     Object? elements = null,
     Object? parameters = null,
     Object? fhirParameter = freezed,
@@ -17283,18 +17226,18 @@ class __$$FhirOperationRequestImplCopyWithImpl<$Res>
           ? _value.fhirId
           : fhirId // ignore: cast_nullable_to_non_nullable
               as String?,
-      pretty: null == pretty
+      pretty: freezed == pretty
           ? _value.pretty
           : pretty // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as Summary,
-      format: null == format
+      format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       elements: null == elements
           ? _value._elements
           : elements // ignore: cast_nullable_to_non_nullable
@@ -17358,9 +17301,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
       {required this.base,
       this.type,
       this.fhirId,
-      this.pretty = false,
+      this.pretty,
       this.summary = Summary.none,
-      this.format = 'json',
+      this.format,
       final List<String> elements = const <String>[],
       final List<String> parameters = const <String>[],
       this.fhirParameter,
@@ -17391,20 +17334,17 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
 
   /// [pretty] - pretty print the json formatting in the response
   @override
-  @JsonKey()
-  final bool pretty;
+  final bool? pretty;
 
   /// [summary] - do you want the result to be a summary
   @override
   @JsonKey()
   final Summary summary;
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
   @override
-  @JsonKey()
-  final String format;
+  final String? format;
 
   /// [elements] - elements you need to pass in
   final List<String> _elements;
@@ -17551,9 +17491,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17567,9 +17507,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17581,9 +17521,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17595,9 +17535,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17610,9 +17550,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17624,9 +17564,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17638,9 +17578,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -17653,9 +17593,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         search,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17666,9 +17606,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         searchAll,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -17680,9 +17620,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         capabilities,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -17694,9 +17634,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         transaction,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -17710,9 +17650,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -17728,9 +17668,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     required TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -17745,9 +17685,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         historyType,
     required TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -17764,9 +17704,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -17806,9 +17746,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17822,9 +17762,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17836,9 +17776,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17850,9 +17790,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17865,9 +17805,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17879,9 +17819,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17893,9 +17833,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -17908,9 +17848,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         search,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -17921,9 +17861,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         searchAll,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -17935,9 +17875,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         capabilities,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -17949,9 +17889,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         transaction,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -17965,9 +17905,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -17983,9 +17923,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     TResult? Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -18000,9 +17940,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         historyType,
     TResult? Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -18019,9 +17959,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -18061,9 +18001,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -18077,9 +18017,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             R5ResourceType type,
             String fhirId,
             FhirId vid,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -18091,9 +18031,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -18105,9 +18045,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -18120,9 +18060,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -18134,9 +18074,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     TResult Function(
             Uri base,
             Resource resource,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -18148,9 +18088,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             bool usePost,
@@ -18163,9 +18103,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         search,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             MimeType? mimeType,
@@ -18176,9 +18116,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         searchAll,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Mode mode,
@@ -18190,9 +18130,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         capabilities,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -18204,9 +18144,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         transaction,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Bundle bundle,
@@ -18220,9 +18160,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType type,
             String fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -18238,9 +18178,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
     TResult Function(
             Uri base,
             R5ResourceType type,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -18255,9 +18195,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
         historyType,
     TResult Function(
             Uri base,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             int? count,
@@ -18274,9 +18214,9 @@ class _$FhirOperationRequestImpl extends FhirOperationRequest {
             Uri base,
             R5ResourceType? type,
             String? fhirId,
-            bool pretty,
+            bool? pretty,
             Summary summary,
-            String format,
+            String? format,
             List<String> elements,
             List<String> parameters,
             Parameters? fhirParameter,
@@ -18396,9 +18336,9 @@ abstract class FhirOperationRequest extends FhirRequest {
       {required final Uri base,
       final R5ResourceType? type,
       final String? fhirId,
-      final bool pretty,
+      final bool? pretty,
       final Summary summary,
-      final String format,
+      final String? format,
       final List<String> elements,
       final List<String> parameters,
       final Parameters? fhirParameter,
@@ -18424,17 +18364,16 @@ abstract class FhirOperationRequest extends FhirRequest {
   @override
 
   /// [pretty] - pretty print the json formatting in the response
-  bool get pretty;
+  bool? get pretty;
   @override
 
   /// [summary] - do you want the result to be a summary
   Summary get summary;
   @override
 
-  /// [format] - currently requests json, but could consider requesting
-  ///   json+fhir or fhir+json (would not request XML as this library doesn't
-  ///   work with XML)
-  String get format;
+  /// [format] - Possible formats are: json, json+fhir or fhir+json
+  /// (would not request XML as this library doesn't work with XML)
+  String? get format;
   @override
 
   /// [elements] - elements you need to pass in
