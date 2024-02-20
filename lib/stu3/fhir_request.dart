@@ -51,7 +51,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -111,7 +111,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -162,7 +162,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -213,7 +213,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -271,7 +271,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -322,7 +322,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -378,7 +378,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -433,7 +433,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -484,7 +484,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -538,7 +538,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -592,7 +592,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -662,7 +662,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -742,7 +742,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -818,7 +818,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -891,7 +891,7 @@ class FhirRequest with _$FhirRequest {
     /// [summary] - do you want the result to be a summary
     @Default(Summary.none) Summary summary,
 
-    /// [format] - Possible formats are: json, json+fhir or fhir+json 
+    /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
     String? format,
 
@@ -1571,14 +1571,16 @@ class FhirRequest with _$FhirRequest {
       orElse: () => '');
 
   /// specifies the format
-  String _format({bool join = false}) => format == null ? '' : maybeMap(
-      capabilities: (FhirCapabilitiesRequest request) =>
-          _encodeParam('_format=${request.format}'),
-      orElse: () => _encodeParam('_format=$format', join: join));
+  String _format({bool join = false}) => format == null
+      ? ''
+      : maybeMap(
+          capabilities: (FhirCapabilitiesRequest request) =>
+              _encodeParam('_format=${request.format}'),
+          orElse: () => _encodeParam('_format=$format', join: join));
 
   /// assigns if you want it pretty
-  String _pretty({bool join = true}) => pretty == null ? '' :
-      _encodeParam('_pretty=$pretty', join: join);
+  String _pretty({bool join = true}) =>
+      pretty == null ? '' : _encodeParam('_pretty=$pretty', join: join);
 
   /// assigns if you want the summary
   String _summary({bool join = true}) => summary != Summary.none
@@ -1781,7 +1783,7 @@ class FhirRequest with _$FhirRequest {
         if (result.statusCode == 200 || result.statusCode == 201) {
           return OperationOutcome(issue: <OperationOutcomeIssue>[
             OperationOutcomeIssue(
-               severity: OperationOutcomeIssueSeverity.information,
+                severity: OperationOutcomeIssueSeverity.information,
                 code: OperationOutcomeIssueCode.informational,
                 diagnostics: 'Your request succeeded with a status of '
                     '${result.statusCode}\n, but the request result did not have '
@@ -1800,7 +1802,7 @@ class FhirRequest with _$FhirRequest {
         } else {
           return OperationOutcome(issue: <OperationOutcomeIssue>[
             OperationOutcomeIssue(
-         severity: OperationOutcomeIssueSeverity.information,
+                severity: OperationOutcomeIssueSeverity.information,
                 code: OperationOutcomeIssueCode.informational,
                 diagnostics: 'Your request succeeded with a status of '
                     '${result.statusCode}\n, but the request result did not have '
@@ -1822,7 +1824,7 @@ class FhirRequest with _$FhirRequest {
         if (body?['resourceType'] == null) {
           return OperationOutcome(issue: <OperationOutcomeIssue>[
             OperationOutcomeIssue(
-          severity: OperationOutcomeIssueSeverity.error,
+              severity: OperationOutcomeIssueSeverity.error,
               code: OperationOutcomeIssueCode.unknown,
               details: const CodeableConcept(
                   text:
@@ -1842,7 +1844,7 @@ class FhirRequest with _$FhirRequest {
                 if (operationOutcome.issue.isNotEmpty)
                   ...operationOutcome.issue,
                 OperationOutcomeIssue(
-                 severity: OperationOutcomeIssueSeverity.error,
+                    severity: OperationOutcomeIssueSeverity.error,
                     code: OperationOutcomeIssueCode.unknown,
                     diagnostics:
                         'Status: ${body?['status']}\nMessage: ${body?['message']}\n'),
@@ -1856,7 +1858,7 @@ class FhirRequest with _$FhirRequest {
           if (newResource.resourceType == null) {
             return OperationOutcome(issue: <OperationOutcomeIssue>[
               OperationOutcomeIssue(
-                 severity: OperationOutcomeIssueSeverity.error,
+                severity: OperationOutcomeIssueSeverity.error,
                 code: OperationOutcomeIssueCode.unknown,
                 details: const CodeableConcept(
                     text: 'Request was made and seemed to return a Resource,\n'
@@ -1880,7 +1882,7 @@ class FhirRequest with _$FhirRequest {
   OperationOutcome _operationOutcome(String issue, {String? diagnostics}) =>
       OperationOutcome(issue: <OperationOutcomeIssue>[
         OperationOutcomeIssue(
-       severity: OperationOutcomeIssueSeverity.error,
+          severity: OperationOutcomeIssueSeverity.error,
           code: OperationOutcomeIssueCode.value,
           details: CodeableConcept(text: issue),
           diagnostics: diagnostics,
