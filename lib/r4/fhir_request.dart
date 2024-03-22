@@ -53,7 +53,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -113,7 +113,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -164,7 +164,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -215,7 +215,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -273,7 +273,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -324,7 +324,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -380,7 +380,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -435,7 +435,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -486,7 +486,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -540,7 +540,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -594,7 +594,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -664,7 +664,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -744,7 +744,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -820,7 +820,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
@@ -893,7 +893,7 @@ class FhirRequest with _$FhirRequest {
 
     /// [format] - Possible formats are: json, json+fhir or fhir+json
     /// (would not request XML as this library doesn't work with XML)
-    String? format,
+    @Default('json') String? format,
 
     /// [elements] - elements you need to pass in
     @Default(<String>[]) List<String> elements,
