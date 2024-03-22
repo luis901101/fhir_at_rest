@@ -12,10 +12,10 @@ _$FhirReadRequestImpl _$$FhirReadRequestImplFromJson(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$Stu3ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -201,10 +201,10 @@ _$FhirVReadRequestImpl _$$FhirVReadRequestImplFromJson(
       type: $enumDecode(_$Stu3ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
       vid: FhirId.fromJson(json['vid']),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -253,10 +253,10 @@ _$FhirUpdateRequestImpl _$$FhirUpdateRequestImplFromJson(
     _$FhirUpdateRequestImpl(
       base: Uri.parse(json['base'] as String),
       resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -303,10 +303,10 @@ _$FhirPatchRequestImpl _$$FhirPatchRequestImplFromJson(
     _$FhirPatchRequestImpl(
       base: Uri.parse(json['base'] as String),
       resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -354,10 +354,10 @@ _$FhirDeleteRequestImpl _$$FhirDeleteRequestImplFromJson(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$Stu3ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -405,10 +405,10 @@ _$FhirCreateRequestImpl _$$FhirCreateRequestImplFromJson(
     _$FhirCreateRequestImpl(
       base: Uri.parse(json['base'] as String),
       resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -455,10 +455,10 @@ _$FhirSearchRequestImpl _$$FhirSearchRequestImplFromJson(
     _$FhirSearchRequestImpl(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$Stu3ResourceTypeEnumMap, json['type']),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -518,10 +518,10 @@ _$FhirSearchAllRequestImpl _$$FhirSearchAllRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$FhirSearchAllRequestImpl(
       base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -566,10 +566,10 @@ _$FhirCapabilitiesRequestImpl _$$FhirCapabilitiesRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$FhirCapabilitiesRequestImpl(
       base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -622,10 +622,10 @@ _$FhirTransactionRequestImpl _$$FhirTransactionRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$FhirTransactionRequestImpl(
       base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -672,10 +672,10 @@ _$FhirBatchRequestImpl _$$FhirBatchRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$FhirBatchRequestImpl(
       base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -724,10 +724,10 @@ _$FhirHistoryRequestImpl _$$FhirHistoryRequestImplFromJson(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$Stu3ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String,
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -787,10 +787,10 @@ _$FhirHistoryTypeRequestImpl _$$FhirHistoryTypeRequestImplFromJson(
     _$FhirHistoryTypeRequestImpl(
       base: Uri.parse(json['base'] as String),
       type: $enumDecode(_$Stu3ResourceTypeEnumMap, json['type']),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -848,10 +848,10 @@ _$FhirHistoryAllRequestImpl _$$FhirHistoryAllRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$FhirHistoryAllRequestImpl(
       base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -910,10 +910,10 @@ _$FhirOperationRequestImpl _$$FhirOperationRequestImplFromJson(
       base: Uri.parse(json['base'] as String),
       type: $enumDecodeNullable(_$Stu3ResourceTypeEnumMap, json['type']),
       fhirId: json['fhirId'] as String?,
-      pretty: json['pretty'] as bool? ?? false,
+      pretty: json['pretty'] as bool?,
       summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
           Summary.none,
-      format: json['format'] as String? ?? 'json',
+      format: json['format'] as String?,
       elements: (json['elements'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
