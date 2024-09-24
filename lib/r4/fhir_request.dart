@@ -1567,7 +1567,7 @@ class FhirRequest with _$FhirRequest {
   /// specifies the mode
   String _mode({bool join = false}) => maybeMap(
       capabilities: (FhirCapabilitiesRequest request) =>
-          _encodeParam('mode=${enumToString(request.mode)}', join: join),
+          _encodeParam('mode=${request.mode.name}', join: join),
       orElse: () => '');
 
   /// specifies the format
@@ -1584,7 +1584,7 @@ class FhirRequest with _$FhirRequest {
 
   /// assigns if you want the summary
   String _summary({bool join = true}) => summary != Summary.none
-      ? _encodeParam('_summary=${enumToString(summary)}', join: join)
+      ? _encodeParam('_summary=${summary.name}', join: join)
       : '';
 
   /// places any elements
@@ -1609,11 +1609,11 @@ class FhirRequest with _$FhirRequest {
   String _url() => map(
         /// READ
         read: (FhirReadRequest request) =>
-            '${request.base}/${enumToString(request.type)}/${request.fhirId}',
+            '${request.base}/${request.type.name}/${request.fhirId}',
 
         /// VREAD
         vRead: (FhirVReadRequest request) =>
-            '${request.base}/${enumToString(request.type)}/${request.fhirId}/_history/${request.vid}',
+            '${request.base}/${request.type.name}/${request.fhirId}/_history/${request.vid}',
 
         /// UPDATE
         update: (FhirUpdateRequest request) =>
@@ -1625,15 +1625,15 @@ class FhirRequest with _$FhirRequest {
 
         /// DELETE
         delete: (FhirDeleteRequest request) =>
-            '${request.base}/${enumToString(request.type)}/${request.fhirId}',
+            '${request.base}/${request.type.name}/${request.fhirId}',
 
         /// CREATE
         create: (FhirCreateRequest request) =>
-            '${request.base}/${enumToString(request.resource.resourceTypeString)}',
+            '${request.base}/${request.resource.resourceTypeString}',
 
         /// SEARCH
         search: (FhirSearchRequest request) =>
-            '${request.base}/${enumToString(request.type)}'
+            '${request.base}/${request.type.name}'
             '${request.restfulRequest == RestfulRequest.post_ ? '/_search' : ''}',
 
         /// SEARCH-ALL
@@ -1649,11 +1649,11 @@ class FhirRequest with _$FhirRequest {
 
         /// HISTORY
         history: (FhirHistoryRequest request) =>
-            '${request.base}/${enumToString(request.type)}/${request.fhirId}/_history',
+            '${request.base}/${request.type.name}/${request.fhirId}/_history',
 
         /// HISTORY-TYPE
         historyType: (FhirHistoryTypeRequest request) =>
-            '${request.base}/${enumToString(request.type)}/_history',
+            '${request.base}/${request.type.name}/_history',
 
         /// HISTORY-ALL
         historyAll: (FhirHistoryAllRequest request) =>
@@ -1661,8 +1661,8 @@ class FhirRequest with _$FhirRequest {
 
         /// OPERATION
         operation: (FhirOperationRequest request) => '${request.base}/'
-            '${request.type != null ? "${enumToString(request.type)}/" : ''}'
-            '${request.type != null && request.fhirId != null ? "${enumToString(request.fhirId)}/" : ''}'
+            '${request.type != null ? "${request.type?.name}/" : ''}'
+            '${request.type != null && request.fhirId != null ? "${request.fhirId}/" : ''}'
             '\$${request.operation}',
       );
 
@@ -1836,9 +1836,9 @@ class FhirRequest with _$FhirRequest {
             )
           ]);
         } else if (body['resourceType'] == 'OperationOutcome') {
-          OperationOutcome operationOutcome = OperationOutcome.fromJson(
-              body['response'] as Map<String, dynamic>);
-          if (body?['status'] != null || body?['message'] != null) {
+          OperationOutcome operationOutcome =
+              OperationOutcome.fromJson(body as Map<String, dynamic>);
+          if (body['status'] != null || body['message'] != null) {
             operationOutcome = operationOutcome.copyWith(
               issue: <OperationOutcomeIssue>[
                 if (operationOutcome.issue.isNotEmpty)
@@ -1847,7 +1847,7 @@ class FhirRequest with _$FhirRequest {
                     severity: FhirCode('error'),
                     code: FhirCode('unknown'),
                     diagnostics:
-                        'Status: ${body?['status']}\nMessage: ${body?['message']}\n'),
+                        'Status: ${body['status']}\nMessage: ${body['message']}\n'),
               ],
             );
           }
