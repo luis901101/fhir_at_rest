@@ -22,8 +22,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/12345?_format=$mimeType&_pretty=false',
@@ -41,8 +43,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/12345?_format=$mimeType&_pretty=true',
@@ -61,8 +65,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/12345?_format=$mimeType&_pretty=true&_summary=true',
@@ -81,8 +87,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/12345?_format=$mimeType&_pretty=false&_summary=count',
@@ -101,34 +109,40 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/1227442?_format=json&_pretty=true&_elements=name',
       );
     });
 
-    test('get patient with pretty, only want to return name and gender',
-        () async {
-      final FhirRequest request = FhirRequest.read(
-        base: Uri.parse('http://hapi.fhir.org/baseR5'),
-        type: R5ResourceType.Patient,
-        fhirId: '1227442',
-        pretty: true,
-        elements: <String>['name', 'gender'],
-      );
-      final OperationOutcome? response =
-          await request.request(headers: <String, String>{'test': 'headers'})
-              as OperationOutcome?;
-      expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
-      expect(
-        response?.issue[0].details?.text,
-        'http://hapi.fhir.org/baseR5/Patient/1227442?_format=json&_pretty=true&_elements=name,gender',
-      );
-    });
+    test(
+      'get patient with pretty, only want to return name and gender',
+      () async {
+        final FhirRequest request = FhirRequest.read(
+          base: Uri.parse('http://hapi.fhir.org/baseR5'),
+          type: R5ResourceType.Patient,
+          fhirId: '1227442',
+          pretty: true,
+          elements: <String>['name', 'gender'],
+        );
+        final OperationOutcome? response =
+            await request.request(headers: <String, String>{'test': 'headers'})
+                as OperationOutcome?;
+        expect(request, FhirRequest.fromJson(request.toJson()));
+        expect(
+          request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType,
+        );
+        expect(
+          response?.issue[0].details?.text,
+          'http://hapi.fhir.org/baseR5/Patient/1227442?_format=json&_pretty=true&_elements=name,gender',
+        );
+      },
+    );
   }, tags: <String>['uri', 'read']);
 
   group('FhirRequest - VREAD:', () {
@@ -144,8 +158,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/12345/_history/6789?_format=$mimeType&_pretty=false',
@@ -164,8 +180,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/12345/_history/6789?_format=$mimeType&_pretty=true',
@@ -185,8 +203,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/12345/_history/6789?_format=$mimeType&_pretty=true&_summary=true',
@@ -206,8 +226,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/12345/_history/6789?_format=$mimeType&_pretty=false&_summary=count',
@@ -218,14 +240,12 @@ Future<void> requestsTest() async {
   group('FhirRequest - TRANSACTION:', () {
     test('transaction/batch', () async {
       final Bundle bundle = Bundle(
-          type: FhirCode('transaction'),
-          id: FhirId('12345'),
-          entry: <BundleEntry>[
-            BundleEntry(
-                request: BundleRequest(
-              method: FhirCode('delete'),
-            ))
-          ]);
+        type: FhirCode('transaction'),
+        id: FhirId('12345'),
+        entry: <BundleEntry>[
+          BundleEntry(request: BundleRequest(method: FhirCode('delete'))),
+        ],
+      );
       final FhirRequest request = FhirRequest.transaction(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         bundle: bundle,
@@ -235,8 +255,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5?_format=$mimeType&_pretty=false',
@@ -245,9 +267,10 @@ Future<void> requestsTest() async {
 
     test('batch with error in bundle', () async {
       final Bundle bundle = Bundle(
-          type: FhirCode('batch'),
-          id: FhirId('12345'),
-          entry: <BundleEntry>[const BundleEntry(request: BundleRequest())]);
+        type: FhirCode('batch'),
+        id: FhirId('12345'),
+        entry: <BundleEntry>[const BundleEntry(request: BundleRequest())],
+      );
       final FhirRequest request = FhirRequest.batch(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         bundle: bundle,
@@ -260,8 +283,10 @@ Future<void> requestsTest() async {
         print(response?.toJson());
       } catch (e) {
         expect(request, FhirRequest.fromJson(request.toJson()));
-        expect(request.runtimeType,
-            FhirRequest.fromJson(request.toJson()).runtimeType);
+        expect(
+          request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType,
+        );
         expect(
           e.toString(),
           'FormatException: Each bundle entry request needs a method type specified, but at least one entry in this bundle is missing a method',
@@ -282,8 +307,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Observation/12345/_history?_format=$mimeType&_pretty=false',
@@ -300,8 +327,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Observation/_history?_format=$mimeType&_pretty=false',
@@ -317,43 +346,48 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/_history?_format=$mimeType&_pretty=false',
       );
     });
 
-    test('history resource by type and id, count of 10, after a specified date',
-        () async {
-      final List<String> parameters = <String>[
-        '_count=10',
-        '_since=2020-10-08T16:58:07.241117Z',
-      ];
-      final FhirRequest request = FhirRequest.history(
-        base: Uri.parse('http://hapi.fhir.org/baseR5'),
-        type: R5ResourceType.Observation,
-        fhirId: '12345',
-        parameters: parameters,
-        pretty: false,
-      );
-
-      final OperationOutcome? response =
-          await request.request(headers: <String, String>{'test': 'headers'})
-              as OperationOutcome?;
-      expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
-      expect(
-        response?.issue[0].details?.text,
-        'http://hapi.fhir.org/baseR5/Observation/12345/_history'
-        '?_format=$mimeType&_pretty=false&_count=10&_since=2020-10-08T16:58:07.241117Z',
-      );
-    });
-
     test(
-        'search all history, count = 10, since 2020-10-08, and only '
+      'history resource by type and id, count of 10, after a specified date',
+      () async {
+        final List<String> parameters = <String>[
+          '_count=10',
+          '_since=2020-10-08T16:58:07.241117Z',
+        ];
+        final FhirRequest request = FhirRequest.history(
+          base: Uri.parse('http://hapi.fhir.org/baseR5'),
+          type: R5ResourceType.Observation,
+          fhirId: '12345',
+          parameters: parameters,
+          pretty: false,
+        );
+
+        final OperationOutcome? response =
+            await request.request(headers: <String, String>{'test': 'headers'})
+                as OperationOutcome?;
+        expect(request, FhirRequest.fromJson(request.toJson()));
+        expect(
+          request.runtimeType,
+          FhirRequest.fromJson(request.toJson()).runtimeType,
+        );
+        expect(
+          response?.issue[0].details?.text,
+          'http://hapi.fhir.org/baseR5/Observation/12345/_history'
+          '?_format=$mimeType&_pretty=false&_count=10&_since=2020-10-08T16:58:07.241117Z',
+        );
+      },
+    );
+
+    test('search all history, count = 10, since 2020-10-08, and only '
         'those that are included in the List/12345', () async {
       final FhirRequest request = FhirRequest.historyAll(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
@@ -365,8 +399,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/_history?_format=json&_pretty=false'
@@ -387,8 +423,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/12345?_format=$mimeType&_pretty=false',
@@ -408,8 +446,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/12345?_format=$mimeType&_pretty=false',
@@ -429,8 +469,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/12345?_format=$mimeType&_pretty=false',
@@ -450,8 +492,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient?_format=$mimeType&_pretty=false',
@@ -470,8 +514,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/metadata'
@@ -484,7 +530,7 @@ Future<void> requestsTest() async {
     test(r'$everything operation', () async {
       final List<String> parameters = <String>[
         'start=2020-01-01',
-        'end=2020-08-01'
+        'end=2020-08-01',
       ];
       final FhirRequest request = FhirRequest.operation(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
@@ -496,8 +542,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         r'http://hapi.fhir.org/baseR5/$everything'
@@ -508,7 +556,7 @@ Future<void> requestsTest() async {
     test(r'$everything operation for Patient 744742', () async {
       final List<String> parameters = <String>[
         'start=2020-01-01',
-        'end=2020-08-01'
+        'end=2020-08-01',
       ];
       final FhirRequest request = FhirRequest.operation(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
@@ -523,8 +571,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         r'http://hapi.fhir.org/baseR5/Patient/744742/$everything?_format'
@@ -546,8 +596,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient?_format=$mimeType&_pretty=false&_id=12345',
@@ -565,8 +617,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient/_search?_format=$mimeType&_pretty=false',
@@ -576,16 +630,19 @@ Future<void> requestsTest() async {
     test('observation time search', () async {
       final List<String> parameters = <String>['_lastUpdated=gt2010-10-01'];
       final FhirRequest request = FhirRequest.search(
-          base: Uri.parse('http://hapi.fhir.org/baseR5'),
-          type: R5ResourceType.Observation,
-          pretty: false,
-          parameters: parameters);
+        base: Uri.parse('http://hapi.fhir.org/baseR5'),
+        type: R5ResourceType.Observation,
+        pretty: false,
+        parameters: parameters,
+      );
       final OperationOutcome? response =
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Observation'
@@ -595,7 +652,7 @@ Future<void> requestsTest() async {
 
     test('condition search, code parameter (_tag)', () async {
       final List<String> parameters = <String>[
-        '_tag=http://acme.org/codes|needs-review'
+        '_tag=http://acme.org/codes|needs-review',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
@@ -607,8 +664,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Condition'
@@ -618,7 +677,7 @@ Future<void> requestsTest() async {
 
     test('diagnostic report rearch, uri parameter (_profile)', () async {
       final List<String> parameters = <String>[
-        '_profile=http://acme.org/codes'
+        '_profile=http://acme.org/codes',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
@@ -630,8 +689,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/DiagnosticReport'
@@ -651,8 +712,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient'
@@ -672,8 +735,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient'
@@ -693,8 +758,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient'
@@ -714,8 +781,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Observation?_format=$mimeType&_pretty=false&_lastUpdated=le2010-10-01',
@@ -734,8 +803,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/RiskAssessment?_format=$mimeType&_pretty=false&probability=gt0.8',
@@ -757,8 +828,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient'
@@ -782,8 +855,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient'
@@ -807,8 +882,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5'
@@ -818,7 +895,7 @@ Future<void> requestsTest() async {
 
     test('patient search with identifier', () async {
       final List<String> parameters = <String>[
-        'identifier=http://acme.org/patient|2345'
+        'identifier=http://acme.org/patient|2345',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
@@ -830,8 +907,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient'
@@ -851,8 +930,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Composition'
@@ -862,7 +943,7 @@ Future<void> requestsTest() async {
 
     test('condition search via snomed code', () async {
       final List<String> parameters = <String>[
-        'code:in=http://snomed.info/sct?fhir_vs=isa/126851005'
+        'code:in=http://snomed.info/sct?fhir_vs=isa/126851005',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
@@ -874,8 +955,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Condition'
@@ -885,7 +968,7 @@ Future<void> requestsTest() async {
 
     test('patient search by mr code', () async {
       final List<String> parameters = <String>[
-        'identifier:of-type=http://terminology.hl7.org/CodeSystem/v2-0203|MR|446053'
+        'identifier:of-type=http://terminology.hl7.org/CodeSystem/v2-0203|MR|446053',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
@@ -897,8 +980,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Patient'
@@ -908,7 +993,7 @@ Future<void> requestsTest() async {
 
     test('observation search by quantity, with prefix', () async {
       final List<String> parameters = <String>[
-        'value-quantity=ap5.4|http://unitsofmeasure.org|mg'
+        'value-quantity=ap5.4|http://unitsofmeasure.org|mg',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
@@ -920,8 +1005,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Observation'
@@ -931,7 +1018,7 @@ Future<void> requestsTest() async {
 
     test('observation search by quantity, without prefix', () async {
       final List<String> parameters = <String>[
-        'value-quantity=5.4|http://unitsofmeasure.org|mg'
+        'value-quantity=5.4|http://unitsofmeasure.org|mg',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
@@ -943,8 +1030,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Observation'
@@ -954,7 +1043,7 @@ Future<void> requestsTest() async {
 
     test('observation search by quantity, testing number parsing', () async {
       final List<String> parameters = <String>[
-        'value-quantity=0.0054|http://unitsofmeasure.org|g'
+        'value-quantity=0.0054|http://unitsofmeasure.org|g',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
@@ -966,8 +1055,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Observation'
@@ -987,8 +1078,10 @@ Future<void> requestsTest() async {
           await request.request(headers: <String, String>{'test': 'headers'})
               as OperationOutcome?;
       expect(request, FhirRequest.fromJson(request.toJson()));
-      expect(request.runtimeType,
-          FhirRequest.fromJson(request.toJson()).runtimeType);
+      expect(
+        request.runtimeType,
+        FhirRequest.fromJson(request.toJson()).runtimeType,
+      );
       expect(
         response?.issue[0].details?.text,
         'http://hapi.fhir.org/baseR5/Observation'

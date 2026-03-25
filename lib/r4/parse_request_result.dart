@@ -26,12 +26,14 @@ import '../r4.dart';
 ReturnResults<Resource> parseRequestResult(Resource result) => result is Bundle
     ? parseBundle(result)
     : result is OperationOutcome
-        ? isInformational(result)
-            ? ReturnResults<OperationOutcome>(
-                informationOperationOutcomes: <OperationOutcome>[result])
-            : ReturnResults<OperationOutcome>(
-                errorOperationOutcomes: <OperationOutcome>[result])
-        : ReturnResults<Resource>(resources: <Resource>[result]);
+    ? isInformational(result)
+          ? ReturnResults<OperationOutcome>(
+              informationOperationOutcomes: <OperationOutcome>[result],
+            )
+          : ReturnResults<OperationOutcome>(
+              errorOperationOutcomes: <OperationOutcome>[result],
+            )
+    : ReturnResults<Resource>(resources: <Resource>[result]);
 
 /// Extracts all Resources that were returned by the Bundle, as long as they
 /// aren't OperationOutcomes, and includes all entries as informational
@@ -43,11 +45,13 @@ ReturnResults<Resource> parseBundle(Bundle bundle) {
       if (entry.resource != null) {
         if (entry.resource is OperationOutcome) {
           if (isInformational(entry.resource! as OperationOutcome)) {
-            returnResults.informationOperationOutcomes
-                .add(entry.resource! as OperationOutcome);
+            returnResults.informationOperationOutcomes.add(
+              entry.resource! as OperationOutcome,
+            );
           } else {
-            returnResults.errorOperationOutcomes
-                .add(entry.resource! as OperationOutcome);
+            returnResults.errorOperationOutcomes.add(
+              entry.resource! as OperationOutcome,
+            );
           }
         } else {
           returnResults.resources.add(entry.resource!);
@@ -55,11 +59,13 @@ ReturnResults<Resource> parseBundle(Bundle bundle) {
       } else if (entry.response?.outcome != null) {
         if (entry.response!.outcome is OperationOutcome) {
           if (isInformational(entry.response!.outcome! as OperationOutcome)) {
-            returnResults.informationOperationOutcomes
-                .add(entry.response!.outcome! as OperationOutcome);
+            returnResults.informationOperationOutcomes.add(
+              entry.response!.outcome! as OperationOutcome,
+            );
           } else {
-            returnResults.errorOperationOutcomes
-                .add(entry.response!.outcome! as OperationOutcome);
+            returnResults.errorOperationOutcomes.add(
+              entry.response!.outcome! as OperationOutcome,
+            );
           }
         } else {
           returnResults.resources.add(entry.response!.outcome!);
@@ -70,7 +76,8 @@ ReturnResults<Resource> parseBundle(Bundle bundle) {
             issue: <OperationOutcomeIssue>[
               OperationOutcomeIssue(
                 code: FhirCode('informational'),
-                diagnostics: 'Status: ${entry.response?.status ?? "none"}'
+                diagnostics:
+                    'Status: ${entry.response?.status ?? "none"}'
                     '\nLocation: ${entry.response?.location ?? "none"}',
               ),
             ],
@@ -86,19 +93,22 @@ ReturnResults<Resource> parseBundle(Bundle bundle) {
 /// perform similarly to above, but will return ONLY that type of resource in
 /// the resources field, others will be included in the otherResources as well
 /// as in an OperationOutcome as a contained resource
-ReturnResults<T> parseRequestResultForType<T>(Resource result) => result
-        is OperationOutcome
+ReturnResults<T> parseRequestResultForType<T>(Resource result) =>
+    result is OperationOutcome
     ? isInformational(result)
-        ? ReturnResults<T>(
-            informationOperationOutcomes: <OperationOutcome>[result])
-        : ReturnResults<T>(errorOperationOutcomes: <OperationOutcome>[result])
+          ? ReturnResults<T>(
+              informationOperationOutcomes: <OperationOutcome>[result],
+            )
+          : ReturnResults<T>(errorOperationOutcomes: <OperationOutcome>[result])
     : result is T
-        ? ReturnResults<T>(resources: <T>[result as T])
-        : result is Bundle
-            ? parseBundleForType<T>(result)
-            : ReturnResults<T>(errorOperationOutcomes: <OperationOutcome>[
-                incorrectResultType<T>(result)
-              ]);
+    ? ReturnResults<T>(resources: <T>[result as T])
+    : result is Bundle
+    ? parseBundleForType<T>(result)
+    : ReturnResults<T>(
+        errorOperationOutcomes: <OperationOutcome>[
+          incorrectResultType<T>(result),
+        ],
+      );
 
 /// Extracts all Resources that were returned by the Bundle as long as they
 /// are of type T
@@ -109,32 +119,38 @@ ReturnResults<T> parseBundleForType<T>(Bundle bundle) {
       if (entry.resource != null) {
         if (entry.resource is OperationOutcome) {
           if (isInformational(entry.resource! as OperationOutcome)) {
-            returnResults.informationOperationOutcomes
-                .add(entry.resource! as OperationOutcome);
+            returnResults.informationOperationOutcomes.add(
+              entry.resource! as OperationOutcome,
+            );
           } else {
-            returnResults.errorOperationOutcomes
-                .add(entry.resource! as OperationOutcome);
+            returnResults.errorOperationOutcomes.add(
+              entry.resource! as OperationOutcome,
+            );
           }
         } else if (entry.resource is T) {
           returnResults.resources.add(entry.resource! as T);
         } else {
-          returnResults.errorOperationOutcomes
-              .add(incorrectResultType<T>(entry.resource!));
+          returnResults.errorOperationOutcomes.add(
+            incorrectResultType<T>(entry.resource!),
+          );
         }
       } else if (entry.response?.outcome != null) {
         if (entry.response!.outcome is OperationOutcome) {
           if (isInformational(entry.response!.outcome! as OperationOutcome)) {
-            returnResults.informationOperationOutcomes
-                .add(entry.response!.outcome! as OperationOutcome);
+            returnResults.informationOperationOutcomes.add(
+              entry.response!.outcome! as OperationOutcome,
+            );
           } else {
-            returnResults.errorOperationOutcomes
-                .add(entry.response!.outcome! as OperationOutcome);
+            returnResults.errorOperationOutcomes.add(
+              entry.response!.outcome! as OperationOutcome,
+            );
           }
         } else if (entry.response!.outcome is T) {
           returnResults.resources.add(entry.response!.outcome! as T);
         } else {
-          returnResults.errorOperationOutcomes
-              .add(incorrectResultType<T>(entry.response!.outcome!));
+          returnResults.errorOperationOutcomes.add(
+            incorrectResultType<T>(entry.response!.outcome!),
+          );
         }
       } else {
         returnResults.informationOperationOutcomes.add(
@@ -142,7 +158,8 @@ ReturnResults<T> parseBundleForType<T>(Bundle bundle) {
             issue: <OperationOutcomeIssue>[
               OperationOutcomeIssue(
                 code: FhirCode('informational'),
-                diagnostics: 'Status: ${entry.response?.status ?? "none"}'
+                diagnostics:
+                    'Status: ${entry.response?.status ?? "none"}'
                     '\nLocation: ${entry.response?.location ?? "none"}',
               ),
             ],
@@ -157,19 +174,19 @@ ReturnResults<T> parseBundleForType<T>(Bundle bundle) {
 /// Returns an OperationOutcome that contains the given Resource and a message
 /// stating that it was not the type of resource that was specified
 OperationOutcome incorrectResultType<T>(Resource result) => OperationOutcome(
-      contained: <Resource>[result],
-      issue: <OperationOutcomeIssue>[
-        OperationOutcomeIssue(
-          severity: FhirCode('error'),
-          code: FhirCode('structure'),
-          diagnostics:
-              'This request returned a bundle, and should have been a $T but '
-              'is a ${result.resourceTypeString}. The resource is contained in '
-              'this new and locally created OperationOutcome for '
-              'troubleshooting purposes',
-        ),
-      ],
-    );
+  contained: <Resource>[result],
+  issue: <OperationOutcomeIssue>[
+    OperationOutcomeIssue(
+      severity: FhirCode('error'),
+      code: FhirCode('structure'),
+      diagnostics:
+          'This request returned a bundle, and should have been a $T but '
+          'is a ${result.resourceTypeString}. The resource is contained in '
+          'this new and locally created OperationOutcome for '
+          'troubleshooting purposes',
+    ),
+  ],
+);
 
 bool isInformational(OperationOutcome operationOutcome) =>
     operationOutcome.issue.first.code.toString().toLowerCase() ==

@@ -14,8 +14,9 @@ void httpRequestTests() {
         fhirId: '12345',
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
         'url':
@@ -23,7 +24,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -35,8 +36,9 @@ void httpRequestTests() {
         fhirId: '12345',
         pretty: true,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -45,7 +47,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -58,8 +60,9 @@ void httpRequestTests() {
         pretty: true,
         summary: Summary.true_,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -68,7 +71,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -81,8 +84,9 @@ void httpRequestTests() {
         pretty: false,
         summary: Summary.count,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -91,7 +95,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -104,8 +108,9 @@ void httpRequestTests() {
         pretty: true,
         elements: <String>['name'],
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -114,7 +119,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -127,8 +132,9 @@ void httpRequestTests() {
         pretty: true,
         elements: <String>['name', 'gender'],
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -137,7 +143,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -152,8 +158,9 @@ void httpRequestTests() {
         pretty: false,
         vid: FhirId('6789'),
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -162,7 +169,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -175,8 +182,9 @@ void httpRequestTests() {
         vid: FhirId('6789'),
         pretty: true,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -185,7 +193,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -199,8 +207,9 @@ void httpRequestTests() {
         pretty: true,
         summary: Summary.true_,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -209,7 +218,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -223,8 +232,9 @@ void httpRequestTests() {
         vid: FhirId('6789'),
         summary: Summary.count,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -233,7 +243,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -242,21 +252,20 @@ void httpRequestTests() {
   group('FhirRequest - TRANSACTION:', () {
     test('transaction/batch', () {
       final Bundle bundle = Bundle(
-          type: FhirCode('transaction'),
-          fhirId: '12345',
-          entry: <BundleEntry>[
-            BundleEntry(
-                request: BundleRequest(
-              method: FhirCode('delete'),
-            ))
-          ]);
+        type: FhirCode('transaction'),
+        fhirId: '12345',
+        entry: <BundleEntry>[
+          BundleEntry(request: BundleRequest(method: FhirCode('delete'))),
+        ],
+      );
       final FhirRequest request = FhirRequest.transaction(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         bundle: bundle,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'POST',
@@ -273,9 +282,10 @@ void httpRequestTests() {
 
     test('batch with error in bundle', () {
       final Bundle bundle = Bundle(
-          type: FhirCode('batch'),
-          fhirId: '12345',
-          entry: <BundleEntry>[const BundleEntry(request: BundleRequest())]);
+        type: FhirCode('batch'),
+        fhirId: '12345',
+        entry: <BundleEntry>[const BundleEntry(request: BundleRequest())],
+      );
       final FhirRequest request = FhirRequest.batch(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         bundle: bundle,
@@ -285,9 +295,11 @@ void httpRequestTests() {
         request.toFhirHttpRequest(headers: <String, String>{'test': 'header'});
       } catch (e) {
         expect(
-            e,
-            const FormatException(
-                'Each bundle entry request needs a method type specified, but at least one entry in this bundle is missing a method'));
+          e,
+          const FormatException(
+            'Each bundle entry request needs a method type specified, but at least one entry in this bundle is missing a method',
+          ),
+        );
       }
     });
   }, tags: <String>['uri', 'transaction']);
@@ -300,8 +312,9 @@ void httpRequestTests() {
         fhirId: '12345',
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -310,7 +323,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -321,8 +334,9 @@ void httpRequestTests() {
         type: R4ResourceType.Observation,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -331,7 +345,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -341,8 +355,9 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -351,42 +366,45 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
-      };
-      expect(fhirHttpRequest.toJson(), requestMap);
-    });
-
-    test('history resource by type and id, count of 10, after a specified date',
-        () {
-      final List<String> parameters = <String>[
-        '_count=10',
-        '_since=2020-10-08T16:58:07.241117Z',
-      ];
-      final FhirRequest request = FhirRequest.history(
-        base: Uri.parse('http://hapi.fhir.org/baseR4'),
-        type: R4ResourceType.Observation,
-        fhirId: '12345',
-        pretty: false,
-        parameters: parameters,
-      );
-
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
-
-      final Map<String, dynamic> requestMap = <String, dynamic>{
-        'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Observation/12345/_history'
-            '?_format=json&_pretty=false&_count=10&_since=2020-10-08T16:58:07.241117Z',
-        'headers': <String, String>{
-          'test': 'headers',
-          'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
 
     test(
-        'search all history, count = 10, since 2020-10-08, and only '
+      'history resource by type and id, count of 10, after a specified date',
+      () {
+        final List<String> parameters = <String>[
+          '_count=10',
+          '_since=2020-10-08T16:58:07.241117Z',
+        ];
+        final FhirRequest request = FhirRequest.history(
+          base: Uri.parse('http://hapi.fhir.org/baseR4'),
+          type: R4ResourceType.Observation,
+          fhirId: '12345',
+          pretty: false,
+          parameters: parameters,
+        );
+
+        final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+          headers: <String, String>{'test': 'headers'},
+        );
+
+        final Map<String, dynamic> requestMap = <String, dynamic>{
+          'type': 'GET',
+          'url':
+              'http://hapi.fhir.org/baseR4/Observation/12345/_history'
+              '?_format=json&_pretty=false&_count=10&_since=2020-10-08T16:58:07.241117Z',
+          'headers': <String, String>{
+            'test': 'headers',
+            'Accept': 'application/fhir+json',
+          },
+        };
+        expect(fhirHttpRequest.toJson(), requestMap);
+      },
+    );
+
+    test('search all history, count = 10, since 2020-10-08, and only '
         'those that are included in the List/12345', () {
       final FhirRequest request = FhirRequest.historyAll(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
@@ -394,17 +412,19 @@ void httpRequestTests() {
         pretty: false,
         parameters: <String>['_count=10', '_since=2020-10-08'],
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/_history?_format=json&_pretty=false'
+        'url':
+            'http://hapi.fhir.org/baseR4/_history?_format=json&_pretty=false'
             '&_list=List/12345&_count=10&_since=2020-10-08',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -418,8 +438,9 @@ void httpRequestTests() {
         resource: patient,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'PUT',
@@ -444,8 +465,9 @@ void httpRequestTests() {
         resource: patient,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'PATCH',
@@ -470,8 +492,9 @@ void httpRequestTests() {
         fhirId: '12345',
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'DELETE',
@@ -480,7 +503,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -494,8 +517,9 @@ void httpRequestTests() {
         resource: patient,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'POST',
@@ -518,17 +542,19 @@ void httpRequestTests() {
         mode: Mode.normative,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/metadata'
+        'url':
+            'http://hapi.fhir.org/baseR4/metadata'
             '?mode=normative&_format=json&_pretty=false',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -538,7 +564,7 @@ void httpRequestTests() {
     test(r'$everything operation', () {
       final List<String> parameters = <String>[
         'start=2020-01-01',
-        'end=2020-08-01'
+        'end=2020-08-01',
       ];
       final FhirRequest request = FhirRequest.operation(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
@@ -546,17 +572,19 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': r'http://hapi.fhir.org/baseR4/$everything'
+        'url':
+            r'http://hapi.fhir.org/baseR4/$everything'
             '?_format=json&_pretty=false&start=2020-01-01&end=2020-08-01',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -564,7 +592,7 @@ void httpRequestTests() {
     test(r'$everything operation for Patient 744742', () {
       final List<String> parameters = <String>[
         'start=2020-01-01',
-        'end=2020-08-01'
+        'end=2020-08-01',
       ];
       final FhirRequest request = FhirRequest.operation(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
@@ -575,17 +603,19 @@ void httpRequestTests() {
         pretty: false,
       );
 
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': r'http://hapi.fhir.org/baseR4/Patient/744742/$everything?_format'
+        'url':
+            r'http://hapi.fhir.org/baseR4/Patient/744742/$everything?_format'
             '=json&_pretty=false&start=2020-01-01&end=2020-08-01',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -600,8 +630,9 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -610,7 +641,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -622,8 +653,9 @@ void httpRequestTests() {
         restfulRequest: RestfulRequest.post_,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -632,7 +664,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -645,24 +677,26 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Observation'
+        'url':
+            'http://hapi.fhir.org/baseR4/Observation'
             '?_format=json&_pretty=false&_lastUpdated=gt2010-10-01',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
 
     test('condition search, code parameter (_tag)', () {
       final List<String> parameters = <String>[
-        '_tag=http://acme.org/codes|needs-review'
+        '_tag=http://acme.org/codes|needs-review',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
@@ -670,24 +704,26 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Condition'
+        'url':
+            'http://hapi.fhir.org/baseR4/Condition'
             '?_format=json&_pretty=false&_tag=http://acme.org/codes|needs-review',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
 
     test('diagnostic report rearch, uri parameter (_profile)', () {
       final List<String> parameters = <String>[
-        '_profile=http://acme.org/codes'
+        '_profile=http://acme.org/codes',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
@@ -695,17 +731,19 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/DiagnosticReport'
+        'url':
+            'http://hapi.fhir.org/baseR4/DiagnosticReport'
             '?_format=json&_pretty=false&_profile=http://acme.org/codes',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -718,17 +756,19 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Patient'
+        'url':
+            'http://hapi.fhir.org/baseR4/Patient'
             '?_format=json&_pretty=false&gender:missing=true',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -741,17 +781,19 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Patient'
+        'url':
+            'http://hapi.fhir.org/baseR4/Patient'
             '?_format=json&_pretty=false&gender:missing=false',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -764,17 +806,19 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Patient'
+        'url':
+            'http://hapi.fhir.org/baseR4/Patient'
             '?_format=json&_pretty=false&_text:exact=Stark',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -787,8 +831,9 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -797,7 +842,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -810,8 +855,9 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
@@ -820,7 +866,7 @@ void httpRequestTests() {
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -836,17 +882,19 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Patient'
+        'url':
+            'http://hapi.fhir.org/baseR4/Patient'
             '?_format=json&_pretty=false&birthdate=ge2010-01-01&birthdate=le2011-12-31',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -863,17 +911,19 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Patient'
+        'url':
+            'http://hapi.fhir.org/baseR4/Patient'
             '?_format=json&_pretty=false&given=eve&given:contains=eve&given:exact=eve',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -890,24 +940,26 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4'
+        'url':
+            'http://hapi.fhir.org/baseR4'
             '?_format=json&_pretty=false&_type=Patient&given=eve&given:contains=eve&given:exact=eve',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
 
     test('patient search with identifier', () {
       final List<String> parameters = <String>[
-        'identifier=http://acme.org/patient|2345'
+        'identifier=http://acme.org/patient|2345',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
@@ -915,17 +967,19 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Patient'
+        'url':
+            'http://hapi.fhir.org/baseR4/Patient'
             '?_format=json&_pretty=false&identifier=http://acme.org/patient|2345',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -938,24 +992,26 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Composition'
+        'url':
+            'http://hapi.fhir.org/baseR4/Composition'
             '?_format=json&_pretty=false&section:not=48765-2',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
 
     test('condition search via snomed code', () {
       final List<String> parameters = <String>[
-        'code:in=http://snomed.info/sct?fhir_vs=isa/126851005'
+        'code:in=http://snomed.info/sct?fhir_vs=isa/126851005',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
@@ -963,24 +1019,26 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Condition'
+        'url':
+            'http://hapi.fhir.org/baseR4/Condition'
             '?_format=json&_pretty=false&code:in=http://snomed.info/sct?fhir_vs=isa/126851005',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
 
     test('patient search by mr code', () {
       final List<String> parameters = <String>[
-        'identifier:of-type=http://terminology.hl7.org/CodeSystem/v2-0203|MR|446053'
+        'identifier:of-type=http://terminology.hl7.org/CodeSystem/v2-0203|MR|446053',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
@@ -988,24 +1046,26 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Patient'
+        'url':
+            'http://hapi.fhir.org/baseR4/Patient'
             '?_format=json&_pretty=false&identifier:of-type=http://terminology.hl7.org/CodeSystem/v2-0203|MR|446053',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
 
     test('observation search by quantity, with prefix', () {
       final List<String> parameters = <String>[
-        'value-quantity=ap5.4|http://unitsofmeasure.org|mg'
+        'value-quantity=ap5.4|http://unitsofmeasure.org|mg',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
@@ -1013,24 +1073,26 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Observation'
+        'url':
+            'http://hapi.fhir.org/baseR4/Observation'
             '?_format=json&_pretty=false&value-quantity=ap5.4|http://unitsofmeasure.org|mg',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
 
     test('observation search by quantity, without prefix', () {
       final List<String> parameters = <String>[
-        'value-quantity=5.4|http://unitsofmeasure.org|mg'
+        'value-quantity=5.4|http://unitsofmeasure.org|mg',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
@@ -1038,24 +1100,26 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Observation'
+        'url':
+            'http://hapi.fhir.org/baseR4/Observation'
             '?_format=json&_pretty=false&value-quantity=5.4|http://unitsofmeasure.org|mg',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
 
     test('observation search by quantity, testing number parsing', () {
       final List<String> parameters = <String>[
-        'value-quantity=0.0054|http://unitsofmeasure.org|g'
+        'value-quantity=0.0054|http://unitsofmeasure.org|g',
       ];
       final FhirRequest request = FhirRequest.search(
         base: Uri.parse('http://hapi.fhir.org/baseR4'),
@@ -1063,17 +1127,19 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Observation'
+        'url':
+            'http://hapi.fhir.org/baseR4/Observation'
             '?_format=json&_pretty=false&value-quantity=0.0054|http://unitsofmeasure.org|g',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
@@ -1086,17 +1152,19 @@ void httpRequestTests() {
         parameters: parameters,
         pretty: false,
       );
-      final FhirHttpRequest fhirHttpRequest = request
-          .toFhirHttpRequest(headers: <String, String>{'test': 'headers'});
+      final FhirHttpRequest fhirHttpRequest = request.toFhirHttpRequest(
+        headers: <String, String>{'test': 'headers'},
+      );
 
       final Map<String, dynamic> requestMap = <String, dynamic>{
         'type': 'GET',
-        'url': 'http://hapi.fhir.org/baseR4/Observation'
+        'url':
+            'http://hapi.fhir.org/baseR4/Observation'
             '?_format=json&_pretty=false&subject=Patient/123',
         'headers': <String, String>{
           'test': 'headers',
           'Accept': 'application/fhir+json',
-        }
+        },
       };
       expect(fhirHttpRequest.toJson(), requestMap);
     });
