@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:fhir/r5.dart';
+import 'package:fhir_plus/r5.dart';
 
 class ReturnResults<T> {
   ReturnResults({

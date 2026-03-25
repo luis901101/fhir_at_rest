@@ -6,57 +6,47 @@ part of 'fhir_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FhirReadRequestImpl _$$FhirReadRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirReadRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
-      fhirId: json['fhirId'] as String,
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
+FhirReadRequest _$FhirReadRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirReadRequest(
+  base: Uri.parse(json['base'] as String),
+  type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
+  fhirId: json['fhirId'] as String,
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$$FhirReadRequestImplToJson(
-    _$FhirReadRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'type': _$R4ResourceTypeEnumMap[instance.type]!,
-    'fhirId': instance.fhirId,
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$FhirReadRequestToJson(FhirReadRequest instance) =>
+    <String, dynamic>{
+      'base': instance.base.toString(),
+      'type': _$R4ResourceTypeEnumMap[instance.type]!,
+      'fhirId': instance.fhirId,
+      'pretty': ?instance.pretty,
+      'summary': _$SummaryEnumMap[instance.summary]!,
+      'format': ?instance.format,
+      'elements': instance.elements,
+      'parameters': instance.parameters,
+      'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+      'accept': instance.accept,
+      'headers': ?instance.headers,
+      'runtimeType': instance.$type,
+    };
 
 const _$R4ResourceTypeEnumMap = {
   R4ResourceType.Account: 'Account',
@@ -219,317 +209,257 @@ const _$MimeTypeEnumMap = {
   MimeType.x_www_form_urlencoded: 'x_www_form_urlencoded',
 };
 
-_$FhirVReadRequestImpl _$$FhirVReadRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirVReadRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
-      fhirId: json['fhirId'] as String,
-      vid: FhirId.fromJson(json['vid']),
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
+FhirVReadRequest _$FhirVReadRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirVReadRequest(
+  base: Uri.parse(json['base'] as String),
+  type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
+  fhirId: json['fhirId'] as String,
+  vid: FhirId.fromJson(json['vid']),
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$$FhirVReadRequestImplToJson(
-    _$FhirVReadRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'type': _$R4ResourceTypeEnumMap[instance.type]!,
-    'fhirId': instance.fhirId,
-    'vid': instance.vid.toJson(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-  };
+Map<String, dynamic> _$FhirVReadRequestToJson(FhirVReadRequest instance) =>
+    <String, dynamic>{
+      'base': instance.base.toString(),
+      'type': _$R4ResourceTypeEnumMap[instance.type]!,
+      'fhirId': instance.fhirId,
+      'vid': instance.vid.toJson(),
+      'pretty': ?instance.pretty,
+      'summary': _$SummaryEnumMap[instance.summary]!,
+      'format': ?instance.format,
+      'elements': instance.elements,
+      'parameters': instance.parameters,
+      'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+      'accept': instance.accept,
+      'headers': ?instance.headers,
+      'runtimeType': instance.$type,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FhirUpdateRequest _$FhirUpdateRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirUpdateRequest(
+  base: Uri.parse(json['base'] as String),
+  resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$FhirUpdateRequestToJson(FhirUpdateRequest instance) =>
+    <String, dynamic>{
+      'base': instance.base.toString(),
+      'resource': instance.resource.toJson(),
+      'pretty': ?instance.pretty,
+      'summary': _$SummaryEnumMap[instance.summary]!,
+      'format': ?instance.format,
+      'elements': instance.elements,
+      'parameters': instance.parameters,
+      'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+      'accept': instance.accept,
+      'headers': ?instance.headers,
+      'runtimeType': instance.$type,
+    };
 
-_$FhirUpdateRequestImpl _$$FhirUpdateRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirUpdateRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
+FhirPatchRequest _$FhirPatchRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirPatchRequest(
+  base: Uri.parse(json['base'] as String),
+  resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$$FhirUpdateRequestImplToJson(
-    _$FhirUpdateRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'resource': instance.resource.toJson(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-  };
+Map<String, dynamic> _$FhirPatchRequestToJson(FhirPatchRequest instance) =>
+    <String, dynamic>{
+      'base': instance.base.toString(),
+      'resource': instance.resource.toJson(),
+      'pretty': ?instance.pretty,
+      'summary': _$SummaryEnumMap[instance.summary]!,
+      'format': ?instance.format,
+      'elements': instance.elements,
+      'parameters': instance.parameters,
+      'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+      'accept': instance.accept,
+      'headers': ?instance.headers,
+      'runtimeType': instance.$type,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FhirDeleteRequest _$FhirDeleteRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirDeleteRequest(
+  base: Uri.parse(json['base'] as String),
+  type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
+  fhirId: json['fhirId'] as String,
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$FhirDeleteRequestToJson(FhirDeleteRequest instance) =>
+    <String, dynamic>{
+      'base': instance.base.toString(),
+      'type': _$R4ResourceTypeEnumMap[instance.type]!,
+      'fhirId': instance.fhirId,
+      'pretty': ?instance.pretty,
+      'summary': _$SummaryEnumMap[instance.summary]!,
+      'format': ?instance.format,
+      'elements': instance.elements,
+      'parameters': instance.parameters,
+      'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+      'accept': instance.accept,
+      'headers': ?instance.headers,
+      'runtimeType': instance.$type,
+    };
 
-_$FhirPatchRequestImpl _$$FhirPatchRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirPatchRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
+FhirCreateRequest _$FhirCreateRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirCreateRequest(
+  base: Uri.parse(json['base'] as String),
+  resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$$FhirPatchRequestImplToJson(
-    _$FhirPatchRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'resource': instance.resource.toJson(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-  };
+Map<String, dynamic> _$FhirCreateRequestToJson(FhirCreateRequest instance) =>
+    <String, dynamic>{
+      'base': instance.base.toString(),
+      'resource': instance.resource.toJson(),
+      'pretty': ?instance.pretty,
+      'summary': _$SummaryEnumMap[instance.summary]!,
+      'format': ?instance.format,
+      'elements': instance.elements,
+      'parameters': instance.parameters,
+      'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+      'accept': instance.accept,
+      'headers': ?instance.headers,
+      'runtimeType': instance.$type,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FhirSearchRequest _$FhirSearchRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirSearchRequest(
+  base: Uri.parse(json['base'] as String),
+  type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  usePost: json['usePost'] as bool? ?? false,
+  restfulRequest:
+      $enumDecodeNullable(_$RestfulRequestEnumMap, json['restfulRequest']) ??
+      RestfulRequest.get_,
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
-
-_$FhirDeleteRequestImpl _$$FhirDeleteRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirDeleteRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
-      fhirId: json['fhirId'] as String,
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$FhirDeleteRequestImplToJson(
-    _$FhirDeleteRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'type': _$R4ResourceTypeEnumMap[instance.type]!,
-    'fhirId': instance.fhirId,
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
-
-_$FhirCreateRequestImpl _$$FhirCreateRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirCreateRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      resource: Resource.fromJson(json['resource'] as Map<String, dynamic>),
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$FhirCreateRequestImplToJson(
-    _$FhirCreateRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'resource': instance.resource.toJson(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
-
-_$FhirSearchRequestImpl _$$FhirSearchRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirSearchRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      usePost: json['usePost'] as bool? ?? false,
-      restfulRequest: $enumDecodeNullable(
-              _$RestfulRequestEnumMap, json['restfulRequest']) ??
-          RestfulRequest.get_,
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$FhirSearchRequestImplToJson(
-    _$FhirSearchRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'type': _$R4ResourceTypeEnumMap[instance.type]!,
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-    'usePost': instance.usePost,
-    'restfulRequest': _$RestfulRequestEnumMap[instance.restfulRequest]!,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$FhirSearchRequestToJson(FhirSearchRequest instance) =>
+    <String, dynamic>{
+      'base': instance.base.toString(),
+      'type': _$R4ResourceTypeEnumMap[instance.type]!,
+      'pretty': ?instance.pretty,
+      'summary': _$SummaryEnumMap[instance.summary]!,
+      'format': ?instance.format,
+      'elements': instance.elements,
+      'parameters': instance.parameters,
+      'usePost': instance.usePost,
+      'restfulRequest': _$RestfulRequestEnumMap[instance.restfulRequest]!,
+      'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+      'accept': instance.accept,
+      'headers': ?instance.headers,
+      'runtimeType': instance.$type,
+    };
 
 const _$RestfulRequestEnumMap = {
   RestfulRequest.get_: 'GET',
@@ -539,103 +469,85 @@ const _$RestfulRequestEnumMap = {
   RestfulRequest.patch_: 'PATCH',
 };
 
-_$FhirSearchAllRequestImpl _$$FhirSearchAllRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirSearchAllRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
+FhirSearchAllRequest _$FhirSearchAllRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirSearchAllRequest(
+  base: Uri.parse(json['base'] as String),
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$$FhirSearchAllRequestImplToJson(
-    _$FhirSearchAllRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-  };
+Map<String, dynamic> _$FhirSearchAllRequestToJson(
+  FhirSearchAllRequest instance,
+) => <String, dynamic>{
+  'base': instance.base.toString(),
+  'pretty': ?instance.pretty,
+  'summary': _$SummaryEnumMap[instance.summary]!,
+  'format': ?instance.format,
+  'elements': instance.elements,
+  'parameters': instance.parameters,
+  'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+  'accept': instance.accept,
+  'headers': ?instance.headers,
+  'runtimeType': instance.$type,
+};
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FhirCapabilitiesRequest _$FhirCapabilitiesRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirCapabilitiesRequest(
+  base: Uri.parse(json['base'] as String),
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  mode: $enumDecodeNullable(_$ModeEnumMap, json['mode']) ?? Mode.full,
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
-
-_$FhirCapabilitiesRequestImpl _$$FhirCapabilitiesRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirCapabilitiesRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      mode: $enumDecodeNullable(_$ModeEnumMap, json['mode']) ?? Mode.full,
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$FhirCapabilitiesRequestImplToJson(
-    _$FhirCapabilitiesRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-    'mode': _$ModeEnumMap[instance.mode]!,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$FhirCapabilitiesRequestToJson(
+  FhirCapabilitiesRequest instance,
+) => <String, dynamic>{
+  'base': instance.base.toString(),
+  'pretty': ?instance.pretty,
+  'summary': _$SummaryEnumMap[instance.summary]!,
+  'format': ?instance.format,
+  'elements': instance.elements,
+  'parameters': instance.parameters,
+  'mode': _$ModeEnumMap[instance.mode]!,
+  'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+  'accept': instance.accept,
+  'headers': ?instance.headers,
+  'runtimeType': instance.$type,
+};
 
 const _$ModeEnumMap = {
   Mode.full: 'full',
@@ -643,377 +555,304 @@ const _$ModeEnumMap = {
   Mode.terminology: 'terminology',
 };
 
-_$FhirTransactionRequestImpl _$$FhirTransactionRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirTransactionRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      bundle: Bundle.fromJson(json['bundle'] as Map<String, dynamic>),
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
+FhirTransactionRequest _$FhirTransactionRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirTransactionRequest(
+  base: Uri.parse(json['base'] as String),
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  bundle: Bundle.fromJson(json['bundle'] as Map<String, dynamic>),
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$$FhirTransactionRequestImplToJson(
-    _$FhirTransactionRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-    'bundle': instance.bundle.toJson(),
-  };
+Map<String, dynamic> _$FhirTransactionRequestToJson(
+  FhirTransactionRequest instance,
+) => <String, dynamic>{
+  'base': instance.base.toString(),
+  'pretty': ?instance.pretty,
+  'summary': _$SummaryEnumMap[instance.summary]!,
+  'format': ?instance.format,
+  'elements': instance.elements,
+  'parameters': instance.parameters,
+  'bundle': instance.bundle.toJson(),
+  'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+  'accept': instance.accept,
+  'headers': ?instance.headers,
+  'runtimeType': instance.$type,
+};
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FhirBatchRequest _$FhirBatchRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirBatchRequest(
+  base: Uri.parse(json['base'] as String),
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  bundle: Bundle.fromJson(json['bundle'] as Map<String, dynamic>),
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$FhirBatchRequestToJson(FhirBatchRequest instance) =>
+    <String, dynamic>{
+      'base': instance.base.toString(),
+      'pretty': ?instance.pretty,
+      'summary': _$SummaryEnumMap[instance.summary]!,
+      'format': ?instance.format,
+      'elements': instance.elements,
+      'parameters': instance.parameters,
+      'bundle': instance.bundle.toJson(),
+      'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+      'accept': instance.accept,
+      'headers': ?instance.headers,
+      'runtimeType': instance.$type,
+    };
 
-_$FhirBatchRequestImpl _$$FhirBatchRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirBatchRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      bundle: Bundle.fromJson(json['bundle'] as Map<String, dynamic>),
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
+FhirHistoryRequest _$FhirHistoryRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirHistoryRequest(
+  base: Uri.parse(json['base'] as String),
+  type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
+  fhirId: json['fhirId'] as String,
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  count: (json['count'] as num?)?.toInt(),
+  since: json['since'] == null
+      ? null
+      : FhirInstant.fromJson(json['since'] as String),
+  at: json['at'] == null ? null : FhirDateTime.fromJson(json['at'] as String),
+  reference: json['reference'] as String?,
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$$FhirBatchRequestImplToJson(
-    _$FhirBatchRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-    'bundle': instance.bundle.toJson(),
-  };
+Map<String, dynamic> _$FhirHistoryRequestToJson(FhirHistoryRequest instance) =>
+    <String, dynamic>{
+      'base': instance.base.toString(),
+      'type': _$R4ResourceTypeEnumMap[instance.type]!,
+      'fhirId': instance.fhirId,
+      'pretty': ?instance.pretty,
+      'summary': _$SummaryEnumMap[instance.summary]!,
+      'format': ?instance.format,
+      'elements': instance.elements,
+      'parameters': instance.parameters,
+      'count': ?instance.count,
+      'since': ?instance.since?.toJson(),
+      'at': ?instance.at?.toJson(),
+      'reference': ?instance.reference,
+      'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+      'accept': instance.accept,
+      'headers': ?instance.headers,
+      'runtimeType': instance.$type,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FhirHistoryTypeRequest _$FhirHistoryTypeRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirHistoryTypeRequest(
+  base: Uri.parse(json['base'] as String),
+  type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  count: (json['count'] as num?)?.toInt(),
+  since: json['since'] == null
+      ? null
+      : FhirInstant.fromJson(json['since'] as String),
+  at: json['at'] == null ? null : FhirDateTime.fromJson(json['at'] as String),
+  reference: json['reference'] as String?,
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$FhirHistoryTypeRequestToJson(
+  FhirHistoryTypeRequest instance,
+) => <String, dynamic>{
+  'base': instance.base.toString(),
+  'type': _$R4ResourceTypeEnumMap[instance.type]!,
+  'pretty': ?instance.pretty,
+  'summary': _$SummaryEnumMap[instance.summary]!,
+  'format': ?instance.format,
+  'elements': instance.elements,
+  'parameters': instance.parameters,
+  'count': ?instance.count,
+  'since': ?instance.since?.toJson(),
+  'at': ?instance.at?.toJson(),
+  'reference': ?instance.reference,
+  'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+  'accept': instance.accept,
+  'headers': ?instance.headers,
+  'runtimeType': instance.$type,
+};
 
-_$FhirHistoryRequestImpl _$$FhirHistoryRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirHistoryRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
-      fhirId: json['fhirId'] as String,
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      count: json['count'] as int?,
-      since: json['since'] == null
-          ? null
-          : FhirInstant.fromJson(json['since'] as String),
-      at: json['at'] == null
-          ? null
-          : FhirDateTime.fromJson(json['at'] as String),
-      reference: json['reference'] as String?,
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
+FhirHistoryAllRequest _$FhirHistoryAllRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirHistoryAllRequest(
+  base: Uri.parse(json['base'] as String),
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  count: (json['count'] as num?)?.toInt(),
+  since: json['since'] == null
+      ? null
+      : FhirInstant.fromJson(json['since'] as String),
+  at: json['at'] == null ? null : FhirDateTime.fromJson(json['at'] as String),
+  reference: json['reference'] as String?,
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$$FhirHistoryRequestImplToJson(
-    _$FhirHistoryRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'type': _$R4ResourceTypeEnumMap[instance.type]!,
-    'fhirId': instance.fhirId,
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-  };
+Map<String, dynamic> _$FhirHistoryAllRequestToJson(
+  FhirHistoryAllRequest instance,
+) => <String, dynamic>{
+  'base': instance.base.toString(),
+  'pretty': ?instance.pretty,
+  'summary': _$SummaryEnumMap[instance.summary]!,
+  'format': ?instance.format,
+  'elements': instance.elements,
+  'parameters': instance.parameters,
+  'count': ?instance.count,
+  'since': ?instance.since?.toJson(),
+  'at': ?instance.at?.toJson(),
+  'reference': ?instance.reference,
+  'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+  'accept': instance.accept,
+  'headers': ?instance.headers,
+  'runtimeType': instance.$type,
+};
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+FhirOperationRequest _$FhirOperationRequestFromJson(
+  Map<String, dynamic> json,
+) => FhirOperationRequest(
+  base: Uri.parse(json['base'] as String),
+  type: $enumDecodeNullable(_$R4ResourceTypeEnumMap, json['type']),
+  fhirId: json['fhirId'] as String?,
+  pretty: json['pretty'] as bool?,
+  summary:
+      $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ?? Summary.none,
+  format: json['format'] as String? ?? 'json',
+  elements:
+      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const <String>[],
+  parameters:
+      (json['parameters'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const <String>[],
+  fhirParameter: json['fhirParameter'] == null
+      ? null
+      : Parameters.fromJson(json['fhirParameter'] as Map<String, dynamic>),
+  operation: json['operation'] as String,
+  usePost: json['usePost'] as bool? ?? false,
+  useFormData: json['useFormData'] as bool? ?? false,
+  mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
+  accept: json['accept'] as String? ?? 'application/fhir+json',
+  headers: (json['headers'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  ),
+  $type: json['runtimeType'] as String?,
+);
 
-  writeNotNull('count', instance.count);
-  writeNotNull('since', instance.since?.toJson());
-  writeNotNull('at', instance.at?.toJson());
-  writeNotNull('reference', instance.reference);
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$FhirOperationRequestToJson(
+  FhirOperationRequest instance,
+) => <String, dynamic>{
+  'base': instance.base.toString(),
+  'type': ?_$R4ResourceTypeEnumMap[instance.type],
+  'fhirId': ?instance.fhirId,
+  'pretty': ?instance.pretty,
+  'summary': _$SummaryEnumMap[instance.summary]!,
+  'format': ?instance.format,
+  'elements': instance.elements,
+  'parameters': instance.parameters,
+  'fhirParameter': ?instance.fhirParameter?.toJson(),
+  'operation': instance.operation,
+  'usePost': instance.usePost,
+  'useFormData': instance.useFormData,
+  'mimeType': ?_$MimeTypeEnumMap[instance.mimeType],
+  'accept': instance.accept,
+  'headers': ?instance.headers,
+  'runtimeType': instance.$type,
+};
 
-_$FhirHistoryTypeRequestImpl _$$FhirHistoryTypeRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirHistoryTypeRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      type: $enumDecode(_$R4ResourceTypeEnumMap, json['type']),
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      count: json['count'] as int?,
-      since: json['since'] == null
-          ? null
-          : FhirInstant.fromJson(json['since'] as String),
-      at: json['at'] == null
-          ? null
-          : FhirDateTime.fromJson(json['at'] as String),
-      reference: json['reference'] as String?,
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$FhirHistoryTypeRequestImplToJson(
-    _$FhirHistoryTypeRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'type': _$R4ResourceTypeEnumMap[instance.type]!,
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('count', instance.count);
-  writeNotNull('since', instance.since?.toJson());
-  writeNotNull('at', instance.at?.toJson());
-  writeNotNull('reference', instance.reference);
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
-
-_$FhirHistoryAllRequestImpl _$$FhirHistoryAllRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirHistoryAllRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      count: json['count'] as int?,
-      since: json['since'] == null
-          ? null
-          : FhirInstant.fromJson(json['since'] as String),
-      at: json['at'] == null
-          ? null
-          : FhirDateTime.fromJson(json['at'] as String),
-      reference: json['reference'] as String?,
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$FhirHistoryAllRequestImplToJson(
-    _$FhirHistoryAllRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-    'pretty': instance.pretty,
-    'summary': _$SummaryEnumMap[instance.summary]!,
-    'format': instance.format,
-    'elements': instance.elements,
-    'parameters': instance.parameters,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('count', instance.count);
-  writeNotNull('since', instance.since?.toJson());
-  writeNotNull('at', instance.at?.toJson());
-  writeNotNull('reference', instance.reference);
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
-
-_$FhirOperationRequestImpl _$$FhirOperationRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirOperationRequestImpl(
-      base: Uri.parse(json['base'] as String),
-      type: $enumDecodeNullable(_$R4ResourceTypeEnumMap, json['type']),
-      fhirId: json['fhirId'] as String?,
-      pretty: json['pretty'] as bool?,
-      summary: $enumDecodeNullable(_$SummaryEnumMap, json['summary']) ??
-          Summary.none,
-      format: json['format'] as String?,
-      elements: (json['elements'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      parameters: (json['parameters'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      fhirParameter: json['fhirParameter'] == null
-          ? null
-          : Parameters.fromJson(json['fhirParameter'] as Map<String, dynamic>),
-      operation: json['operation'] as String,
-      usePost: json['usePost'] as bool? ?? false,
-      useFormData: json['useFormData'] as bool? ?? false,
-      mimeType: $enumDecodeNullable(_$MimeTypeEnumMap, json['mimeType']),
-      accept: json['accept'] as String? ?? 'application/fhir+json',
-      headers: (json['headers'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$FhirOperationRequestImplToJson(
-    _$FhirOperationRequestImpl instance) {
-  final val = <String, dynamic>{
-    'base': instance.base.toString(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('type', _$R4ResourceTypeEnumMap[instance.type]);
-  writeNotNull('fhirId', instance.fhirId);
-  val['pretty'] = instance.pretty;
-  val['summary'] = _$SummaryEnumMap[instance.summary]!;
-  val['format'] = instance.format;
-  val['elements'] = instance.elements;
-  val['parameters'] = instance.parameters;
-  writeNotNull('fhirParameter', instance.fhirParameter?.toJson());
-  val['operation'] = instance.operation;
-  val['usePost'] = instance.usePost;
-  val['useFormData'] = instance.useFormData;
-  writeNotNull('mimeType', _$MimeTypeEnumMap[instance.mimeType]);
-  val['accept'] = instance.accept;
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
-
-_$FhirHttpRequestImpl _$$FhirHttpRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FhirHttpRequestImpl(
+_FhirHttpRequest _$FhirHttpRequestFromJson(Map<String, dynamic> json) =>
+    _FhirHttpRequest(
       type: $enumDecode(_$RestfulRequestEnumMap, json['type']),
       url: json['url'] as String,
       headers: Map<String, String>.from(json['headers'] as Map),
       body: json['body'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$$FhirHttpRequestImplToJson(
-    _$FhirHttpRequestImpl instance) {
-  final val = <String, dynamic>{
-    'type': _$RestfulRequestEnumMap[instance.type]!,
-    'url': instance.url,
-    'headers': instance.headers,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('body', instance.body);
-  return val;
-}
+Map<String, dynamic> _$FhirHttpRequestToJson(_FhirHttpRequest instance) =>
+    <String, dynamic>{
+      'type': _$RestfulRequestEnumMap[instance.type]!,
+      'url': instance.url,
+      'headers': instance.headers,
+      'body': ?instance.body,
+    };

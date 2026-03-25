@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
-import 'package:fhir/r4.dart';
-import 'package:fhir_at_rest/r4.dart';
+import 'package:fhir_at_rest_plus/r4.dart';
+import 'package:fhir_plus/r4.dart';
 
 Future<void> main() async {
   FhirRequest request = FhirRequest.read(

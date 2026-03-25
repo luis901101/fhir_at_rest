@@ -4,7 +4,7 @@
 import 'dart:convert';
 
 // Package imports:
-import 'package:fhir/r4.dart';
+import 'package:fhir_plus/r4.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:http/http.dart';
 
@@ -15,10 +15,10 @@ import '../globals.dart' as globals;
 part 'fhir_request.freezed.dart';
 part 'fhir_request.g.dart';
 
-@freezed
 
 /// The class for making requests to a FHIR server
-class FhirRequest with _$FhirRequest {
+@freezed
+sealed class FhirRequest with _$FhirRequest {
   const FhirRequest._();
 
   /// READ constructor
@@ -1705,10 +1705,7 @@ class FhirRequest with _$FhirRequest {
           }
         case RestfulRequest.put_:
           {
-            headers['Content-Type'] =
-                mimeType == null || MimeTypeEnumMap[mimeType] == null
-                    ? 'application/fhir+json'
-                    : MimeTypeEnumMap[mimeType]!;
+            headers['Content-Type'] = mimeType?.value ?? 'application/fhir+json';
             result = await client.put(
               Uri.parse(thisRequest),
               headers: headers,
@@ -1727,10 +1724,7 @@ class FhirRequest with _$FhirRequest {
           }
         case RestfulRequest.patch_:
           {
-            headers['Content-Type'] =
-                mimeType == null || MimeTypeEnumMap[mimeType] == null
-                    ? 'application/json-patch+json'
-                    : MimeTypeEnumMap[mimeType]!;
+            headers['Content-Type'] = mimeType?.value ?? 'application/json-patch+json';
             result = await client.patch(
               Uri.parse(thisRequest),
               headers: headers,
@@ -1743,9 +1737,7 @@ class FhirRequest with _$FhirRequest {
           {
             headers['Content-Type'] = formData != null
                 ? 'application/x-www-form-urlencoded'
-                : mimeType == null || MimeTypeEnumMap[mimeType] == null
-                    ? 'application/fhir+json'
-                    : MimeTypeEnumMap[mimeType]!;
+            : mimeType?.value ?? 'application/fhir+json';
             result = await client.post(
               Uri.parse(thisRequest),
               headers: headers,
@@ -1903,7 +1895,7 @@ class FhirRequest with _$FhirRequest {
 }
 
 @freezed
-class FhirHttpRequest with _$FhirHttpRequest {
+abstract class FhirHttpRequest with _$FhirHttpRequest {
   const FhirHttpRequest._();
   const factory FhirHttpRequest({
     required RestfulRequest type,
@@ -1943,9 +1935,7 @@ class FhirHttpRequest with _$FhirHttpRequest {
       case RestfulRequest.put_:
         {
           headers['Content-Type'] =
-              mimeType == null || MimeTypeEnumMap[mimeType] == null
-                  ? 'application/fhir+json'
-                  : MimeTypeEnumMap[mimeType]!;
+              mimeType?.value ?? 'application/fhir+json';
           return FhirHttpRequest(
             type: RestfulRequest.put_,
             url: url,
@@ -1964,9 +1954,7 @@ class FhirHttpRequest with _$FhirHttpRequest {
       case RestfulRequest.patch_:
         {
           headers['Content-Type'] =
-              mimeType == null || MimeTypeEnumMap[mimeType] == null
-                  ? 'application/json-patch+json'
-                  : MimeTypeEnumMap[mimeType]!;
+              mimeType?.value ?? 'application/json-patch+json';
           return FhirHttpRequest(
             type: RestfulRequest.patch_,
             url: url,
@@ -1978,9 +1966,7 @@ class FhirHttpRequest with _$FhirHttpRequest {
         {
           headers['Content-Type'] = formData != null
               ? 'application/x-www-form-urlencoded'
-              : mimeType == null || MimeTypeEnumMap[mimeType] == null
-                  ? 'application/fhir+json'
-                  : MimeTypeEnumMap[mimeType]!;
+              : mimeType?.value ?? 'application/fhir+json';
           return FhirHttpRequest(
             type: RestfulRequest.post_,
             url: url,

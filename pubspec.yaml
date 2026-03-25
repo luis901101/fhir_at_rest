@@ -1,25 +1,23 @@
-name: fhir_at_rest
+name: fhir_at_rest_plus
 description: This package builds on the basic FHIR package. It allows easy
   creation of RESTful calls to a FHIR server or FHIR API.
-version: 0.12.0
-homepage: https://www.fhirfli.dev/
-repository: https://github.com/fhir-fli/fhir_at_rest
+version: 1.0.0
+repository: https://github.com/luis901101/fhir_at_rest
+issue_tracker: https://github.com/luis901101/fhir_at_rest/issues
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.10.0 <4.0.0"
 
 dependencies:
-  fhir: ^0.12.0
-  # fhir:
-  #   path: ../fhir
-  freezed_annotation: ^2.4.1
-  http: ^1.2.0
-  json_annotation: ^4.8.1
+  fhir_plus: ^1.0.0
+#   path: ../fhir
+  freezed_annotation: ^3.1.0
+  http: ^1.6.0
+  json_annotation: ^4.11.0
 
 dev_dependencies:
-  build_runner: ^2.4.8
-  freezed: ^2.4.7
+  build_runner: ^2.13.1
+  freezed: ^3.2.5
   # dart run import_sorter:main
-  import_sorter: ^4.6.0
-  json_serializable: ^6.7.1
-  test: ^1.25.2
+  json_serializable: ^6.13.1
+  test: ^1.31.0

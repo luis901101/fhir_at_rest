@@ -1,8 +1,8 @@
 // ignore_for_file: avoid_print
 
+import 'package:fhir_at_rest_plus/r5.dart';
 // Package imports:
-import 'package:fhir/r5.dart';
-import 'package:fhir_at_rest/r5.dart';
+import 'package:fhir_plus/r5.dart';
 import 'package:test/test.dart';
 
 void httpRequestTests() {
@@ -12,7 +12,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -34,7 +33,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: 'json',
         pretty: true,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -57,7 +55,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: 'json',
         pretty: true,
         summary: Summary.true_,
       );
@@ -81,7 +78,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: 'json',
         pretty: false,
         summary: Summary.count,
       );
@@ -105,7 +101,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '1227442',
-        format: 'json',
         pretty: true,
         elements: <String>['name'],
       );
@@ -129,7 +124,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '1227442',
-        format: 'json',
         pretty: true,
         elements: <String>['name', 'gender'],
       );
@@ -155,7 +149,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: 'json',
         pretty: false,
         vid: FhirId('6789'),
       );
@@ -179,7 +172,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: 'json',
         vid: FhirId('6789'),
         pretty: true,
       );
@@ -203,7 +195,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: 'json',
         vid: FhirId('6789'),
         pretty: true,
         summary: Summary.true_,
@@ -228,7 +219,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: 'json',
         pretty: false,
         vid: FhirId('6789'),
         summary: Summary.count,
@@ -253,7 +243,7 @@ void httpRequestTests() {
     test('transaction/batch', () {
       final Bundle bundle = Bundle(
           type: FhirCode('transaction'),
-          fhirId: FhirId('12345'),
+          id: FhirId('12345'),
           entry: <BundleEntry>[
             BundleEntry(
                 request: BundleRequest(
@@ -263,7 +253,6 @@ void httpRequestTests() {
       final FhirRequest request = FhirRequest.transaction(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         bundle: bundle,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -285,12 +274,11 @@ void httpRequestTests() {
     test('batch with error in bundle', () {
       final Bundle bundle = Bundle(
           type: FhirCode('batch'),
-          fhirId: FhirId('12345'),
+          id: FhirId('12345'),
           entry: <BundleEntry>[const BundleEntry(request: BundleRequest())]);
       final FhirRequest request = FhirRequest.batch(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         bundle: bundle,
-        format: 'json',
         pretty: false,
       );
       try {
@@ -310,7 +298,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         fhirId: '12345',
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -332,7 +319,6 @@ void httpRequestTests() {
       final FhirRequest request = FhirRequest.historyType(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -353,7 +339,6 @@ void httpRequestTests() {
     test('history for everything', () {
       final FhirRequest request = FhirRequest.historyAll(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -381,7 +366,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         fhirId: '12345',
-        format: 'json',
         pretty: false,
         parameters: parameters,
       );
@@ -407,7 +391,6 @@ void httpRequestTests() {
       final FhirRequest request = FhirRequest.historyAll(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         reference: 'List/12345',
-        format: 'json',
         pretty: false,
         parameters: <String>['_count=10', '_since=2020-10-08'],
       );
@@ -429,11 +412,10 @@ void httpRequestTests() {
 
   group('FhirRequest - UPDATE:', () {
     test('update patient by id', () {
-      final Patient patient = Patient(fhirId: FhirId('12345'));
+      final Patient patient = Patient(id: FhirId('12345'));
       final FhirRequest request = FhirRequest.update(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         resource: patient,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -456,11 +438,10 @@ void httpRequestTests() {
 
   group('FhirRequest - PATCH:', () {
     test('patch patient by id', () {
-      final Patient patient = Patient(fhirId: FhirId('12345'));
+      final Patient patient = Patient(id: FhirId('12345'));
       final FhirRequest request = FhirRequest.patch(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         resource: patient,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -487,7 +468,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -508,11 +488,10 @@ void httpRequestTests() {
 
   group('FhirRequest - CREATE:', () {
     test('create patient', () {
-      final Patient patient = Patient(fhirId: FhirId('12345'));
+      final Patient patient = Patient(id: FhirId('12345'));
       final FhirRequest request = FhirRequest.create(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         resource: patient,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -537,7 +516,6 @@ void httpRequestTests() {
       final FhirRequest request = FhirRequest.capabilities(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         mode: Mode.normative,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -566,7 +544,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         operation: 'everything',
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -595,7 +572,6 @@ void httpRequestTests() {
         fhirId: '744742',
         operation: 'everything',
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
 
@@ -622,7 +598,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -645,7 +620,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         restfulRequest: RestfulRequest.post_,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -669,7 +643,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -695,7 +668,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Condition,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -721,7 +693,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.DiagnosticReport,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -745,7 +716,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -769,7 +739,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -793,7 +762,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -817,7 +785,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -841,7 +808,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.RiskAssessment,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -868,7 +834,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -896,7 +861,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -924,7 +888,6 @@ void httpRequestTests() {
       final FhirRequest request = FhirRequest.searchAll(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -950,7 +913,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -974,7 +936,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Composition,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -1000,7 +961,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Condition,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -1026,7 +986,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -1052,7 +1011,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -1078,7 +1036,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -1104,7 +1061,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request
@@ -1128,7 +1084,6 @@ void httpRequestTests() {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         parameters: parameters,
-        format: 'json',
         pretty: false,
       );
       final FhirHttpRequest fhirHttpRequest = request

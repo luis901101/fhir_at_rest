@@ -1,9 +1,9 @@
 // ignore_for_file: avoid_print
 
+import 'package:fhir_at_rest_plus/globals.dart' as globals;
+import 'package:fhir_at_rest_plus/r5.dart';
 // Package imports:
-import 'package:fhir/r5.dart';
-import 'package:fhir_at_rest/globals.dart' as globals;
-import 'package:fhir_at_rest/r5.dart';
+import 'package:fhir_plus/r5.dart';
 import 'package:test/test.dart';
 
 Future<void> requestsTest() async {
@@ -16,7 +16,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -36,7 +35,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: mimeType,
         pretty: true,
       );
       final OperationOutcome? response =
@@ -56,7 +54,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: mimeType,
         pretty: true,
         summary: Summary.true_,
       );
@@ -77,7 +74,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: mimeType,
         pretty: false,
         summary: Summary.count,
       );
@@ -98,7 +94,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '1227442',
-        format: mimeType,
         pretty: true,
         elements: <String>['name'],
       );
@@ -120,7 +115,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '1227442',
-        format: mimeType,
         pretty: true,
         elements: <String>['name', 'gender'],
       );
@@ -143,7 +137,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: mimeType,
         pretty: false,
         vid: FhirId('6789'),
       );
@@ -164,7 +157,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: mimeType,
         vid: FhirId('6789'),
         pretty: true,
       );
@@ -185,7 +177,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: mimeType,
         vid: FhirId('6789'),
         pretty: true,
         summary: Summary.true_,
@@ -207,7 +198,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: mimeType,
         pretty: false,
         vid: FhirId('6789'),
         summary: Summary.count,
@@ -229,7 +219,7 @@ Future<void> requestsTest() async {
     test('transaction/batch', () async {
       final Bundle bundle = Bundle(
           type: FhirCode('transaction'),
-          fhirId: FhirId('12345'),
+          id: FhirId('12345'),
           entry: <BundleEntry>[
             BundleEntry(
                 request: BundleRequest(
@@ -239,7 +229,6 @@ Future<void> requestsTest() async {
       final FhirRequest request = FhirRequest.transaction(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         bundle: bundle,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -257,12 +246,11 @@ Future<void> requestsTest() async {
     test('batch with error in bundle', () async {
       final Bundle bundle = Bundle(
           type: FhirCode('batch'),
-          fhirId: FhirId('12345'),
+          id: FhirId('12345'),
           entry: <BundleEntry>[const BundleEntry(request: BundleRequest())]);
       final FhirRequest request = FhirRequest.batch(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         bundle: bundle,
-        format: mimeType,
         pretty: false,
       );
       try {
@@ -288,7 +276,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         fhirId: '12345',
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -307,7 +294,6 @@ Future<void> requestsTest() async {
       final FhirRequest request = FhirRequest.historyType(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -325,7 +311,6 @@ Future<void> requestsTest() async {
     test('history for everything', () async {
       final FhirRequest request = FhirRequest.historyAll(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -351,7 +336,6 @@ Future<void> requestsTest() async {
         type: R5ResourceType.Observation,
         fhirId: '12345',
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
 
@@ -375,7 +359,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         reference: 'List/12345',
         parameters: <String>['_count=10', '_since=2020-10-08'],
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -394,11 +377,10 @@ Future<void> requestsTest() async {
 
   group('FhirRequest - UPDATE:', () {
     test('update patient by id', () async {
-      final Patient patient = Patient(fhirId: FhirId('12345'));
+      final Patient patient = Patient(id: FhirId('12345'));
       final FhirRequest request = FhirRequest.update(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         resource: patient,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -416,11 +398,10 @@ Future<void> requestsTest() async {
 
   group('FhirRequest - PATCH:', () {
     test('patch patient by id', () async {
-      final Patient patient = Patient(fhirId: FhirId('12345'));
+      final Patient patient = Patient(id: FhirId('12345'));
       final FhirRequest request = FhirRequest.patch(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         resource: patient,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -442,7 +423,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         fhirId: '12345',
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -460,11 +440,10 @@ Future<void> requestsTest() async {
 
   group('FhirRequest - CREATE:', () {
     test('create patient', () async {
-      final Patient patient = Patient(fhirId: FhirId('12345'));
+      final Patient patient = Patient(id: FhirId('12345'));
       final FhirRequest request = FhirRequest.create(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         resource: patient,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -485,7 +464,6 @@ Future<void> requestsTest() async {
       final FhirRequest request = FhirRequest.capabilities(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         mode: Mode.normative,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -512,7 +490,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         operation: 'everything',
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -539,7 +516,6 @@ Future<void> requestsTest() async {
         fhirId: '744742',
         operation: 'everything',
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
 
@@ -564,7 +540,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -584,7 +559,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         restfulRequest: RestfulRequest.post_,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -604,7 +578,6 @@ Future<void> requestsTest() async {
       final FhirRequest request = FhirRequest.search(
           base: Uri.parse('http://hapi.fhir.org/baseR5'),
           type: R5ResourceType.Observation,
-          format: mimeType,
           pretty: false,
           parameters: parameters);
       final OperationOutcome? response =
@@ -628,7 +601,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Condition,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -652,7 +624,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.DiagnosticReport,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -674,7 +645,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -696,7 +666,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -718,7 +687,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -740,7 +708,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -761,7 +728,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.RiskAssessment,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -785,7 +751,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -811,7 +776,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -837,7 +801,6 @@ Future<void> requestsTest() async {
       final FhirRequest request = FhirRequest.searchAll(
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -861,7 +824,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -883,7 +845,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Composition,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -907,7 +868,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Condition,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -931,7 +891,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Patient,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -955,7 +914,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -979,7 +937,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -1003,7 +960,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
@@ -1025,7 +981,6 @@ Future<void> requestsTest() async {
         base: Uri.parse('http://hapi.fhir.org/baseR5'),
         type: R5ResourceType.Observation,
         parameters: parameters,
-        format: mimeType,
         pretty: false,
       );
       final OperationOutcome? response =
