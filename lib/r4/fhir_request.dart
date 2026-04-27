@@ -1538,6 +1538,7 @@ sealed class FhirRequest with _$FhirRequest {
         headers: headers,
         accept: accept,
         resource: resource?.toJson(),
+        formData: formData,
         mimeType: mimeType,
       );
 
@@ -1657,7 +1658,7 @@ sealed class FhirRequest with _$FhirRequest {
     /// SEARCH
     search: (FhirSearchRequest request) =>
         '${request.base}/${request.type.name}'
-        '${request.restfulRequest == RestfulRequest.post_ ? '/_search' : ''}',
+        '${request.usePost || request.restfulRequest == RestfulRequest.post_ ? '/_search' : ''}',
 
     /// SEARCH-ALL
     searchAll: (FhirSearchAllRequest request) => '${request.base}',

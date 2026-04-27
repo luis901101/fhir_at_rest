@@ -9,5 +9,9 @@ Types of changes
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
+## 1.0.1
+### Fixed:
+- Fixed issue with `FhirRequest.search` that was causing the search with `usePost` to fail due to `Bad Request`.
+
 ## 1.0.0
 - First release.
